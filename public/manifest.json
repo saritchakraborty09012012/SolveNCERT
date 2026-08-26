@@ -1,0 +1,18 @@
+{
+  "name": "SolveNCERT for CBSE",
+  "short_name": "SolveNCERT",
+  "description": "AI-powered NCERT solutions for CBSE — 2026 Revised Syllabus",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f8fc",
+  "theme_color": "#0f1729",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/solvencert-logo-32.png",  "sizes": "32x32",   "type": "image/png" },
+    { "src": "/solvencert-logo-64.png",  "sizes": "64x64",   "type": "image/png" },
+    { "src": "/solvencert-logo-256.png", "sizes": "256x256", "type": "image/png" },
+    { "src": "/solvencert-logo-256.png", "sizes": "256x256", "type": "image/png", "purpose": "maskable" }
+  ],
+  "categories": ["education"],
+  "lang": "en-IN"
+}

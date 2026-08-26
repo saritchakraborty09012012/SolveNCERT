@@ -1,0 +1,8 @@
+node_modules/
+.next/
+.env
+.env.local
+.env.*.local
+.vercel/dev-server.log
+*.tsbuildinfo
+public/ebooks/

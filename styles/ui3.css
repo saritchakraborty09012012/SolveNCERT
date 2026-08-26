@@ -1,0 +1,542 @@
+/* ════════════════════════════════════════════════════════════════════════
+   UI-3 · OBSIDIAN GOLD
+   Dark gold/black landing experience (ported from the solved-ncert landing).
+   Gated entirely behind html[data-ui="ui3"] — ui1/ui2 are untouched.
+   Imported AFTER globals.css in _app.tsx so these rules win on tie.
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* ── Tokens · dark-only obsidian + gold ─────────────────────────────── */
+
+html[data-ui="ui3"] {
+  color-scheme: dark;
+  --radius: 0.75rem;
+
+  /* Semantic RGB triplets (consumed via rgb(var(--u3-*) / <alpha-value>)) */
+  /* Ported from solved-ncert oklch palette: gold oklch(0.78 0.15 78) ≈ rgb(235 170 45) */
+  --u3-background:             13 12 10;
+  --u3-foreground:             244 241 237;
+  --u3-surface:                24 20 15;
+  --u3-card:                   23 18 12;
+  --u3-card-foreground:        244 241 237;
+  --u3-popover:                29 23 16;
+  --u3-popover-foreground:     244 241 237;
+  --u3-primary:                235 170 45;
+  --u3-primary-foreground:     27 14 3;
+  --u3-secondary:              38 30 20;
+  --u3-secondary-foreground:   230 222 205;
+  --u3-muted:                  38 30 20;
+  --u3-muted-foreground:       157 151 143;
+  --u3-accent:                 42 32 22;
+  --u3-accent-foreground:      254 208 129;
+  --u3-destructive:            229 72 77;
+  --u3-destructive-foreground: 255 255 255;
+  --u3-input:                  56 45 30;
+  --u3-ring:                   235 170 45;
+
+  /* Hex/alias tokens for arbitrary var() usage inside ported components */
+  --gold:             #ebaa2d;
+  --gold-soft:        #ab7c3c;
+  --background:       #0d0c0a;
+  --foreground:       #f4f1ed;
+  --card:             #17120c;
+  --border:           rgba(230, 189, 119, 0.16);
+  --input:            rgba(230, 189, 119, 0.2);
+  --muted-foreground: #9d9791;
+
+  /* Re-map the shared destination tokens so base components (cards, panels,
+     inputs, chips, dropdowns …) render dark-gold even in light theme mode */
+  --font-serif:       'Fraunces', 'Plus Jakarta Sans', Georgia, serif;
+  --surface-0:        #141009;
+  --surface-1:        #17120c;
+  --surface-2:        #1e1710;
+  --surface-3:        #262013;
+  --text-primary:     #f4f1ed;
+  --text-secondary:   #c9c0b2;
+  --text-muted:       #8e8578;
+  --border-subtle:    rgba(230, 189, 119, 0.07);
+  --brand-primary:    #ebaa2d;
+  --brand-secondary:  #e1901e;
+  --brand-gold:       #ebaa2d;
+  --brand-a:          #f2c04e;
+  --brand-b:          #a8660f;
+  --sheen:            rgba(255, 245, 225, 0.05);
+  --glow:             rgba(235, 170, 45, 0.22);
+  --ribbon-bg:        linear-gradient(92deg, #0d0c0a 0%, #1a140c 50%, #0d0c0a 100%);
+  --ribbon-text:      #f4f1ed;
+  --ribbon-accent:    #ebaa2d;
+  --body-bg:          #0d0c0a;
+}
+
+/* ── Base chrome · kill light-mode backgrounds + parchment grain ───── */
+
+html[data-ui="ui3"] body {
+  background: var(--body-bg);
+  background-image: none;
+  background-attachment: scroll;
+  color: var(--foreground);
+}
+html[data-ui="ui3"] body::before { display: none; }
+html[data-ui="ui3"] body::after  { display: none; }
+
+html[data-ui="ui3"] h1, html[data-ui="ui3"] h2, html[data-ui="ui3"] h3,
+html[data-ui="ui3"] h4, html[data-ui="ui3"] h5, html[data-ui="ui3"] h6 {
+  font-family: var(--font-serif);
+  color: var(--foreground);
+}
+
+html[data-ui="ui3"] ::selection { background: rgba(235, 170, 45, 0.32); color: #0d0c0a; }
+html[data-ui="ui3"] :focus-visible { outline-color: var(--gold); }
+
+html[data-ui="ui3"] ::-webkit-scrollbar-thumb { background: rgba(157, 151, 143, 0.4); }
+html[data-ui="ui3"] ::-webkit-scrollbar-thumb:hover { background: rgba(157, 151, 143, 0.65); }
+
+/* ── Utilities used by the ported components ───────────────────────── */
+
+/* Gold gradient text (solved-ncert oklch gradient, ported verbatim) */
+html[data-ui="ui3"] .gold-text {
+  background-image: linear-gradient(100deg, oklch(0.86 0.13 88), oklch(0.78 0.16 74), oklch(0.9 0.11 92));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Brushed gold button */
+html[data-ui="ui3"] .gold-btn {
+  background-image: linear-gradient(180deg, oklch(0.85 0.14 86), oklch(0.72 0.15 68));
+  color: oklch(0.18 0.03 60);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 244, 214, 0.5),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.25),
+    0 8px 24px rgba(235, 170, 45, 0.28);
+}
+html[data-ui="ui3"] .gold-btn:hover { filter: brightness(1.06); }
+html[data-ui="ui3"] .gold-btn:active { transform: translateY(0) scale(0.98); }
+
+/* Raised obsidian panel */
+html[data-ui="ui3"] .panel {
+  background-image: linear-gradient(160deg, oklch(0.2 0.018 74), oklch(0.15 0.01 70));
+  border: 1px solid oklch(0.82 0.1 80 / 10%);
+}
+
+/* Gentle floating animation (hero art / trophy) */
+@keyframes u3-floaty {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+html[data-ui="ui3"] .animate-floaty { animation: u3-floaty 6s ease-in-out infinite; }
+
+/* Modal / overlay high z-index (solved-ncert used Tailwind-4 z-100) */
+html[data-ui="ui3"] .z-100 { z-index: 100; }
+
+/* Snappy theme switching on the dark-only landing */
+html[data-ui="ui3"] .transition-theme { transition: none; }
+
+/* ════════════════════════════════════════════════════════════════════════
+   UI-3 CONTENT RE-SKIN · DEEP BRONZE ON OBSIDIAN
+   The gold landing doesn't style the shared content surfaces (answers,
+   chapter list, solution pages, bookmarks, AI features). Those still
+   shipped pastel/blue/white (.card, .page-intro, .method-tab, .badge-2026,
+   subject-symbol boxes + Tailwind blue/violet utilities). Re-skin them here
+   to a deeper bronze (= darker gold family, cohesive but not repeating the
+   shiny home gold) so they chunwo nothing harsh/light remains.
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* ── Bronze palette used below (deeper gold, dark-friendly) ─────────── */
+/* 300 #d6bd8a  400 #c9a96a  500 #b2894c  600 #9a6f36 */
+/* 700 #7c571f  800 #5d4115  900 #3f2c0c  950 #281b07  */
+
+/* Shared page surfaces → obsidian (was light/cream) */
+html[data-ui="ui3"] .card,
+html[data-ui="ui3"] .page-intro,
+html[data-ui="ui3"] body .glass { background-image: none; }
+html[data-ui="ui3"] .card {
+  background:
+    radial-gradient(130% 55% at 50% -18%, rgba(242,192,78,0.06) 0%, transparent 55%),
+    linear-gradient(180deg, #1a1610 0%, #131009 100%);
+  border: 1px solid rgba(214,189,138,0.22);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.35), 0 16px 44px rgba(0,0,0,0.35);
+}
+html[data-ui="ui3"] .card:hover { border-color: rgba(201,169,106,0.45); }
+
+html[data-ui="ui3"] .page-intro {
+  background:
+    radial-gradient(130% 70% at 20% 0%, rgba(178,137,76,0.12) 0%, transparent 46%),
+    linear-gradient(180deg, #1a1610 0%, #131009 100%);
+  border: 1px solid rgba(255,215,140,0.09);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 18px 40px rgba(0,0,0,0.36);
+}
+
+html[data-ui="ui3"] .surface-panel,
+html[data-ui="ui3"] .hero-panel,
+html[data-ui="ui3"] .breadcrumb-panel,
+html[data-ui="ui3"] .section-panel {
+  background:
+    radial-gradient(120% 60% at 18% 0%, rgba(201,169,106,0.07) 0%, transparent 46%),
+    linear-gradient(180deg, #1b170f 0%, #14100a 100%);
+  border-color: rgba(255,215,140,0.08);
+}
+
+/* question blocks */
+html[data-ui="ui3"] .question-block {
+  background: linear-gradient(180deg, #1a1610, #131009);
+  border: 1px solid rgba(255,215,140,0.09);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 12px 32px rgba(0,0,0,0.3);
+}
+html[data-ui="ui3"] .question-block .q-header {
+  background: linear-gradient(180deg, #201a11, #1a1610);
+  border-bottom: 1px solid rgba(255,215,140,0.08);
+}
+
+/* method / section tabs */
+html[data-ui="ui3"] .method-tab {
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  color: #cfc4ae;
+  border-color: rgba(255,215,140,0.12);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+}
+html[data-ui="ui3"] .method-tab-active {
+  background: linear-gradient(180deg, rgba(178,137,76,0.30), rgba(255,255,255,0.02));
+  color: #f0e2c8;
+  border-color: rgba(201,169,106,0.6);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+}
+html[data-ui="ui3"] .method-tab-inactive { color: #a3977f; }
+html[data-ui="ui3"] .method-tab-inactive:hover {
+  background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+  color: #cfc4ae;
+  border-color: rgba(255,215,140,0.16);
+}
+/* Science "Pause & Ponder" / "Revise, Reflect, Refine" tabs — highlighted in UI-3 */
+html[data-ui="ui3"] .method-tab.science-tab {
+  background: linear-gradient(180deg, rgba(74, 222, 128, 0.12), rgba(255,255,255,0.02));
+  color: #d7ecd9;
+  border-color: rgba(74, 222, 128, 0.3);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), 0 6px 16px rgba(0,0,0,0.22);
+}
+html[data-ui="ui3"] .method-tab.science-tab.method-tab-active {
+  background: linear-gradient(180deg, rgba(74, 222, 128, 0.24), rgba(255,255,255,0.02));
+  color: #eaf8ec;
+  border-color: rgba(74, 222, 128, 0.6);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 8px 22px rgba(0,0,0,0.28);
+}
+html[data-ui="ui3"] .method-tab.science-tab.method-tab-inactive:hover {
+  background: linear-gradient(180deg, rgba(74, 222, 128, 0.17), rgba(255,255,255,0.03));
+  color: #eaf8ec;
+  border-color: rgba(74, 222, 128, 0.42);
+}
+html[data-ui="ui3"] .section-nav-button {
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 10px 20px rgba(0,0,0,0.25);
+}
+
+/* syllabus badge + chips */
+html[data-ui="ui3"] .badge-2026 {
+  background: linear-gradient(90deg, rgba(178,137,76,0.22), rgba(201,169,106,0.14));
+  border-color: rgba(214,189,138,0.45);
+  color: #d6bd8a;
+}
+html[data-ui="ui3"] .chip {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border-color: rgba(255,215,140,0.12);
+  color: #cfc4ae;
+}
+
+/* search highlight / explain boxes */
+html[data-ui="ui3"] .search-highlight em { background: rgba(178,137,76,0.3); color: #e2cda3; }
+html[data-ui="ui3"] .explain-box {
+  background: linear-gradient(135deg, rgba(178,137,76,0.14), rgba(178,137,76,0.05));
+  border-color: rgba(201,169,106,0.35);
+}
+
+/* inputs */
+html[data-ui="ui3"] .input-field {
+  background: linear-gradient(180deg, #1c1811 0%, #17130c 100%);
+  border-color: rgba(255,215,140,0.12);
+}
+html[data-ui="ui3"] .input-field:focus { border-color: rgba(201,169,106,0.6); box-shadow: 0 0 0 4px rgba(178,137,76,0.22); }
+
+/* ── Subject symbol / icon boxes: never white on obsidian ─────────────── */
+/* answers + book-index icon chips (bg-white paired with dark:bg-black/xx) */
+html[data-ui="ui3"] .bg-white.dark\:bg-black\/20,
+html[data-ui="ui3"] .bg-white.dark\:bg-black\/25 {
+  background-color: #241d10;
+}
+html[data-ui="ui3"] .bg-white\/70.dark\:bg-black\/20,
+html[data-ui="ui3"] .bg-white\/60.dark\:bg-black\/15 {
+  background-color: rgba(36,29,16,0.72);
+}
+/* floating AI selection/translate chip (white light / slate-900 dark) */
+html[data-ui="ui3"] .bg-white.dark\:bg-slate-900,
+html[data-ui="ui3"] .bg-white.slate-900 {
+  background-color: #211a10;
+}
+html[data-ui="ui3"] .text-slate-700 { color: #e2d4b8; }
+
+/* ── Blue → bronze remap for hardcoded utilities on content pages ────── */
+
+/* text */
+html[data-ui="ui3"]     .text-blue-300,
+html[data-ui="ui3"].dark .text-blue-300,
+html[data-ui="ui3"]     .dark\:text-blue-300 { color: #d6bd8a; }
+html[data-ui="ui3"]     .text-blue-400,
+html[data-ui="ui3"].dark .text-blue-400,
+html[data-ui="ui3"]     .dark\:text-blue-400 { color: #c9a96a; }
+html[data-ui="ui3"]     .text-blue-500,
+html[data-ui="ui3"].dark .text-blue-500,
+html[data-ui="ui3"]     .dark\:text-blue-500 { color: #e3cfa4; }
+html[data-ui="ui3"]     .text-blue-600,
+html[data-ui="ui3"].dark .text-blue-600,
+html[data-ui="ui3"]     .dark\:text-blue-600 { color: #d6bd8a; }
+html[data-ui="ui3"]     .text-blue-700,
+html[data-ui="ui3"].dark .text-blue-700,
+html[data-ui="ui3"]     .dark\:text-blue-700 { color: #c9a96a; }
+
+/* text indigo / brand blue mapping */
+html[data-ui="ui3"]     .text-indigo-400 { color: #c9a96a; }
+html[data-ui="ui3"]     .text-indigo-500,
+html[data-ui="ui3"]     .text-indigo-600 { color: #c9a96a; }
+html[data-ui="ui3"]     .text-blue-950  { color: #d6bd8a; }
+
+/* backgrounds — pastels become dusky bronze */
+html[data-ui="ui3"]     .bg-blue-50,
+html[data-ui="ui3"].dark .bg-blue-50   { background-color: rgba(178,137,76,0.08); }
+html[data-ui="ui3"]     .dark\:bg-blue-950\/30,
+html[data-ui="ui3"].dark .bg-blue-950\/30,
+html[data-ui="ui3"]     .bg-blue-950\/30 { background-color: rgba(40,27,9,0.6); }
+html[data-ui="ui3"]     .dark\:bg-blue-950\/40,
+html[data-ui="ui3"].dark .bg-blue-950\/40,
+html[data-ui="ui3"]     .bg-blue-950\/40 { background-color: rgba(40,27,9,0.75); }
+html[data-ui="ui3"]     .dark\:bg-blue-900\/40,
+html[data-ui="ui3"].dark .bg-blue-900\/40,
+html[data-ui="ui3"]     .bg-blue-900\/40 { background-color: rgba(63,44,12,0.55); }
+html[data-ui="ui3"]     .dark\:bg-blue-950\/20,
+html[data-ui="ui3"].dark .bg-blue-950\/20,
+html[data-ui="ui3"]     .bg-blue-950\/20 { background-color: rgba(40,27,9,0.5); }
+
+/* solid blue buttons → bronze */
+html[data-ui="ui3"]     .bg-blue-500 { background-color: #b2894c; }
+html[data-ui="ui3"]     .bg-blue-600,
+html[data-ui="ui3"].dark .bg-blue-600 { background-color: #9a6f34; }
+html[data-ui="ui3"]     .hover\:bg-blue-700:hover,
+html[data-ui="ui3"].dark .hover\:bg-blue-700:hover,
+html[data-ui="ui3"]     .bg-blue-700,
+html[data-ui="ui3"].dark .bg-blue-700 { background-color: #7c571f; }
+
+/* borders */
+html[data-ui="ui3"]     .border-blue-200 { border-color: rgba(214,189,138,0.26); }
+html[data-ui="ui3"]     .border-blue-300 { border-color: rgba(214,189,138,0.34); }
+html[data-ui="ui3"]     .border-blue-500,
+html[data-ui="ui3"].dark .border-blue-500,
+html[data-ui="ui3"]     .border-blue-500\/30 { border-color: rgba(201,169,106,0.5); }
+html[data-ui="ui3"]     .dark\:border-blue-800,
+html[data-ui="ui3"]     .border-blue-800  { border-color: rgba(214,189,138,0.3); }
+html[data-ui="ui3"]     .dark\:border-blue-900\/40,
+html[data-ui="ui3"].dark .border-blue-900\/40 { border-color: rgba(201,169,106,0.3); }
+
+/* gradient stops used in AI / auth / landing accents */
+html[data-ui="ui3"]     .from-blue-500,
+html[data-ui="ui3"]     .from-blue-600 { --tw-gradient-from: #9a6f34; --tw-gradient-to: #3f2c0c; }
+html[data-ui="ui3"]     .to-blue-600,
+html[data-ui="ui3"]     .to-blue-700   { --tw-gradient-to: #7c571f; }
+html[data-ui="ui3"]     .via-blue-400  { --tw-gradient-stops: var(--tw-gradient-from), #b2894c, var(--tw-gradient-to); }
+html[data-ui="ui3"]     .to-indigo-500 { --tw-gradient-to: #c9a96a; }
+html[data-ui="ui3"]     .from-indigo-500 { --tw-gradient-from: #9a6f34; --tw-gradient-to: #7c571f; }
+
+/* header pastel gradients used by subject colour maps */
+html[data-ui="ui3"]     .from-blue-50  { --tw-gradient-from: rgba(178,137,76,0.12); }
+html[data-ui="ui3"]     .from-indigo-50 { --tw-gradient-from: rgba(201,169,106,0.10); }
+html[data-ui="ui3"]     .to-indigo-50  { --tw-gradient-to: rgba(201,169,106,0.06); }
+html[data-ui="ui3"]     .dark\:from-blue-950\/30,
+html[data-ui="ui3"].dark .from-blue-950\/30 { --tw-gradient-from: rgba(40,27,9,0.55); }
+html[data-ui="ui3"]     .dark\:to-indigo-950\/30,
+html[data-ui="ui3"].dark .to-indigo-950\/30 { --tw-gradient-to: rgba(40,27,9,0.55); }
+
+/* focus glow */
+html[data-ui="ui3"]     .focus\:ring-blue-500\/30:focus { --tw-ring-color: rgba(178,137,76,0.45); }
+
+/* the read-aloud active state (originally blue) */
+html[data-ui="ui3"]     .bg-blue-100,
+html[data-ui="ui3"]     .bg-blue-100\/90 { background-color: rgba(178,137,76,0.16); }
+
+/* glow utilities */
+html[data-ui="ui3"]     .shadow-glow-blue { box-shadow: 0 0 24px rgba(178,137,76,0.3); }
+html[data-ui="ui3"]     .shadow-blue-200,
+html[data-ui="ui3"]     .shadow-blue-900  { box-shadow: 0 0 0 rgba(0,0,0,0); }
+
+/* secondary AI chips — violet → bronze */
+html[data-ui="ui3"]     .text-violet-600,
+html[data-ui="ui3"].dark .text-violet-600,
+html[data-ui="ui3"]     .dark\:text-violet-300 { color: #cfc4ae; }
+html[data-ui="ui3"]     .bg-violet-50,
+html[data-ui="ui3"].dark .bg-violet-50,
+html[data-ui="ui3"]     .dark\:bg-violet-950\/30,
+html[data-ui="ui3"]     .dark\:bg-violet-950\/20 { background-color: rgba(178,137,76,0.12); }
+html[data-ui="ui3"]     .border-violet-200,
+html[data-ui="ui3"].dark .border-violet-200,
+html[data-ui="ui3"]     .border-violet-800,
+html[data-ui="ui3"].dark .border-violet-800,
+html[data-ui="ui3"]     .dark\:border-violet-900\/40 { border-color: rgba(214,189,138,0.32); }
+
+/* ── Other subject pastels → bronze (answers ribbons, IT links, books, chapters) ──
+   answers.tsx uses bg-{green|purple|orange|teal|red}-50 dark:bg-{c}-950/30
+   border-{c}-100 dark:border-{c}-900/50 + text-{c}-600 dark:text-{c}-400.
+   Only Mathematics (blue) was remapped before, so the other ribbons still
+   looked white/harsh. Map them to the same dusky bronze family. */
+
+/* ribbon panel backgrounds — pastels become dusky bronze */
+html[data-ui="ui3"]     .bg-green-50,
+html[data-ui="ui3"].dark .bg-green-50,
+html[data-ui="ui3"]     .bg-purple-50,
+html[data-ui="ui3"].dark .bg-purple-50,
+html[data-ui="ui3"]     .bg-orange-50,
+html[data-ui="ui3"].dark .bg-orange-50,
+html[data-ui="ui3"]     .bg-teal-50,
+html[data-ui="ui3"].dark .bg-teal-50,
+html[data-ui="ui3"]     .bg-red-50,
+html[data-ui="ui3"].dark .bg-red-50,
+html[data-ui="ui3"]     .bg-indigo-50,
+html[data-ui="ui3"].dark .bg-indigo-50 { background-color: rgba(178,137,76,0.16); }
+
+html[data-ui="ui3"]     .dark\:bg-green-950\/30,
+html[data-ui="ui3"].dark .bg-green-950\/30,
+html[data-ui="ui3"]     .dark\:bg-purple-950\/30,
+html[data-ui="ui3"].dark .bg-purple-950\/30,
+html[data-ui="ui3"]     .dark\:bg-orange-950\/30,
+html[data-ui="ui3"].dark .bg-orange-950\/30,
+html[data-ui="ui3"]     .dark\:bg-teal-950\/30,
+html[data-ui="ui3"].dark .bg-teal-950\/30,
+html[data-ui="ui3"]     .dark\:bg-red-950\/30,
+html[data-ui="ui3"].dark .bg-red-950\/30,
+html[data-ui="ui3"]     .dark\:bg-indigo-950\/30,
+html[data-ui="ui3"].dark .bg-indigo-950\/30 { background-color: rgba(40,27,9,0.6); }
+
+html[data-ui="ui3"]     .dark\:bg-green-950\/40,
+html[data-ui="ui3"].dark .bg-green-950\/40,
+html[data-ui="ui3"]     .dark\:bg-purple-950\/40,
+html[data-ui="ui3"].dark .bg-purple-950\/40,
+html[data-ui="ui3"]     .dark\:bg-orange-950\/40,
+html[data-ui="ui3"].dark .bg-orange-950\/40,
+html[data-ui="ui3"]     .dark\:bg-teal-950\/40,
+html[data-ui="ui3"].dark .bg-teal-950\/40,
+html[data-ui="ui3"]     .dark\:bg-red-950\/40,
+html[data-ui="ui3"].dark .bg-red-950\/40 { background-color: rgba(40,27,9,0.75); }
+
+html[data-ui="ui3"]     .dark\:bg-green-900\/40,
+html[data-ui="ui3"].dark .bg-green-900\/40,
+html[data-ui="ui3"]     .dark\:bg-purple-900\/40,
+html[data-ui="ui3"].dark .bg-purple-900\/40,
+html[data-ui="ui3"]     .dark\:bg-orange-900\/40,
+html[data-ui="ui3"].dark .bg-orange-900\/40,
+html[data-ui="ui3"]     .dark\:bg-teal-900\/40,
+html[data-ui="ui3"].dark .bg-teal-900\/40,
+html[data-ui="ui3"]     .dark\:bg-red-900\/40,
+html[data-ui="ui3"].dark .bg-red-900\/40 { background-color: rgba(63,44,12,0.55); }
+
+html[data-ui="ui3"]     .dark\:bg-green-900\/30,
+html[data-ui="ui3"].dark .bg-green-900\/30,
+html[data-ui="ui3"]     .dark\:bg-teal-900\/30,
+html[data-ui="ui3"].dark .bg-teal-900\/30 { background-color: rgba(63,44,12,0.5); }
+
+/* subject name text — readable bronze instead of saturated pastel ink */
+html[data-ui="ui3"]     .text-green-600,
+html[data-ui="ui3"].dark .text-green-600,
+html[data-ui="ui3"]     .text-purple-600,
+html[data-ui="ui3"].dark .text-purple-600,
+html[data-ui="ui3"]     .text-orange-600,
+html[data-ui="ui3"].dark .text-orange-600,
+html[data-ui="ui3"]     .text-teal-600,
+html[data-ui="ui3"].dark .text-teal-600,
+html[data-ui="ui3"]     .text-red-600,
+html[data-ui="ui3"].dark .text-red-600,
+html[data-ui="ui3"]     .text-indigo-600,
+html[data-ui="ui3"].dark .text-indigo-600 { color: #d6bd8a; }
+html[data-ui="ui3"]     .dark\:text-green-400,
+html[data-ui="ui3"]     .dark\:text-purple-400,
+html[data-ui="ui3"]     .dark\:text-orange-400,
+html[data-ui="ui3"]     .dark\:text-teal-400,
+html[data-ui="ui3"]     .dark\:text-red-400,
+html[data-ui="ui3"]     .dark\:text-indigo-400 { color: #c9a96a; }
+html[data-ui="ui3"]     .text-green-700,
+html[data-ui="ui3"]     .text-purple-700,
+html[data-ui="ui3"]     .text-orange-700,
+html[data-ui="ui3"]     .text-teal-700,
+html[data-ui="ui3"]     .text-red-700 { color: #c9a96a; }
+html[data-ui="ui3"]     .dark\:text-green-300,
+html[data-ui="ui3"]     .dark\:text-purple-300,
+html[data-ui="ui3"]     .dark\:text-orange-300,
+html[data-ui="ui3"]     .dark\:text-teal-300,
+html[data-ui="ui3"]     .dark\:text-red-300 { color: #d6bd8a; }
+html[data-ui="ui3"]     .text-green-500,
+html[data-ui="ui3"]     .text-purple-500,
+html[data-ui="ui3"]     .text-teal-500 { color: #e3cfa4; }
+
+/* pastel fills (badges, active chapter pills, copied states) */
+html[data-ui="ui3"]     .bg-green-100,
+html[data-ui="ui3"].dark .bg-green-100,
+html[data-ui="ui3"]     .bg-purple-100,
+html[data-ui="ui3"].dark .bg-purple-100,
+html[data-ui="ui3"]     .bg-teal-100,
+html[data-ui="ui3"].dark .bg-teal-100,
+html[data-ui="ui3"]     .bg-red-100,
+html[data-ui="ui3"].dark .bg-red-100,
+html[data-ui="ui3"]     .bg-orange-100,
+html[data-ui="ui3"].dark .bg-orange-100 { background-color: rgba(178,137,76,0.16); }
+
+/* borders on the ribbons / IT part links */
+html[data-ui="ui3"]     .border-green-100,
+html[data-ui="ui3"].dark .border-green-100,
+html[data-ui="ui3"]     .border-purple-100,
+html[data-ui="ui3"].dark .border-purple-100,
+html[data-ui="ui3"]     .border-orange-100,
+html[data-ui="ui3"].dark .border-orange-100,
+html[data-ui="ui3"]     .border-teal-100,
+html[data-ui="ui3"].dark .border-teal-100,
+html[data-ui="ui3"]     .border-red-100,
+html[data-ui="ui3"].dark .border-red-100,
+html[data-ui="ui3"]     .border-indigo-100,
+html[data-ui="ui3"].dark .border-indigo-100,
+html[data-ui="ui3"]     .border-green-200,
+html[data-ui="ui3"]     .border-purple-200,
+html[data-ui="ui3"]     .border-orange-200,
+html[data-ui="ui3"]     .border-teal-200,
+html[data-ui="ui3"]     .border-red-200 { border-color: rgba(214,189,138,0.26); }
+
+html[data-ui="ui3"]     .dark\:border-green-900\/50,
+html[data-ui="ui3"].dark .border-green-900\/50,
+html[data-ui="ui3"]     .dark\:border-purple-900\/50,
+html[data-ui="ui3"].dark .border-purple-900\/50,
+html[data-ui="ui3"]     .dark\:border-orange-900\/50,
+html[data-ui="ui3"].dark .border-orange-900\/50,
+html[data-ui="ui3"]     .dark\:border-teal-900\/50,
+html[data-ui="ui3"].dark .border-teal-900\/50,
+html[data-ui="ui3"]     .dark\:border-red-900\/50,
+html[data-ui="ui3"].dark .border-red-900\/50,
+html[data-ui="ui3"]     .dark\:border-indigo-900\/50,
+html[data-ui="ui3"].dark .border-indigo-900\/50,
+html[data-ui="ui3"]     .dark\:border-green-900,
+html[data-ui="ui3"]     .dark\:border-purple-900,
+html[data-ui="ui3"]     .dark\:border-orange-900,
+html[data-ui="ui3"]     .dark\:border-teal-900,
+html[data-ui="ui3"]     .dark\:border-red-900,
+html[data-ui="ui3"]     .dark\:border-indigo-900,
+html[data-ui="ui3"]     .dark\:border-green-800,
+html[data-ui="ui3"]     .dark\:border-purple-800,
+html[data-ui="ui3"]     .dark\:border-teal-800,
+html[data-ui="ui3"]     .dark\:border-red-800 { border-color: rgba(201,169,106,0.3); }
+html[data-ui="ui3"]     .hover\:border-teal-500:hover,
+html[data-ui="ui3"]     .hover\:border-purple-500:hover,
+html[data-ui="ui3"]     .hover\:border-green-500:hover { border-color: rgba(201,169,106,0.5); }
+
+/* hover fills used by IT / chapter links */
+html[data-ui="ui3"]     .hover\:bg-teal-50:hover,
+html[data-ui="ui3"]     .hover\:bg-purple-50:hover,
+html[data-ui="ui3"]     .hover\:bg-green-50:hover,
+html[data-ui="ui3"]     .hover\:bg-red-50:hover { background-color: rgba(178,137,76,0.14); }
+html[data-ui="ui3"]     .dark\:hover\:bg-teal-950\/30:hover,
+html[data-ui="ui3"].dark .hover\:bg-teal-950\/30:hover,
+html[data-ui="ui3"]     .dark\:hover\:bg-purple-950\/30:hover,
+html[data-ui="ui3"].dark .hover\:bg-purple-950\/30:hover,
+html[data-ui="ui3"]     .dark\:hover\:bg-teal-950\/20:hover,
+html[data-ui="ui3"].dark .hover\:bg-teal-950\/20:hover { background-color: rgba(40,27,9,0.6); }
+
