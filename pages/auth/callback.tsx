@@ -9,7 +9,8 @@ export default function AuthCallback() {
   const { fetchProfile } = useAuthStore();
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then((result: any) => {
+      const session = result?.data?.session ?? null;
       if (session?.user) {
         fetchProfile(session.user.id).then(() => router.replace('/'));
       } else {

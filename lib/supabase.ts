@@ -37,6 +37,7 @@ export function getSupabase(): SupabaseClient<any> {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function createStub(): any {
   const empty = () => Promise.resolve({ data: null, error: new Error('Supabase not configured') });
+  const noSession = () => Promise.resolve({ data: { session: null }, error: new Error('Supabase not configured') });
   const chainable = new Proxy(
     { then: undefined },
     {
@@ -48,13 +49,13 @@ function createStub(): any {
   return new Proxy(
     {
       auth: {
-        getSession: empty,
+        getSession: noSession,
+        getUser: noSession,
         onAuthStateChange: () => ({ data: { subscription: { unsubscribe() {} } }, error: null }),
         signInWithPassword: empty,
         signUp: empty,
         signOut: empty,
         updateUser: empty,
-        getUser: empty,
       },
       from: () => ({
         select: () => execute(),

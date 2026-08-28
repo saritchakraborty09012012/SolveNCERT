@@ -102,7 +102,8 @@ export default function App({ Component, pageProps }: AppProps) {
 
   // ── Auth session listener ─────────────────────────────────────────────────
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then((result: any) => {
+      const session = result?.data?.session ?? null;
       if (session?.user) {
         fetchProfile(session.user.id);
         // Initialize mock test shared learning for this user
