@@ -26,6 +26,7 @@ export function SiteHeader() {
   const { user, isGuest, signOut } = useAuthStore()
   const { ui, setUi } = useUIStore()
   const [openMenu, setOpenMenu] = useState<string | null>(null)
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [queryOpen, setQueryOpen] = useState(false)
@@ -287,7 +288,7 @@ export function SiteHeader() {
                     <>
                       <button
                         type="button"
-                        onClick={() => setOpenMenu(openMenu === item.label ? null : item.label)}
+                        onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
                         className="flex w-full items-center justify-between py-3 text-sm font-medium"
                       >
                         <span className="flex items-center gap-2">
@@ -300,18 +301,18 @@ export function SiteHeader() {
                         </span>
                         <ChevronDown
                           className={`size-4 transition-transform ${
-                            openMenu === item.label ? 'rotate-180 text-primary' : 'opacity-60'
+                            mobileExpanded === item.label ? 'rotate-180 text-primary' : 'opacity-60'
                           }`}
                         />
                       </button>
-                      {openMenu === item.label ? (
+                      {mobileExpanded === item.label ? (
                         <div className="pb-3 pl-3">
                           {item.items.map((sub) => (
                             <Link
                               key={sub.label}
                               href={sub.href}
                               onClick={() => {
-                                setOpenMenu(null)
+                                setMobileExpanded(null)
                                 setMobileOpen(false)
                               }}
                               className="flex items-center w-full py-2 text-left text-sm text-muted-foreground hover:text-primary"
