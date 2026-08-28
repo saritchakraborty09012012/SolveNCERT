@@ -10,6 +10,9 @@ export default function Document() {
       <Head>
         <meta charSet="utf-8" />
 
+        {/* Google Search Console site verification */}
+        <meta name="google-site-verification" content="eR1-y-o7eXGMskKYVWwEvKGatkNGdUM5sdrGeDAisjg" />
+
         {/* Theme colour — shown in Chrome address bar on mobile */}
         <meta name="theme-color" content="#141318" media="(prefers-color-scheme: dark)" />
         <meta name="theme-color" content="#fbf9f3" media="(prefers-color-scheme: light)" />

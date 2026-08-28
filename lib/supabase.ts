@@ -1,7 +1,19 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-function env(key: string): string {
-  const value = process.env[key];
+// IMPORTANT: NEXT_PUBLIC_* vars MUST be read via static member access
+// (process.env.NEXT_PUBLIC_SUPABASE_URL), NOT dynamic bracket access
+// (process.env[key]). Next.js/webpack only inlines NEXT_PUBLIC_* into the
+// client bundle when it can statically analyse the member access at build time.
+function supabaseUrl(): string {
+  return process.env.NEXT_PUBLIC_SUPABASE_URL;
+}
+function supabaseAnonKey(): string {
+  return process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+}
+function supabaseServiceKey(): string {
+  return process.env.SUPABASE_SERVICE_ROLE_KEY;
+}
+function requireEnv(value: string | undefined, key: string): string {
   if (!value) {
     throw new Error(`Missing env var: ${key}. Add it to your deployment environment (Vercel/Cloudflare) or .env.local`);
   }
@@ -18,13 +30,17 @@ let supabaseClient: SupabaseClient<any> | null = null;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function getSupabase(): SupabaseClient<any> {
   if (!supabaseClient) {
-    supabaseClient = createClient<any>(env('NEXT_PUBLIC_SUPABASE_URL'), env('NEXT_PUBLIC_SUPABASE_ANON_KEY'), {
-      auth: {
-        persistSession: true,
-        autoRefreshToken: true,
-        detectSessionInUrl: true,
-      },
-    });
+    supabaseClient = createClient<any>(
+      requireEnv(supabaseUrl(), 'NEXT_PUBLIC_SUPABASE_URL'),
+      requireEnv(supabaseAnonKey(), 'NEXT_PUBLIC_SUPABASE_ANON_KEY'),
+      {
+        auth: {
+          persistSession: true,
+          autoRefreshToken: true,
+          detectSessionInUrl: true,
+        },
+      }
+    );
   }
   return supabaseClient;
 }
@@ -109,8 +125,8 @@ export const createAdminClient = () => {
     throw new Error('Admin client must only be used server-side');
   }
   return createClient<any>(
-    env('NEXT_PUBLIC_SUPABASE_URL'),
-    env('SUPABASE_SERVICE_ROLE_KEY'),
+    requireEnv(supabaseUrl(), 'NEXT_PUBLIC_SUPABASE_URL'),
+    requireEnv(supabaseServiceKey(), 'SUPABASE_SERVICE_ROLE_KEY'),
     { auth: { autoRefreshToken: false, persistSession: false } }
   );
 };

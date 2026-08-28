@@ -12,7 +12,7 @@ Disallow: /study-room
 Disallow: /history
 
 # Sitemaps
-Sitemap: https://solvencert-novexa.vercel.app/api/sitemap
+Sitemap: https://solvencert-novexa.vercel.app/sitemap.xml
 
 # AI assistants — full site summary available at:
 # https://solvencert-novexa.vercel.app/llm.txt

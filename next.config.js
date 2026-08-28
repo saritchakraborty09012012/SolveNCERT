@@ -55,6 +55,12 @@ const nextConfig = {
       { source: '/class-9/english', destination: '/class-9/english/kaveri',       permanent: true },
     ];
   },
+  async rewrites() {
+    return [
+      // Serve the generated sitemap at the standard /sitemap.xml URL too
+      { source: '/sitemap.xml', destination: '/api/sitemap' },
+    ];
+  },
 };
 
 module.exports = nextConfig;
