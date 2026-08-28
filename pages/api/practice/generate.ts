@@ -1,5 +1,5 @@
 ﻿import type { NextApiRequest, NextApiResponse } from 'next';
-import { GoogleGenAI } from '@google/genai';
+import { generateGeminiContent } from '@/lib/gemini';
 import { supabase } from '@/lib/supabase';
 import { buildPaperGenerationPrompt } from '@/lib/practice/prompt-builder';
 import type { PracticePaperConfig, PracticeQuestion } from '@/lib/practice/types';
@@ -95,12 +95,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     fullPrompt += `\n\nSMART REVISION: Include 2-3 questions similar to these previously wrong questions (reintroduce concepts, not exact questions):\n${wqContext}`;
   }
 
-  const ai = new GoogleGenAI({ apiKey });
   let lastError: unknown = null;
 
   for (const model of [PRIMARY_MODEL, ...FALLBACK_MODELS]) {
     try {
-      const response = await ai.models.generateContent({
+      const response = await generateGeminiContent({
         model,
         contents: [{ role: 'user', parts: [{ text: fullPrompt }] }],
         config: {
@@ -108,6 +107,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           temperature: 0.7,
           maxOutputTokens: 65536,
         },
+        apiKey,
       });
 
       const raw = response.text?.trim();

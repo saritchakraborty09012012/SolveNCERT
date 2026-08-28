@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { GoogleGenAI } from '@google/genai'
+import { generateGeminiContent } from '@/lib/gemini'
 import { createAdminClient } from '@/lib/supabase'
 
 const PRIMARY_MODEL = 'gemini-3.6-flash'
@@ -119,12 +119,11 @@ Requirements:
 Return ONLY valid JSON (no markdown, no extra text):
 {"questions": [{"question": "...", "answer": "..."}]}`
 
-  const ai = new GoogleGenAI({ apiKey })
   let lastError: unknown = null
 
   for (const model of [PRIMARY_MODEL, ...FALLBACK_MODELS]) {
     try {
-      const response = await ai.models.generateContent({
+      const response = await generateGeminiContent({
         model,
         contents: [{ role: 'user', parts: [{ text: prompt }] }],
         config: {
@@ -132,6 +131,7 @@ Return ONLY valid JSON (no markdown, no extra text):
           temperature: 0.7,
           maxOutputTokens: 65536,
         },
+        apiKey,
       })
 
       const raw = response.text?.trim()

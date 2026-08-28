@@ -1,4 +1,4 @@
-﻿import { GoogleGenAI } from '@google/genai';
+﻿import { generateGeminiContent } from '@/lib/gemini';
 import {
   MockQuestion,
   MockTest,
@@ -7,31 +7,21 @@ import {
 } from './types';
 import { CLASS_9_KNOWLEDGE } from './question-bank';
 
-let genaiClient: GoogleGenAI | null = null;
-
-function getClient(): GoogleGenAI {
-  if (!genaiClient) {
-    genaiClient = new GoogleGenAI({
-      apiKey: process.env.GEMINI_API_KEY || '',
-    });
-  }
-  return genaiClient;
-}
-
-  const MODEL_CHAIN = ['gemini-3.6-flash', 'gemini-flash-latest', 'gemini-flash-lite-latest'];
+const MODEL_CHAIN = ['gemini-3.6-flash', 'gemini-flash-latest', 'gemini-flash-lite-latest'];
 
 async function generateWithFallback(params: {
   contents: string;
   config?: Record<string, unknown>;
 }): Promise<string> {
-  const client = getClient();
+  const apiKey = process.env.GEMINI_API_KEY || '';
   let lastError: unknown = null;
   for (const model of MODEL_CHAIN) {
     try {
-      const response = await client.models.generateContent({
+      const response = await generateGeminiContent({
         model,
-        contents: params.contents,
-        config: params.config,
+        contents: [{ role: 'user', parts: [{ text: params.contents }] }],
+        config: params.config as { temperature?: number; maxOutputTokens?: number },
+        apiKey,
       });
       const text = response.text || '';
       if (text.trim()) return text;

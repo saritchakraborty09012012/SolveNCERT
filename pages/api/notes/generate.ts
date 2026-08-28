@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { GoogleGenAI } from '@google/genai'
+import { generateGeminiContent } from '@/lib/gemini'
 
 const PRIMARY_MODEL = 'gemini-3.6-flash'
 const FALLBACK_MODELS = ['gemini-flash-latest', 'gemini-flash-lite-latest']
@@ -98,12 +98,11 @@ ${body.instructions ? `\n\nSpecial Instructions from student:\n${body.instructio
 
 Generate detailed notes covering all topics in this chapter. Return as JSON with the specified structure.`
 
-  const ai = new GoogleGenAI({ apiKey })
   let lastError: unknown = null
 
   for (const model of [PRIMARY_MODEL, ...FALLBACK_MODELS]) {
     try {
-      const response = await ai.models.generateContent({
+      const response = await generateGeminiContent({
         model,
         contents: [{ role: 'user', parts: [{ text: userMessage }] }],
         config: {
@@ -112,6 +111,7 @@ Generate detailed notes covering all topics in this chapter. Return as JSON with
           temperature: 0.7,
           maxOutputTokens: 65536,
         },
+        apiKey,
       })
 
       const raw = response.text?.trim()

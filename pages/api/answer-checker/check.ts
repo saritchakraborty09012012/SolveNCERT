@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { GoogleGenAI } from '@google/genai'
+import { generateGeminiContent } from '@/lib/gemini'
 import JSZip from 'jszip'
 
 const PRIMARY_MODEL = 'gemini-3.6-flash'
@@ -253,10 +253,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   let lastError: unknown = null
 
   for (const apiKey of apiKeys) {
-    const ai = new GoogleGenAI({ apiKey })
     for (const model of [PRIMARY_MODEL, ...FALLBACK_MODELS]) {
       try {
-        const response = await ai.models.generateContent({
+        const response = await generateGeminiContent({
           model,
           contents,
           config: {
@@ -265,6 +264,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             temperature: 0.15,
             maxOutputTokens: 8192,
           },
+          apiKey,
         })
 
         const raw = response.text?.trim()

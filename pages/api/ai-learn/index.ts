@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { GoogleGenAI } from '@google/genai'
+import { generateGeminiContent } from '@/lib/gemini'
 import { salvageStructured, sanitizeStructured } from '@/lib/avatar/structure'
 import { buildSystemPrompt } from '@/lib/ai-learn/system-prompt'
 
@@ -67,12 +67,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     parts: [{ text: String(m.text) }],
   }))
 
-  const ai = new GoogleGenAI({ apiKey })
   let lastError: unknown = null
 
   for (const model of [PRIMARY_MODEL, ...FALLBACK_MODELS]) {
     try {
-      const response = await ai.models.generateContent({
+      const response = await generateGeminiContent({
         model,
         contents,
         config: {
@@ -81,6 +80,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           temperature: 0.6,
           maxOutputTokens: 2000,
         },
+        apiKey,
       })
 
       const raw = response.text?.trim()

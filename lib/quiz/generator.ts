@@ -1,4 +1,4 @@
-import { GoogleGenAI } from '@google/genai';
+import { generateGeminiContent } from '@/lib/gemini';
 import { QuizConfig, QuizQuestion, QuestionType, QuizDifficulty } from '@/types/quiz';
 import { buildQuizContext, getSubjectKnowledge } from '@/lib/quiz/knowledge-base';
 import { getWrongQuestions } from '@/lib/quiz/shared-knowledge';
@@ -117,14 +117,14 @@ export async function generateQuiz(
     const maxAttempts = 3;
     for (let attempt = 1; attempt <= maxAttempts; attempt++) {
       try {
-        const ai = new GoogleGenAI({ apiKey });
-        const response = await ai.models.generateContent({
+        const response = await generateGeminiContent({
           model,
           contents,
           config: {
             temperature: 0.7,
             maxOutputTokens: 8192,
           },
+          apiKey,
         });
 
         const responseText = (response.text || '').trim();
