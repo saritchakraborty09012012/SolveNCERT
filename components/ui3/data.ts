@@ -82,6 +82,7 @@ export const NAV: NavItem[] = [
     items: [
       { label: 'History', href: '/history' },
       { label: 'Syllabus', href: '/answers' },
+      { label: 'User Guide', href: '/guide' },
       { label: 'About Us', href: '/about' },
       { label: 'Contact Us', href: '/contact' },
     ],

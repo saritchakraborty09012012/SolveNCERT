@@ -51,7 +51,7 @@ export default function Footer() {
           <div>
             <h4 className="text-[10px] font-serif font-bold uppercase tracking-[0.18em] text-[var(--text-muted)] mb-3">Company</h4>
             <ul className="space-y-2">
-              {[['About Us','/about'],['Contact','/contact'],['Privacy Policy','/privacy'],['Terms of Use','/terms'],['Refund Policy','/refund-policy'],['Premium','/premium']].map(([l,h])=>(
+              {[['About Us','/about'],['User Guide','/guide'],['Contact','/contact'],['Privacy Policy','/privacy'],['Terms of Use','/terms'],['Refund Policy','/refund-policy'],['Premium','/premium']].map(([l,h])=>(
                 <li key={h}><Link href={h} className="text-xs text-[var(--text-secondary)] hover:text-[var(--brand-primary)] hover:pl-0.5 transition-all">{l}</Link></li>
               ))}
             </ul>
