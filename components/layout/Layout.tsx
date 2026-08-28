@@ -26,7 +26,7 @@ interface LayoutProps {
   bgImage?:      string | null; // /public path of a fixed, viewport-cropped page backdrop (subject themed)
 }
 
-const BASE_URL   = 'https://solvencert-novexa.pages.dev';
+const BASE_URL   = 'https://solvencert-novexa.vercel.app';
 const DEFAULT_OG = `${BASE_URL}/solvencert-logo-256.png`;
 const DEFAULT_DESC = 'SolveNCERT — Free NCERT solutions for CBSE Class 9 as per 2026 Revised Syllabus. Maths, Science, English — AI-powered, human-verified answers.';
 

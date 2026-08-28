@@ -16,7 +16,7 @@ export default function ReferralPage() {
 
   if (isGuest) return null;
 
-  const referralLink = `${typeof window !== 'undefined' ? window.location.origin : 'https://solvencert-novexa.pages.dev'}/signup?ref=${user?.referral_code}`;
+  const referralLink = `${typeof window !== 'undefined' ? window.location.origin : 'https://solvencert-novexa.vercel.app'}/signup?ref=${user?.referral_code}`;
 
   async function copyLink() {
     await navigator.clipboard.writeText(referralLink);

@@ -1,4 +1,4 @@
-﻿import React, { useState, useCallback, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import Link from 'next/link';
 import {
   BookOpen, Download, ChevronRight, CheckCircle, Search,
@@ -809,8 +809,8 @@ export default function BooksPage() {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://solvencert-novexa.pages.dev' },
-          { '@type': 'ListItem', position: 2, name: 'NCERT Books', item: 'https://solvencert-novexa.pages.dev/books' },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://solvencert-novexa.vercel.app' },
+          { '@type': 'ListItem', position: 2, name: 'NCERT Books', item: 'https://solvencert-novexa.vercel.app/books' },
         ],
       }}
     >

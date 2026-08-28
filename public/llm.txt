@@ -2,7 +2,7 @@
 > Free NCERT solutions for CBSE Class 9, updated for the 2026 Revised Syllabus.
 
 ## What is SolveNCERT?
-SolveNCERT (solvencert-novexa.pages.dev) is a free educational platform providing human-verified NCERT solutions for CBSE Class 9 students in India. All content is aligned with the NCERT 2026 Revised Syllabus.
+SolveNCERT (solvencert-novexa.vercel.app) is a free educational platform providing human-verified NCERT solutions for CBSE Class 9 students in India. All content is aligned with the NCERT 2026 Revised Syllabus.
 
 ## Subjects Covered
 - **Mathematics** — Ganita Manjari Part I (8 chapters): Orienting Yourself (Coordinates), Linear Polynomials, The World of Numbers, Algebraic Identities, Round and Round (Circles), Perimeter and Area, Probability, Sequences and Series
@@ -19,16 +19,16 @@ SolveNCERT (solvencert-novexa.pages.dev) is a free educational platform providin
 - Study Room for collaborative learning
 
 ## Canonical URLs
-- Homepage: https://solvencert-novexa.pages.dev
-- All Solutions: https://solvencert-novexa.pages.dev/answers
-- Maths: https://solvencert-novexa.pages.dev/class-9/maths/ganita-manjari
-- Science: https://solvencert-novexa.pages.dev/class-9/science/exploration
-- English: https://solvencert-novexa.pages.dev/class-9/english/kaveri
-- Advanced Maths: https://solvencert-novexa.pages.dev/class-9/advanced-maths/advanced-mathematics
-- Search: https://solvencert-novexa.pages.dev/search
+- Homepage: https://solvencert-novexa.vercel.app
+- All Solutions: https://solvencert-novexa.vercel.app/answers
+- Maths: https://solvencert-novexa.vercel.app/class-9/maths/ganita-manjari
+- Science: https://solvencert-novexa.vercel.app/class-9/science/exploration
+- English: https://solvencert-novexa.vercel.app/class-9/english/kaveri
+- Advanced Maths: https://solvencert-novexa.vercel.app/class-9/advanced-maths/advanced-mathematics
+- Search: https://solvencert-novexa.vercel.app/search
 
 ## Built By
 NOVEXA — student-led tech company from Bokaro Steel City, Jharkhand, India.
 
 ## Contact
-https://solvencert-novexa.pages.dev/contact
+https://solvencert-novexa.vercel.app/contact

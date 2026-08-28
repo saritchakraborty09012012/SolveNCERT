@@ -266,7 +266,7 @@ export default function ChapterPage({ classSlug, subjectSlug, bookSlug, chapterC
 
   const exercises = selEx==='all' ? chapter.exercises : chapter.exercises.filter(e=>e.id===selEx);
 
-  const BASE = 'https://solvencert-novexa.pages.dev';
+  const BASE = 'https://solvencert-novexa.vercel.app';
   const chapterUrl = `${BASE}/${classSlug}/${subjectSlug}/${bookSlug}/${chapterCode}/${chapterSlug}`;
 
   // BreadcrumbList schema

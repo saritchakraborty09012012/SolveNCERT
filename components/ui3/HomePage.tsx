@@ -12,7 +12,7 @@ import { StatsStrip } from './StatsStrip'
 import { JourneyCta } from './JourneyCta'
 import { SiteFooter } from './SiteFooter'
 
-const BASE_URL = 'https://solvencert-novexa.pages.dev'
+const BASE_URL = 'https://solvencert-novexa.vercel.app'
 
 export function HomePage({
   title = 'SolveNCERT — NCERT Solutions for CBSE Class 9',

@@ -174,11 +174,11 @@ export default function EnglishContentPage({ chapterCode, chapterSlug }: PagePro
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home',            item: 'https://solvencert-novexa.pages.dev' },
-          { '@type': 'ListItem', position: 2, name: 'NCERT Solutions', item: 'https://solvencert-novexa.pages.dev/answers' },
-          { '@type': 'ListItem', position: 3, name: 'Class 9 English', item: 'https://solvencert-novexa.pages.dev/class-9/english/kaveri' },
-          { '@type': 'ListItem', position: 4, name: `Chapter ${chapter.number}`, item: `https://solvencert-novexa.pages.dev/class-9/english/kaveri/${chapterCode}` },
-          { '@type': 'ListItem', position: 5, name: content.title,     item: `https://solvencert-novexa.pages.dev/class-9/english/kaveri/${chapterCode}/${chapterSlug}` },
+          { '@type': 'ListItem', position: 1, name: 'Home',            item: 'https://solvencert-novexa.vercel.app' },
+          { '@type': 'ListItem', position: 2, name: 'NCERT Solutions', item: 'https://solvencert-novexa.vercel.app/answers' },
+          { '@type': 'ListItem', position: 3, name: 'Class 9 English', item: 'https://solvencert-novexa.vercel.app/class-9/english/kaveri' },
+          { '@type': 'ListItem', position: 4, name: `Chapter ${chapter.number}`, item: `https://solvencert-novexa.vercel.app/class-9/english/kaveri/${chapterCode}` },
+          { '@type': 'ListItem', position: 5, name: content.title,     item: `https://solvencert-novexa.vercel.app/class-9/english/kaveri/${chapterCode}/${chapterSlug}` },
         ],
       }}
       bgImage={getSubjectBackground('english', chapter.number)}

@@ -13,7 +13,7 @@ interface Props {
 export default function RewardModal({ referralCode, onClose }: Props) {
   const [copied, setCopied] = useState(false);
 
-  const referralLink = `${typeof window !== 'undefined' ? window.location.origin : 'https://solvencert-novexa.pages.dev'}/signup?ref=${referralCode}`;
+  const referralLink = `${typeof window !== 'undefined' ? window.location.origin : 'https://solvencert-novexa.vercel.app'}/signup?ref=${referralCode}`;
 
   const pieces = React.useMemo(
     () =>

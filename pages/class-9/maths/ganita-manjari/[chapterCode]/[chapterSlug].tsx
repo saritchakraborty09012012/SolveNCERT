@@ -133,7 +133,7 @@ export default function MathsChapterPage({ chapterCode, chapterSlug }: PageProps
 
   const exercises = selEx === 'all' ? chapter.exercises : chapter.exercises.filter(e => e.id === selEx);
   const totalQ = chapter.exercises.reduce((a, ex) => a + ex.questions.length, 0);
-  const BASE = 'https://solvencert-novexa.pages.dev';
+  const BASE = 'https://solvencert-novexa.vercel.app';
   const chapterUrl = `${BASE}/class-9/maths/ganita-manjari/${chapterCode}/${chapterSlug}`;
 
   const breadcrumbSchema = {

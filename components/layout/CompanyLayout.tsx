@@ -18,8 +18,8 @@ export default function CompanyLayout({ children, title, description, canonical,
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://solvencert-novexa.pages.dev' },
-      { '@type': 'ListItem', position: 2, name: breadcrumb, item: `https://solvencert-novexa.pages.dev${canonical}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://solvencert-novexa.vercel.app' },
+      { '@type': 'ListItem', position: 2, name: breadcrumb, item: `https://solvencert-novexa.vercel.app${canonical}` },
     ],
   };
   const schemas = schema

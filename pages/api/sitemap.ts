@@ -3,7 +3,7 @@ import { CLASS_9_SUBJECTS } from '@/lib/content';
 import { ENGLISH_CHAPTERS } from '@/lib/content-english';
 
 export default function handler(_req: NextApiRequest, res: NextApiResponse) {
-  const base = 'https://solvencert-novexa.pages.dev';
+  const base = 'https://solvencert-novexa.vercel.app';
 
   const staticPages = [
     '', '/answers', '/books', '/premium', '/search',
