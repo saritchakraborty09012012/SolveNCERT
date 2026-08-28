@@ -15,9 +15,9 @@ import AuthModal from '@/components/auth/AuthModal';
 import { SCIENCE_CHAPTERS, type ScienceQuestion } from '@/lib/content-science';
 import { cn } from '@/utils/helpers';
 import { getSubjectBackground } from '@/utils/helpers';
-import { jsPDF } from 'jspdf';
 
-function savePdf(html: string, filename: string) {
+async function savePdf(html: string, filename: string) {
+  const { jsPDF } = await import('jspdf');
   const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
   const text = html.replace(/<style[\s\S]*?<\/style>|<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
   const lines = pdf.splitTextToSize(text, 510); let y = 48;

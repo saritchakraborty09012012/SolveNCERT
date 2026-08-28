@@ -1,12 +1,16 @@
-import posthog from 'posthog-js';
-
 let initialized = false;
 
-export function initPostHog() {
-  if (typeof window === 'undefined' || initialized) return;
+function isBrowser() {
+  return typeof window !== 'undefined';
+}
+
+export async function initPostHog() {
+  if (!isBrowser() || initialized) return;
   const key  = process.env.NEXT_PUBLIC_POSTHOG_KEY;
   const host = process.env.NEXT_PUBLIC_POSTHOG_HOST;
   if (!key) return;
+
+  const { default: posthog } = await import('posthog-js');
 
   posthog.init(key, {
     api_host:              host || 'https://us.i.posthog.com',
@@ -21,17 +25,26 @@ export function initPostHog() {
   initialized = true;
 }
 
-export function captureEvent(event: string, props?: Record<string, unknown>) {
-  if (!initialized || typeof window === 'undefined') return;
-  try { posthog.capture(event, props); } catch { /* silent */ }
+export async function captureEvent(event: string, props?: Record<string, unknown>) {
+  if (!initialized || !isBrowser()) return;
+  try {
+    const { default: posthog } = await import('posthog-js');
+    posthog.capture(event, props);
+  } catch { /* silent */ }
 }
 
-export function identifyUser(id: string, traits?: Record<string, unknown>) {
-  if (!initialized || typeof window === 'undefined') return;
-  try { posthog.identify(id, traits); } catch { /* silent */ }
+export async function identifyUser(id: string, traits?: Record<string, unknown>) {
+  if (!initialized || !isBrowser()) return;
+  try {
+    const { default: posthog } = await import('posthog-js');
+    posthog.identify(id, traits);
+  } catch { /* silent */ }
 }
 
-export function resetUser() {
-  if (!initialized || typeof window === 'undefined') return;
-  try { posthog.reset(); } catch { /* silent */ }
+export async function resetUser() {
+  if (!initialized || !isBrowser()) return;
+  try {
+    const { default: posthog } = await import('posthog-js');
+    posthog.reset();
+  } catch { /* silent */ }
 }

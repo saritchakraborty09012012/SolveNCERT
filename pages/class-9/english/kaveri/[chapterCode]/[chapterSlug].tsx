@@ -14,7 +14,6 @@ import { ENGLISH_CHAPTERS, type EnglishQuestion } from '@/lib/content-english';
 import { cn } from '@/utils/helpers';
 import { getSubjectBackground } from '@/utils/helpers';
 import QuestionNav from '@/components/features/QuestionNav';
-import { jsPDF } from 'jspdf';
 
 function QuestionBlock({ q, sectionId, sectionTitle, chapterCode, contentSlug, contentTitle, chapterNumber, onGuestBlock }: {
   q: EnglishQuestion; sectionId: string; sectionTitle: string;
@@ -106,8 +105,9 @@ export default function EnglishContentPage({ chapterCode, chapterSlug }: PagePro
   const [selSec, setSelSec] = useState<string>('all');
   const [authModal, setAuthModal] = useState<'login' | 'signup' | null>(null);
 
-  function downloadPDF() {
+  async function downloadPDF() {
     if (!chapter || !content) return;
+    const { jsPDF } = await import('jspdf');
     const secs = selSec === 'all' ? content.sections : content.sections.filter(s => s.id === selSec);
     const html = `<html><head><title>${content.title} — English Solutions</title>
     <style>

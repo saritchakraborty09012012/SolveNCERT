@@ -18,9 +18,9 @@ import { useAuthStore } from '@/store/authStore';
 import { hasReachedGuestLimit, incrementSolutionView } from '@/lib/guestLimits';
 import { cn } from '@/utils/helpers';
 import { getSubjectBackground } from '@/utils/helpers';
-import { jsPDF } from 'jspdf';
 
-function savePdf(html: string, filename: string) {
+async function savePdf(html: string, filename: string) {
+  const { jsPDF } = await import('jspdf');
   const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
   const text = html.replace(/<style[\s\S]*?<\/style>|<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
   const lines = pdf.splitTextToSize(text, 510); let y = 48;

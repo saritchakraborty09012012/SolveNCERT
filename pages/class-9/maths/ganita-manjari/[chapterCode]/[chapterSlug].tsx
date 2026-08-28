@@ -16,7 +16,6 @@ import { MATHS_SOURCE_CHAPTERS, type MathsSourceQuestion, type MathsSourceExerci
 import { useAuthStore } from '@/store/authStore';
 import { hasReachedGuestLimit, incrementSolutionView } from '@/lib/guestLimits';
 import { cn, getSubjectBackground } from '@/utils/helpers';
-import { jsPDF } from 'jspdf';
 
 function CopyBtn({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
@@ -96,8 +95,9 @@ export default function MathsChapterPage({ chapterCode, chapterSlug }: PageProps
     if (!isGuest) setGuestBlocked(false);
   }, [isGuest]);
 
-  function downloadPDF() {
+  async function downloadPDF() {
     if (!chapter) return;
+    const { jsPDF } = await import('jspdf');
     const exercises = selEx === 'all' ? chapter.exercises : chapter.exercises.filter(e => e.id === selEx);
     const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
     let y = 48;
