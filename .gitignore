@@ -6,3 +6,4 @@ node_modules/
 .vercel/dev-server.log
 *.tsbuildinfo
 public/ebooks/
+.open-next/

@@ -1,4 +1,3 @@
-import Groq from 'groq-sdk';
 import { SCIENCE_BOOK_CONTEXT } from './content-science';
 import { ENGLISH_BOOK_CONTEXT } from './content-english';
 import { IT_BOOK_CONTEXT } from './content-it';
@@ -7,21 +6,39 @@ import { SST_BOOK_CONTEXT } from './content-sst';
 import { ADVMATH_BOOK_CONTEXT } from './content-advmath';
 import { ADVSCIENCE_BOOK_CONTEXT } from './content-advscience';
 
+const GROQ_BASE_URL = 'https://api.groq.com/openai/v1/chat/completions';
+
 type Msg = { role:'system'|'user'|'assistant'; content:string };
 
-let _main:  Groq|null=null;
-let _srch:  Groq|null=null;
-let _pay:   Groq|null=null;
-const getMain = () => { if(!_main) _main=new Groq({apiKey:process.env.GROQ_API_KEY}); return _main!; };
-const getSrch = () => { if(!_srch) _srch=new Groq({apiKey:process.env.GROQ_AI_SEARCH_KEY}); return _srch!; };
-const getPay  = () => { if(!_pay)  _pay =new Groq({apiKey:process.env.GROQ_PAYMENT_VERIFY_KEY}); return _pay!; };
+const getMainKey = () => process.env.GROQ_API_KEY;
+const getSrchKey = () => process.env.GROQ_AI_SEARCH_KEY;
+const getPayKey  = () => process.env.GROQ_PAYMENT_VERIFY_KEY;
 
 /** Groq chat model (llama-3.1-8b-instant was decommissioned by Groq). */
 const GROQ_MODEL = 'openai/gpt-oss-120b';
 
-type ChatParams = NonNullable<Parameters<Groq['chat']['completions']['create']>[0]>;
+type ChatParams = { model:string; messages:Msg[]; max_tokens:number; temperature:number; stream:boolean; reasoning_effort?:'low'|'medium' };
 function withEffort<T extends ChatParams>(p: T, effort: 'low' | 'medium' = 'low'): T {
   return { ...p, reasoning_effort: effort } as T;
+}
+
+type ChatCompletion = { choices?: { message?: { content?: string|null } }[] };
+
+async function chatCompletions(apiKey: string|undefined, params: ChatParams): Promise<ChatCompletion> {
+  if (!apiKey) throw new Error('GROQ API key is not configured.');
+  const { reasoning_effort, ...body } = params;
+  const res = await fetch(GROQ_BASE_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    throw new Error(`Groq request failed: ${res.status} ${await res.text()}`);
+  }
+  return (await res.json()) as ChatCompletion;
 }
 
 export type AIMode = 'explain'|'simplify'|'meaning'|'alternate_method'|'similar_questions'|'logic'|'revision'|'doubt';
@@ -128,7 +145,7 @@ export async function askAI(userMessage: string, mode: AIMode='doubt', context?:
   }
   msgs.push({ role:'user', content:`${MODE_PROMPTS[mode]}\n\n${userMessage}` });
 
-  const c = await getMain().chat.completions.create(withEffort({
+  const c = await chatCompletions(getMainKey(), withEffort({
     model:GROQ_MODEL, messages:msgs, max_tokens:1400, temperature:0.35, stream:false,
   }));
   return c.choices[0]?.message?.content || 'Sorry, could not generate a response.';
@@ -159,7 +176,7 @@ export async function askAnythingAI(userMessage: string, history: { role:'user'|
   }
   msgs.push({ role:'user', content:userMessage });
 
-  const c = await getMain().chat.completions.create(withEffort({
+  const c = await chatCompletions(getMainKey(), withEffort({
     model:GROQ_MODEL, messages:msgs, max_tokens:1500, temperature:0.3, stream:false,
   }));
   return c.choices[0]?.message?.content || 'Sorry, could not generate a response.';
@@ -181,7 +198,7 @@ Explain this solution in clear, simple but detailed terms. Cover:
 
 Be encouraging. Use proper math formatting where needed.` }
   ];
-  const c = await getMain().chat.completions.create(withEffort({
+  const c = await chatCompletions(getMainKey(), withEffort({
     model:GROQ_MODEL, messages:msgs, max_tokens:1200, temperature:0.3, stream:false,
   }));
   return c.choices[0]?.message?.content || 'Could not generate explanation.';
@@ -214,7 +231,7 @@ URL patterns:
 - Advanced Science: /class-9/advanced-science/science-advanced/as0N/chapter-slug`;
 
   try {
-    const c = await getSrch().chat.completions.create(withEffort({
+    const c = await chatCompletions(getSrchKey(), withEffort({
       model:GROQ_MODEL, messages:[{role:'user',content:prompt}],
       max_tokens:600, temperature:0.1, stream:false,
     }));
@@ -230,7 +247,7 @@ export async function verifyPaymentAI(utr:string, amount:number, desc:string): P
 UTR must be exactly 12 digits, not all zeros, not obviously fake.
 Reply ONLY with JSON: {"verified":true/false,"confidence":"high/medium/low","reason":"one sentence"}`;
   try {
-    const c = await getPay().chat.completions.create(withEffort({
+    const c = await chatCompletions(getPayKey(), withEffort({
       model:GROQ_MODEL, messages:[{role:'user',content:prompt}],
       max_tokens:150, temperature:0, stream:false,
     }));
