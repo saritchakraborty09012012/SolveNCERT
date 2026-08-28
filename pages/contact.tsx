@@ -1,6 +1,7 @@
 import React from 'react';
 import { Mail, MessageSquare, MapPin, Rocket } from 'lucide-react';
 import CompanyLayout from '@/components/layout/CompanyLayout';
+import { FeedbackStars } from '@/components/features/FeedbackWidget';
 
 export default function ContactPage() {
   return (
@@ -10,9 +11,9 @@ export default function ContactPage() {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6 not-prose">
         {[
-          { icon: Mail,          title: 'Email',    value: 'support@solvencert',  sub: 'For support & billing'               },
-          { icon: MessageSquare, title: 'Feedback', value: 'feedback@solvencert', sub: 'Share suggestions & ideas'            },
-          { icon: MapPin,        title: 'Based in', value: 'India',               sub: 'Serving CBSE students nationwide'     },
+          { icon: Mail,          title: 'Email',    value: 'Coming soon', sub: 'For support & billing'               },
+          { icon: MessageSquare, title: 'Feedback', value: 'Coming soon', sub: 'Share suggestions & ideas'            },
+          { icon: MapPin,        title: 'Based in', value: 'India',       sub: 'Serving CBSE students nationwide'     },
         ].map(({ icon: Icon, title, value, sub }) => (
           <div key={title} className="card p-4">
             <Icon size={16} className="text-blue-500 mb-2" />
@@ -31,6 +32,12 @@ export default function ContactPage() {
         <p className="text-sm text-[var(--text-muted)]">
           We are setting up our support system. In the meantime, you can reach us directly at the email addresses above.
         </p>
+      </div>
+
+      <div className="card p-6 not-prose my-6">
+        <h2 className="font-display font-bold text-[var(--text-primary)] mb-1">Rate your experience</h2>
+        <p className="text-sm text-[var(--text-muted)] mb-4">Tell us how SolveNCERT is working for you.</p>
+        <FeedbackStars />
       </div>
     </CompanyLayout>
   );

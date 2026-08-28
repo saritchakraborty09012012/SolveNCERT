@@ -33,6 +33,7 @@ export default function Header() {
   const [premiumPopup, setPremiumPopup] = useState(false);
   const [uiOpen,       setUIOpen]       = useState(false);
   const [openMenu,     setOpenMenu]     = useState<string | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [mobileOpen,   setMobileOpen]   = useState(false);
   const [searchOpen,   setSearchOpen]   = useState(false);
   const [queryOpen,    setQueryOpen]    = useState(false);
@@ -281,7 +282,7 @@ export default function Header() {
                 <li key={item.label} className="border-b border-white/10 last:border-0">
                   {item.items ? (
                     <>
-                      <button type="button" onClick={() => setOpenMenu(openMenu === item.label ? null : item.label)}
+                      <button type="button" onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
                         className="flex w-full items-center justify-between py-3 text-sm font-medium text-white">
                         <span className="flex items-center gap-2">
                           {item.label}
@@ -289,13 +290,13 @@ export default function Header() {
                             <span className="rounded-sm bg-white/20 px-1 py-px text-[9px] font-bold uppercase text-white">{item.badge}</span>
                           )}
                         </span>
-                        <ChevronDown size={14} className={cn('transition-transform', openMenu === item.label && 'rotate-180')} />
+                        <ChevronDown size={14} className={cn('transition-transform', mobileExpanded === item.label && 'rotate-180')} />
                       </button>
-                      {openMenu === item.label && (
-                        <div className="pb-3 pl-3">
+                      {mobileExpanded === item.label && (
+                        <div className="pb-3 pl-3" style={{ pointerEvents: 'auto' }}>
                           {item.items.map((sub) => (
                             <Link key={sub.label} href={sub.href}
-                              onClick={() => { setOpenMenu(null); setMobileOpen(false); }}
+                              onClick={() => { setMobileExpanded(null); setMobileOpen(false); }}
                               className="flex items-center gap-1.5 w-full py-2 text-left text-sm text-white/70 hover:text-white">
                               {sub.label}
                               {sub.badge && (

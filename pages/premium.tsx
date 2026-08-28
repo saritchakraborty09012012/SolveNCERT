@@ -9,10 +9,10 @@ import toast from 'react-hot-toast';
 
 const FEATURES = [
   'Unlimited solved answers access',
-  'AI Learn â€” full access',
+  'AI Learn — full access',
   'Quizzes & practice papers',
   'Mock tests',
-  'Study Room â€” up to 10 friends',
+  'Study Room — up to 10 friends',
   'Priority AI responses',
   'Download solutions as PDF',
   'Ad-free experience',
@@ -91,7 +91,7 @@ export default function PremiumPage() {
   }
 
   return (
-    <Layout title="SolveNCERT Premium â€” â‚¹99/month | Unlimited NCERT Solutions" description="Unlock full SolveNCERT access for just â‚¹99/month. Unlimited NCERT solutions, AI Learn, quizzes, mock tests, study rooms and PDF downloads for CBSE Class 9." canonical="/premium">
+    <Layout title="SolveNCERT Premium — Rs. 99/month | Unlimited NCERT Solutions" description="Unlock full SolveNCERT access for just Rs. 99/month. Unlimited NCERT solutions, AI Learn, quizzes, mock tests, study rooms and PDF downloads for CBSE Class 9." canonical="/premium">
       <div className="max-w-screen-sm mx-auto px-6 py-12 space-y-8">
 
         {/* Step: Info */}
@@ -107,13 +107,13 @@ export default function PremiumPage() {
 
             <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/40 dark:to-indigo-950/40 border border-blue-100 dark:border-blue-900 text-center">
               <p className="text-sm font-semibold text-blue-700 dark:text-blue-300">
-                <Sparkles size={13} className="inline -mt-0.5 mr-1" />All users get <strong>1 month free trial</strong> â€” no card required!
+                <Sparkles size={13} className="inline -mt-0.5 mr-1" />All users get <strong>1 month free trial</strong> — no card required!
               </p>
             </div>
 
             <div className="card p-8 border-amber-200 dark:border-amber-800 ring-1 ring-amber-100 dark:ring-amber-900">
               <div className="flex items-baseline gap-1 mb-6">
-                <span className="text-4xl font-display font-bold text-[var(--text-primary)]">â‚¹99</span>
+                <span className="text-4xl font-display font-bold text-[var(--text-primary)]">Rs. 99</span>
                 <span className="text-[var(--text-muted)]">/ month</span>
               </div>
               <ul className="space-y-3 mb-8">
@@ -125,7 +125,7 @@ export default function PremiumPage() {
               </ul>
               <button onClick={() => user ? setStep('qr') : toast.error('Please sign in first.')}
                 className="btn-primary w-full justify-center text-sm">
-                Get Premium â€” â‚¹99 <ArrowRight size={14} />
+                Get Premium — Rs. 99 <ArrowRight size={14} />
               </button>
             </div>
           </>
@@ -135,7 +135,7 @@ export default function PremiumPage() {
         {step === 'qr' && (
           <div className="space-y-6">
             <div className="text-center">
-              <h2 className="text-2xl font-display font-bold text-[var(--text-primary)] mb-2">Scan & Pay â‚¹99</h2>
+              <h2 className="text-2xl font-display font-bold text-[var(--text-primary)] mb-2">Scan & Pay Rs. 99</h2>
               <p className="text-sm text-[var(--text-muted)]">Pay via any UPI app and save the screenshot.</p>
             </div>
             <div className="flex justify-center">
@@ -146,11 +146,11 @@ export default function PremiumPage() {
             </div>
             <div className="p-4 bg-[var(--surface-1)] rounded-xl border border-[var(--border)] text-center">
               <p className="text-xs text-[var(--text-muted)] mb-1">Amount</p>
-              <p className="text-xl font-bold text-[var(--text-primary)]">â‚¹99.00</p>
-              <p className="text-xs text-[var(--text-muted)] mt-1">SolveNCERT Premium Â· 1 Month</p>
+              <p className="text-xl font-bold text-[var(--text-primary)]">Rs. 99.00</p>
+              <p className="text-xs text-[var(--text-muted)] mt-1">SolveNCERT Premium · 1 Month</p>
             </div>
             <button onClick={() => setStep('utr')} className="btn-primary w-full justify-center">
-              I've Paid â€” Enter UTR <ArrowRight size={14} />
+              I've Paid — Enter UTR <ArrowRight size={14} />
             </button>
             <button onClick={() => setStep('info')} className="btn-ghost w-full justify-center text-sm">Back</button>
           </div>
@@ -211,7 +211,7 @@ export default function PremiumPage() {
             <div className="w-14 h-14 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mx-auto">
               <Sparkles size={26} className="text-blue-600 animate-pulse" />
             </div>
-            <h2 className="text-xl font-display font-bold text-[var(--text-primary)]">AI is Verifyingâ€¦</h2>
+            <h2 className="text-xl font-display font-bold text-[var(--text-primary)]">AI is Verifying…</h2>
             <p className="text-sm text-[var(--text-muted)]">Checking your UTR number and payment screenshot. This takes just a moment.</p>
             <div className="flex justify-center gap-1.5 pt-2">
               {[0,150,300].map(d => (
@@ -241,7 +241,7 @@ export default function PremiumPage() {
             </div>
             <h2 className="text-2xl font-display font-bold text-[var(--text-primary)]">Under Review</h2>
             <p className="text-[var(--text-muted)] max-w-sm mx-auto text-sm">
-              Our AI flagged this for manual verification. Your payment has been received and will be reviewed within 2â€“4 hours.
+              Our AI flagged this for manual verification. Your payment has been received and will be reviewed within 2–4 hours.
             </p>
             {aiResult && <p className="text-xs text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/30 rounded-lg px-4 py-2">{aiResult.reason}</p>}
             <p className="text-xs text-[var(--text-muted)]">UTR: <strong className="font-mono">{utr}</strong></p>

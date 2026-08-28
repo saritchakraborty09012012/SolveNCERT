@@ -9,10 +9,10 @@ import { cn } from '@/utils/helpers';
 
 const FREE_FEATURES = [
   'Unlimited solved answers access',
-  'AI Learn â€” limited queries per min',
-  'Quizzes & practice papers â€” limited queries per min',
-  'Mock tests â€” limited queries per min',
-  'Study Room â€” up to 5 friends',
+  'AI Learn — limited queries per min',
+  'Quizzes & practice papers — limited queries per min',
+  'Mock tests — limited queries per min',
+  'Study Room — up to 5 friends',
   'Download solutions as PDF',
   'Bookmarks & study history',
   'Community support',
@@ -20,10 +20,10 @@ const FREE_FEATURES = [
 
 const PREMIUM_FEATURES = [
   'All free features',
-  'AI Learn â€” full access',
-  'Quizzes & practice papers â€” unlimited',
-  'Mock tests â€” unlimited',
-  'Study Room â€” up to 10 friends',
+  'AI Learn — full access',
+  'Quizzes & practice papers — unlimited',
+  'Mock tests — unlimited',
+  'Study Room — up to 10 friends',
   'Priority AI responses',
   'Ad-free experience',
 ];
@@ -35,7 +35,7 @@ const ENTERPRISE_FEATURES = [
   'Dedicated account manager',
   'Custom onboarding & training',
   'Priority support & SLA',
-  'Features on request â€” built for you',
+  'Features on request — built for you',
 ];
 
 export default function PricingPage() {
@@ -49,7 +49,7 @@ export default function PricingPage() {
 
   return (
     <Layout
-      title="Plans & Pricing â€” SolveNCERT | Free, Premium & Enterprise"
+      title="Plans & Pricing — SolveNCERT | Free, Premium & Enterprise"
       description="Compare SolveNCERT free, premium and enterprise plans. Premium unlocks unlimited NCERT solutions, AI Learn, quizzes, mock tests and more. Schools & institutes get custom pricing."
       canonical="/pricing"
     >
@@ -87,7 +87,7 @@ export default function PricingPage() {
             </div>
 
             <div className="flex items-baseline gap-1 mb-6">
-              <span className="text-4xl font-display font-bold text-[var(--text-primary)]">â‚¹0</span>
+              <span className="text-4xl font-display font-bold text-[var(--text-primary)]">Rs. 0</span>
               <span className="text-[var(--text-muted)]">/ forever</span>
             </div>
 
@@ -121,7 +121,7 @@ export default function PricingPage() {
           )}>
             {!isGuest && currentIsPremium && (
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-lg shadow-amber-500/30 whitespace-nowrap">
-                {isTrial ? 'Your Current Plan Â· Free Trial' : 'Your Current Plan'}
+                {isTrial ? 'Your Current Plan · Free Trial' : 'Your Current Plan'}
               </span>
             )}
 
@@ -136,7 +136,7 @@ export default function PricingPage() {
             </div>
 
             <div className="flex items-baseline gap-1 mb-1">
-              <span className="text-4xl font-display font-bold text-[var(--text-primary)]">â‚¹99</span>
+              <span className="text-4xl font-display font-bold text-[var(--text-primary)]">Rs. 99</span>
               <span className="text-[var(--text-muted)]">/ month</span>
             </div>
             {isTrial && user?.trial_ends_at && (
@@ -157,7 +157,7 @@ export default function PricingPage() {
 
             {isGuest ? (
               <button onClick={() => setAuthModal('signup')} className="btn-primary w-full justify-center text-sm">
-                Upgrade to Premium â€” â‚¹99 <ArrowRight size={14} />
+                Upgrade to Premium — Rs. 99 <ArrowRight size={14} />
               </button>
             ) : isPremium ? (
               <Link href="/premium" className="btn-ghost w-full justify-center text-sm">
@@ -165,7 +165,7 @@ export default function PricingPage() {
               </Link>
             ) : (
               <Link href="/premium" className="btn-primary w-full justify-center text-sm">
-                Upgrade to Premium â€” â‚¹99 <ArrowRight size={14} />
+                Upgrade to Premium — Rs. 99 <ArrowRight size={14} />
               </Link>
             )}
           </div>
@@ -201,7 +201,7 @@ export default function PricingPage() {
         </div>
 
         <p className="text-center text-xs text-[var(--text-muted)] pt-2">
-          Every new account starts with a <strong className="text-amber-600 dark:text-amber-400">1 month free Premium trial</strong> â€” no card required.
+          Every new account starts with a <strong className="text-amber-600 dark:text-amber-400">1 month free Premium trial</strong> — no card required.
         </p>
       </div>
 

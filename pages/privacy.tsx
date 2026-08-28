@@ -29,13 +29,7 @@ export default function PrivacyPage() {
       <p>Your data is stored securely using Supabase, a SOC 2 Type II certified platform. We use TLS encryption for data in transit and encryption at rest. Payment screenshots are stored in private, access-controlled storage.</p>
 
       <h2>4. Sharing of Information</h2>
-      <p>We do not sell, trade, or rent your personal information. We use the following service providers who process data on our behalf:</p>
-      <ul>
-        <li><strong>Supabase</strong> — database and authentication</li>
-        <li><strong>PostHog</strong> — product analytics (anonymised)</li>
-        <li><strong>Groq</strong> — AI inference (queries only, not personal data)</li>
-        <li><strong>Algolia</strong> — search functionality</li>
-      </ul>
+      <p>We do not sell, trade, or rent your personal information. We use some external service providers for services like database, authentication, AI interface, etc. which are safe and protect your privacy.</p>
 
       <h2>5. Cookies and Local Storage</h2>
       <p>We use cookies and browser local storage to remember your preferences (theme, session state) and to enforce guest usage limits. You can clear these at any time through your browser settings.</p>

@@ -65,12 +65,12 @@ export default function Document() {
           })();
         `}} />
 
-        {/* UI init — restore selected interface (ui1/ui2) before paint */}
+        {/* UI init — restore selected interface (ui1/ui2/ui3) before paint */}
         <script dangerouslySetInnerHTML={{ __html: `
           (function(){
             try{
               var u=localStorage.getItem('sn_ui');
-              if(u!=='ui1'&&u!=='ui2') u='ui1';
+              if(u!=='ui1'&&u!=='ui2'&&u!=='ui3') u='ui3';
               document.documentElement.setAttribute('data-ui',u);
               if(u==='ui2'){
                 var parts=location.pathname||'';
