@@ -133,6 +133,36 @@ const MODE_PROMPTS: Record<AIMode,string> = {
   doubt:            'Answer this doubt clearly for a Class 9 CBSE student:',
 };
 
+/** Models to try in order; later ones are smaller/faster fallbacks for bursts. */
+const GROQ_MODELS = ['openai/gpt-oss-120b', 'openai/gpt-oss-20b', 'llama-3.3-70b-versatile'];
+
+/** Shared keys distinct from the main one, used as fallback when the main key is rate-limited. */
+const FALLBACK_KEYS = [getSrchKey, getPayKey].filter(fn => fn() !== getMainKey() && fn());
+
+/**
+ * Retry a Groq call across models and keys so transient 429/5xx/network errors
+ * don't surface as "could not respond" to the student.
+ */
+async function chatCompletionsResilient(keys: string[], params: ChatParams, retries = 2): Promise<ChatCompletion> {
+  let lastErr: unknown;
+  const models = Array.isArray((params as any).model) ? (params as any).model : [params.model];
+  for (const model of models) {
+    for (const apiKey of keys) {
+      for (let attempt = 0; attempt <= retries; attempt++) {
+        try {
+          return await chatCompletions(apiKey, { ...params, model } as ChatParams);
+        } catch (err) {
+          lastErr = err;
+          if (attempt < retries) {
+            await new Promise(r => setTimeout(r, 250 * (attempt + 1)));
+          }
+        }
+      }
+    }
+  }
+  throw lastErr;
+}
+
 export async function askAI(userMessage: string, mode: AIMode='doubt', context?: string, fileContent?: string): Promise<string> {
   const msgs: Msg[] = [{ role:'system', content:SYSTEM_PROMPT }];
   if (context) {
@@ -145,9 +175,10 @@ export async function askAI(userMessage: string, mode: AIMode='doubt', context?:
   }
   msgs.push({ role:'user', content:`${MODE_PROMPTS[mode]}\n\n${userMessage}` });
 
-  const c = await chatCompletions(getMainKey(), withEffort({
-    model:GROQ_MODEL, messages:msgs, max_tokens:1400, temperature:0.35, stream:false,
-  }));
+  const c = await chatCompletionsResilient(
+    [getMainKey(), ...FALLBACK_KEYS].filter(Boolean) as string[],
+    withEffort({ model: GROQ_MODELS, messages: msgs, max_tokens: 1400, temperature: 0.35, stream: false } as unknown as ChatParams),
+  );
   return c.choices[0]?.message?.content || 'Sorry, could not generate a response.';
 }
 
