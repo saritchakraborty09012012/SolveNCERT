@@ -14,6 +14,7 @@ import { ENGLISH_CHAPTERS, type EnglishQuestion } from '@/lib/content-english';
 import { cn } from '@/utils/helpers';
 import { getSubjectBackground } from '@/utils/helpers';
 import QuestionNav from '@/components/features/QuestionNav';
+import { htmlToPdf } from '@/lib/pdf';
 
 function QuestionBlock({ q, sectionId, sectionTitle, chapterCode, contentSlug, contentTitle, chapterNumber, onGuestBlock }: {
   q: EnglishQuestion; sectionId: string; sectionTitle: string;
@@ -142,12 +143,8 @@ export default function EnglishContentPage({ chapterCode, chapterSlug }: PagePro
       SolveNCERT — Powered by NOVEXA | solvencert &nbsp;·&nbsp; NCERT 2026 Revised Syllabus
     </div>
     </body></html>`;
-    const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
-    const text = html.replace(/<style[\s\S]*?<\/style>|<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-    const lines = pdf.splitTextToSize(text, 510);
-    let y = 48;
-    lines.forEach((line: string) => { if (y > 790) { pdf.addPage(); y = 48; } pdf.text(line, 48, y); y += 16; });
-    pdf.save(`class-9-english-${chapter.code}-${content.slug}-${selSec === 'all' ? 'all-sections' : selSec}-solutions.pdf`);
+    await import('jspdf');
+    htmlToPdf(html, `class-9-english-${chapter.code}-${content.slug}-${selSec === 'all' ? 'all-sections' : selSec}-solutions.pdf`);
   }
 
   if (!chapter || !content) {

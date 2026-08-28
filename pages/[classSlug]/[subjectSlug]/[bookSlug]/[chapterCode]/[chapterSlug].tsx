@@ -18,14 +18,11 @@ import { useAuthStore } from '@/store/authStore';
 import { hasReachedGuestLimit, incrementSolutionView } from '@/lib/guestLimits';
 import { cn } from '@/utils/helpers';
 import { getSubjectBackground } from '@/utils/helpers';
+import { htmlToPdf } from '@/lib/pdf';
 
 async function savePdf(html: string, filename: string) {
-  const { jsPDF } = await import('jspdf');
-  const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
-  const text = html.replace(/<style[\s\S]*?<\/style>|<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-  const lines = pdf.splitTextToSize(text, 510); let y = 48;
-  lines.forEach((line: string) => { if (y > 790) { pdf.addPage(); y = 48; } pdf.text(line, 48, y); y += 16; });
-  pdf.save(filename);
+  await import('jspdf');
+  htmlToPdf(html, filename);
 }
 
 function sstBranch(chNumber: number): string | null {
