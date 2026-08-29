@@ -107,14 +107,17 @@ export default function AuthModal({ mode, onClose, onSwitch }: Props) {
 
   return (
     <>
-    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[100] flex items-end justify-center p-0 sm:items-center sm:p-4">
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative w-full max-w-md bg-[var(--surface-0)] rounded-2xl shadow-soft-xl border border-[var(--border)] animate-scale-in overflow-hidden max-h-[92vh] flex flex-col">
+      <div className="relative w-full sm:max-w-md max-h-[90vh] bg-[var(--surface-0)] rounded-t-2xl sm:rounded-2xl shadow-soft-xl border border-[var(--border)] animate-scale-in overflow-hidden flex flex-col">
         <div className="h-1 bg-gradient-to-r from-blue-500 via-blue-400 to-indigo-500 flex-shrink-0" />
 
         <button onClick={onClose} className="absolute top-4 right-4 p-1.5 rounded-lg hover:bg-[var(--surface-2)] text-[var(--text-muted)] z-10"><X size={16} /></button>
 
-        <div className="overflow-y-auto flex-1 p-6 sm:p-7">
+        <div className="overflow-y-auto flex-1 p-5 sm:p-6 max-h-[90vh]">
+          {/* Drag handle for mobile bottom-sheet */}
+          <div className="mx-auto mb-3 h-1.5 w-10 rounded-full bg-[var(--border)] sm:hidden" />
+
           {/* Logo + heading */}
           <div className="flex items-center gap-3 mb-5">
             <div className="w-10 h-10 rounded-xl overflow-hidden border border-[var(--border)] flex-shrink-0" style={{ background:'#fff' }}>
