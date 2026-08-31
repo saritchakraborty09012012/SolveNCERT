@@ -163,11 +163,12 @@ export default function EnglishContentPage({ chapterCode, chapterSlug }: PagePro
 
   return (
     <Layout
-      title={`${content.title} — ${chapter.code} | Class 9 English NCERT Questions | Kaveri`}
-      description={`All questions from Class 9 English Kaveri Chapter ${chapter.number} (${chapter.code}): ${content.title}. Reading comprehension, vocabulary, grammar${content.kind === 'poem' ? ', poem analysis' : ''}. CBSE 2026 Syllabus.`}
+      title={`${content.title} — ${chapter.code.toUpperCase()} | Class 9 English NCERT Questions | Kaveri`}
+      description={`All questions from Class 9 English Kaveri Chapter ${chapter.number} (${chapter.code.toUpperCase()}): ${content.title}. Reading comprehension, vocabulary, grammar${content.kind === 'poem' ? ', poem analysis' : ''}. CBSE 2026 Syllabus.`}
       canonical={`/class-9/english/kaveri/${chapterCode}/${chapterSlug}`}
       ogType="article"
-      schema={{
+      keywords={`${chapter.code.toUpperCase()}, ${chapter.code}, class 9 english NCERT solutions, Kaveri chapter ${chapter.number}, ${content.title}, CBSE 2026 english`}
+      schema={[{
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
@@ -177,7 +178,19 @@ export default function EnglishContentPage({ chapterCode, chapterSlug }: PagePro
           { '@type': 'ListItem', position: 4, name: `Chapter ${chapter.number}`, item: `https://solvencert-novexa.vercel.app/class-9/english/kaveri/${chapterCode}` },
           { '@type': 'ListItem', position: 5, name: content.title,     item: `https://solvencert-novexa.vercel.app/class-9/english/kaveri/${chapterCode}/${chapterSlug}` },
         ],
-      }}
+      }, {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: `Chapter ${chapter.number}: ${content.title} (${chapter.code.toUpperCase()})`,
+        description: `NCERT Solutions for Class 9 English Kaveri Chapter ${chapter.number} (${chapter.code.toUpperCase()}): ${content.title}. CBSE 2026 Syllabus.`,
+        keywords: `${chapter.code.toUpperCase()}, ${chapter.code}, class 9 english, NCERT solutions, Kaveri, chapter ${chapter.number}`,
+        author: { '@type': 'Organization', name: 'SolveNCERT by NOVEXA' },
+        publisher: { '@type': 'Organization', name: 'SolveNCERT by NOVEXA', url: 'https://solvencert-novexa.vercel.app' },
+        url: `https://solvencert-novexa.vercel.app/class-9/english/kaveri/${chapterCode}/${chapterSlug}`,
+        identifier: chapter.code.toUpperCase(),
+        about: { '@type': 'Chapter', name: content.title, position: chapter.number, code: chapter.code.toUpperCase() },
+        isPartOf: { '@type': 'Book', name: 'Kaveri', isbn: 'NCERT Class 9 English' },
+      }]}
       bgImage={getSubjectBackground('english', chapter.number)}
     >
       {/* Sticky breadcrumb */}
@@ -241,7 +254,7 @@ export default function EnglishContentPage({ chapterCode, chapterSlug }: PagePro
                 <span className="badge-2026">NCERT 2026 Revised Syllabus</span>
               </div>
               <h1 className="text-xl md:text-2xl font-display font-bold text-[var(--text-primary)]">
-                Chapter {chapter.number}: {content.title}
+                Chapter {chapter.number}: {content.title} <span className="text-base md:text-lg font-normal text-[var(--text-muted)]">({chapter.code.toUpperCase()})</span>
               </h1>
               <p className="text-sm text-[var(--text-muted)] mt-1">Kaveri · {totalQ} questions · {content.sections.length} sections</p>
               <p className="text-xs text-[var(--text-muted)] mt-1">Chapter code: <span className="font-mono font-semibold text-[var(--text-secondary)]">{chapter.code}</span> · Book: Kaveri · Class 9 English</p>

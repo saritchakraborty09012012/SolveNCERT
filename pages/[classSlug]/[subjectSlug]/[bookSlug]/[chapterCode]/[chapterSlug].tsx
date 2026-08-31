@@ -310,15 +310,16 @@ export default function ChapterPage({ classSlug, subjectSlug, bookSlug, chapterC
   return (
     <Layout
       title={hasRealCode
-        ? `${chapter.title} — ${chapter.code} | Class 9 ${subject.name} NCERT Solutions`
+        ? `${chapter.title} — ${chapter.code.toUpperCase()} | Class 9 ${subject.name} NCERT Solutions`
         : `${chapter.title} | Class 9 ${subject.name} NCERT Solutions`}
       description={hasRealCode
-        ? `NCERT Solutions for Class 9 ${subject.name} Chapter ${chapter.number} (${chapter.code}): ${chapter.title}. Step-by-step answers as per CBSE 2026 Revised Syllabus (${subject.book}).`
+        ? `NCERT Solutions for Class 9 ${subject.name} Chapter ${chapter.number} (${chapter.code.toUpperCase()}): ${chapter.title}. Step-by-step answers as per CBSE 2026 Revised Syllabus (${subject.book}).`
         : `NCERT Solutions for Class 9 ${subject.name} Chapter ${chapter.number}: ${chapter.title}. Step-by-step answers as per CBSE 2026 Revised Syllabus (${subject.book}).`}
       canonical={`/${classSlug}/${subjectSlug}/${bookSlug}/${chapterCode}/${chapterSlug}`}
       ogType="article"
       schema={schemas}
       bgImage={subjectBg}
+      keywords={hasRealCode ? `${chapter.code.toUpperCase()}, ${chapter.code}, class 9 ${subject.name} NCERT solutions, ${subject.book} chapter ${chapter.number}, ${chapter.title} solutions, CBSE 2026` : undefined}
     >
       {/* Breadcrumb */}
       <div className="sticky top-14 z-30 bg-[var(--surface-0)]/95 backdrop-blur-md border-b border-[var(--border)]">
@@ -368,7 +369,7 @@ export default function ChapterPage({ classSlug, subjectSlug, bookSlug, chapterC
                 <span className="px-2.5 py-1 rounded-full bg-blue-100 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300 text-xs font-bold">Class 9 · {subject.name}</span>
                 <span className="badge-2026">NCERT 2026 Revised Syllabus</span>
               </div>
-              <h1 className="text-2xl md:text-3xl font-display font-bold text-[var(--text-primary)] leading-tight">Chapter {chapter.number}: {chapter.title}</h1>
+              <h1 className="text-2xl md:text-3xl font-display font-bold text-[var(--text-primary)] leading-tight">Chapter {chapter.number}: {chapter.title} {hasRealCode && <span className="text-lg md:text-xl font-normal text-[var(--text-muted)]">({chapter.code.toUpperCase()})</span>}</h1>
               <p className="text-sm text-[var(--text-muted)] mt-2">{subject.book}</p>
               {chapter.description && (
                 <p className="text-sm text-[var(--text-secondary)] mt-4 leading-relaxed"><MathRenderer text={chapter.description} /></p>

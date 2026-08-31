@@ -25,9 +25,10 @@ export default function EnglishChapterHubPage({ chapterCode }: PageProps) {
 
   return (
     <Layout
-      title={`Chapter ${chapter.number} — ${chapter.code} | ${titles} | Class 9 English NCERT Solutions`}
-      description={`Class 9 English Kaveri Chapter ${chapter.number} (${chapter.code}): ${titles}. NCERT Solutions for the 2026 Revised Syllabus.`}
+      title={`Chapter ${chapter.number} — ${chapter.code.toUpperCase()} | ${titles} | Class 9 English NCERT Solutions`}
+      description={`Class 9 English Kaveri Chapter ${chapter.number} (${chapter.code.toUpperCase()}): ${titles}. NCERT Solutions for the 2026 Revised Syllabus.`}
       canonical={`/class-9/english/kaveri/${chapterCode}`}
+      keywords={`${chapter.code.toUpperCase()}, ${chapter.code}, class 9 english NCERT solutions, Kaveri chapter ${chapter.number}, ${titles}, CBSE 2026 english`}
     >
       <div className="max-w-screen-sm mx-auto px-6 py-10">
         <div className="flex items-center gap-1.5 text-xs text-[var(--text-muted)] mb-6 flex-wrap">
@@ -40,7 +41,7 @@ export default function EnglishChapterHubPage({ chapterCode }: PageProps) {
 
         <p className="text-xs font-mono font-semibold text-purple-500 mb-1">{chapter.code.toUpperCase()}</p>
         <h1 className="text-2xl font-display font-bold text-[var(--text-primary)] mb-6">
-          Chapter {chapter.number}: {titles}
+          Chapter {chapter.number}: {titles} <span className="text-lg font-normal text-[var(--text-muted)]">({chapter.code.toUpperCase()})</span>
         </h1>
 
         <div className="space-y-3">

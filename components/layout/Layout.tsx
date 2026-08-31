@@ -24,6 +24,7 @@ interface LayoutProps {
   noFooter?:     boolean;
   noDock?:       boolean;
   bgImage?:      string | null; // /public path of a fixed, viewport-cropped page backdrop (subject themed)
+  keywords?:     string;        // per-page SEO keywords (overrides default)
 }
 
 const BASE_URL   = 'https://solvencert-novexa.vercel.app';
@@ -31,7 +32,7 @@ const DEFAULT_OG = `${BASE_URL}/solvencert-logo-256.png`;
 const DEFAULT_DESC = 'SolveNCERT — Free NCERT solutions for CBSE Class 9 as per 2026 Revised Syllabus. Maths, Science, English — AI-powered, human-verified answers.';
 
 export default function Layout({
-  children, title, description, canonical, ogImage, ogType = 'website', schema, noFooter, noDock, bgImage,
+  children, title, description, canonical, ogImage, ogType = 'website', schema, noFooter, noDock, bgImage, keywords,
 }: LayoutProps) {
   const pageTitle = title ? `${title} | SolveNCERT` : 'SolveNCERT — NCERT Solutions for CBSE Class 9';
   const pageDesc  = description || DEFAULT_DESC;
@@ -113,7 +114,7 @@ export default function Layout({
         {/* ── Extra SEO signals ── */}
         <meta name="robots"    content="index, follow, max-snippet:-1, max-image-preview:large" />
         <meta name="author"    content="SolveNCERT by NOVEXA" />
-        <meta name="keywords"  content="NCERT solutions class 9, CBSE 2026, ganita manjari solutions, exploration science solutions, kaveri english solutions" />
+        <meta name="keywords"  content={keywords || "NCERT solutions class 9, CBSE 2026, ganita manjari solutions, exploration science solutions, kaveri english solutions"} />
 
         {/* ── Structured data (JSON-LD) ── */}
         {schemaArr && schemaArr.map((s, i) => (

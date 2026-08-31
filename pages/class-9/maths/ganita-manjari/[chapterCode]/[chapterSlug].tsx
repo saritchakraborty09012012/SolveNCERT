@@ -135,6 +135,7 @@ export default function MathsChapterPage({ chapterCode, chapterSlug }: PageProps
   const totalQ = chapter.exercises.reduce((a, ex) => a + ex.questions.length, 0);
   const BASE = 'https://solvencert-novexa.vercel.app';
   const chapterUrl = `${BASE}/class-9/maths/ganita-manjari/${chapterCode}/${chapterSlug}`;
+  const chapterCodeUpper = chapter.code.toUpperCase();
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -147,14 +148,29 @@ export default function MathsChapterPage({ chapterCode, chapterSlug }: PageProps
     ],
   };
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: `Chapter ${chapter.number}: ${chapter.title} (${chapterCodeUpper})`,
+    description: `NCERT Solutions for Class 9 Maths Chapter ${chapter.number} (${chapterCodeUpper}): ${chapter.title}. Step-by-step notebook-style answers — CBSE 2026 Revised Syllabus.`,
+    keywords: `${chapterCodeUpper}, ${chapter.code}, class 9 maths, NCERT solutions, Ganita Manjari, chapter ${chapter.number}`,
+    author: { '@type': 'Organization', name: 'SolveNCERT by NOVEXA' },
+    publisher: { '@type': 'Organization', name: 'SolveNCERT by NOVEXA', url: BASE },
+    url: chapterUrl,
+    identifier: chapterCodeUpper,
+    about: { '@type': 'Chapter', name: chapter.title, position: chapter.number, code: chapterCodeUpper },
+    isPartOf: { '@type': 'Book', name: 'Ganita Manjari Part I', isbn: 'NCERT Class 9 Maths' },
+  };
+
   return (
     <Layout
-      title={`${chapter.title} — ${chapter.code} | Class 9 Maths NCERT Solutions`}
-      description={`NCERT Solutions for Class 9 Maths Chapter ${chapter.number} (${chapter.code}): ${chapter.title}. Step-by-step notebook-style answers for every exercise with diagrams and boxed solutions — CBSE 2026 Revised Syllabus (Ganita Manjari Part I).`}
+      title={`${chapter.title} — ${chapterCodeUpper} | Class 9 Maths NCERT Solutions`}
+      description={`NCERT Solutions for Class 9 Maths Chapter ${chapter.number} (${chapterCodeUpper}): ${chapter.title}. Step-by-step notebook-style answers for every exercise with diagrams and boxed solutions — CBSE 2026 Revised Syllabus (Ganita Manjari Part I).`}
       canonical={`/class-9/maths/ganita-manjari/${chapterCode}/${chapterSlug}`}
       ogType="article"
-      schema={breadcrumbSchema}
+      schema={[breadcrumbSchema, articleSchema]}
       bgImage={getSubjectBackground('maths', chapter.number)}
+      keywords={`${chapterCodeUpper}, ${chapter.code}, class 9 maths NCERT solutions, Ganita Manjari chapter ${chapter.number}, ${chapter.title} solutions, CBSE 2026 maths`}
     >
       {/* Breadcrumb */}
       <div className="sticky top-14 z-30 bg-[var(--surface-0)]/95 backdrop-blur-md border-b border-[var(--border)]">
@@ -195,7 +211,7 @@ export default function MathsChapterPage({ chapterCode, chapterSlug }: PageProps
                 <span className="px-2.5 py-1 rounded-full bg-blue-100 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300 text-xs font-bold">Class 9 · Maths</span>
                 <span className="badge-2026">NCERT 2026 Revised Syllabus</span>
               </div>
-              <h1 className="text-2xl md:text-3xl font-display font-bold text-[var(--text-primary)] leading-tight">Chapter {chapter.number}: {chapter.title}</h1>
+              <h1 className="text-2xl md:text-3xl font-display font-bold text-[var(--text-primary)] leading-tight">Chapter {chapter.number}: {chapter.title} <span className="text-lg md:text-xl font-normal text-[var(--text-muted)]">({chapter.code.toUpperCase()})</span></h1>
               <p className="text-sm text-[var(--text-muted)] mt-2">Ganita Manjari Part I · {totalQ} questions · {chapter.exercises.length} exercises</p>
               <p className="text-xs text-[var(--text-muted)] mt-4">Chapter code: <span className="font-mono font-semibold text-[var(--text-secondary)]">{chapter.code}</span> · Book: Ganita Manjari Part I · Class 9 Maths</p>
             </div>

@@ -203,11 +203,12 @@ export default function ScienceChapterPage({ chapterCode, chapterSlug }: PagePro
 
   return (
     <Layout
-      title={`${chapter.title} — ${chapter.code} | Class 9 Science NCERT Solutions`}
-      description={`NCERT Solutions for Class 9 Science Chapter ${chapter.number} (${chapter.code}): ${chapter.title}. All questions answered step-by-step. CBSE 2026 Revised Syllabus (Exploration).`}
+      title={`${chapter.title} — ${chapter.code.toUpperCase()} | Class 9 Science NCERT Solutions`}
+      description={`NCERT Solutions for Class 9 Science Chapter ${chapter.number} (${chapter.code.toUpperCase()}): ${chapter.title}. All questions answered step-by-step. CBSE 2026 Revised Syllabus (Exploration).`}
       canonical={`/class-9/science/exploration/${chapterCode}/${chapterSlug}`}
       ogType="article"
       bgImage={getSubjectBackground('science', chapter.number)}
+      keywords={`${chapter.code.toUpperCase()}, ${chapter.code}, class 9 science NCERT solutions, Exploration chapter ${chapter.number}, ${chapter.title} solutions, CBSE 2026 science`}
       schema={[
         {
           '@context': 'https://schema.org',
@@ -218,6 +219,19 @@ export default function ScienceChapterPage({ chapterCode, chapterSlug }: PagePro
             { '@type': 'ListItem', position: 3, name: 'Class 9 Science', item: 'https://solvencert-novexa.vercel.app/class-9/science/exploration' },
             { '@type': 'ListItem', position: 4, name: chapter.title,     item: `https://solvencert-novexa.vercel.app/class-9/science/exploration/${chapterCode}/${chapterSlug}` },
           ],
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: `Chapter ${chapter.number}: ${chapter.title} (${chapter.code.toUpperCase()})`,
+          description: `NCERT Solutions for Class 9 Science Chapter ${chapter.number} (${chapter.code.toUpperCase()}): ${chapter.title}. CBSE 2026 Revised Syllabus.`,
+          keywords: `${chapter.code.toUpperCase()}, ${chapter.code}, class 9 science, NCERT solutions, Exploration, chapter ${chapter.number}`,
+          author: { '@type': 'Organization', name: 'SolveNCERT by NOVEXA' },
+          publisher: { '@type': 'Organization', name: 'SolveNCERT by NOVEXA', url: 'https://solvencert-novexa.vercel.app' },
+          url: `https://solvencert-novexa.vercel.app/class-9/science/exploration/${chapterCode}/${chapterSlug}`,
+          identifier: chapter.code.toUpperCase(),
+          about: { '@type': 'Chapter', name: chapter.title, position: chapter.number, code: chapter.code.toUpperCase() },
+          isPartOf: { '@type': 'Book', name: 'Exploration', isbn: 'NCERT Class 9 Science' },
         },
       ]}
     >
@@ -255,7 +269,7 @@ export default function ScienceChapterPage({ chapterCode, chapterSlug }: PagePro
                 <span className="badge-2026">NCERT 2026 Revised Syllabus</span>
               </div>
               <h1 className="text-xl md:text-2xl font-display font-bold text-[var(--text-primary)]">
-                Chapter {chapter.number}: {chapter.title}
+                Chapter {chapter.number}: {chapter.title} <span className="text-base md:text-lg font-normal text-[var(--text-muted)]">({chapter.code.toUpperCase()})</span>
               </h1>
               <p className="text-sm text-[var(--text-muted)] mt-1">Exploration · <MathRenderer text={chapter.description} /></p>
               <p className="text-xs text-[var(--text-muted)] mt-1">Chapter code: <span className="font-mono font-semibold text-[var(--text-secondary)]">{chapter.code}</span> · Book: Exploration · Class 9 Science</p>
