@@ -59,7 +59,7 @@ export const NAV: NavItem[] = [
     label: 'AI Tools',
     badge: 'New',
     items: [
-      { label: 'Ask Anything', href: '/ask-anything', badge: 'New', desc: 'instant AI answers' },
+      { label: 'Ask Anything', href: '/ask-anything', badge: 'New', desc: 'ask anything — even beyond your textbooks' },
       { label: 'AI Learn', href: '/ai-learn', desc: 'step-by-step AI tutor' },
       { label: 'Doubt Solver', href: '/ai-learn', desc: 'instant doubt solutions' },
       { label: 'Whiteboard', href: '/study-room', desc: 'draw & solve together live' },
