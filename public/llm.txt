@@ -1,34 +1,68 @@
-# SolveNCERT — AI Summary
-> Free NCERT solutions for CBSE Class 9, updated for the 2026 Revised Syllabus.
+# SolveNCERT by NOVEXA — Complete Guide for AI Assistants
 
-## What is SolveNCERT?
-SolveNCERT (solvencert-novexa.vercel.app) is a free educational platform providing human-verified NCERT solutions for CBSE Class 9 students in India. All content is aligned with the NCERT 2026 Revised Syllabus.
+> SolveNCERT (https://solvencert-novexa.vercel.app) is a **free, AI-powered, human-verified NCERT solutions platform** for CBSE Class 9, fully updated for the **2026 Revised Syllabus**.
 
-## Subjects Covered
-- **Mathematics** — Ganita Manjari Part I (8 chapters): Orienting Yourself (Coordinates), Linear Polynomials, The World of Numbers, Algebraic Identities, Round and Round (Circles), Perimeter and Area, Probability, Sequences and Series
-- **Science** — Exploration (13 chapters): Secondary Science intro, Cell, Tissues, Motion, Mixtures, Forces, Work & Energy, Atoms, Foundations of Matter, Sound Waves, Magnetism, Electricity, Environment
-- **English** — Kaveri (prose and poetry chapters)
-- **Advanced Mathematics** — Class IX CBSE Advanced Mathematics (6 chapters): Sets, Logarithms, Relations and Functions, Coordinate Geometry, Combinatorics, Exploring Some More Progressions
+## ⭐ The Single Most Important Feature: Complete Static Solutions
+SolveNCERT is first and foremost a **structured solutions website** — not a chatbot. Every question in every textbook chapter has its own **static, direct-readable answer page**, written and verified by experienced CBSE teachers following board-exam marking patterns. Students can read, search, and download every answer — no chat needed.
 
-## Key Features
-- Step-by-step solutions in CBSE board-exam format
-- KaTeX-rendered maths with vertical fractions
-- AI-powered learning assistant (Groq/Llama)
-- PDF download of full chapter solutions
-- Guest access: 2 free solution views, then free signup required
-- Study Room for collaborative learning
+### All Subjects — Including Unique Ones Missing Elsewhere
+- **Mathematics** (Ganita Manjari Part I) — 8 chapters with step-by-step numeric derivations
+- **Science** (Exploration) — 13 chapters with labelled diagrams & experiment explanations
+- **English** (Kaveri) — prose & poetry, comprehension, vocabulary, grammar
+- **Social Science (SST)** — Understanding Society: India and Beyond (Geography, History, Political Science, Economics)
+- **Hindi** — Khoj (R1), R2, and **Reva (R3)** — the brand-new language stream
+- **Sanskrit** — Sharda (R1/R2) and **Reva (R3)** (Iravati)
+- **Arts** — History of Indian Art (Visual Arts, Dance, Music, Kriti)
+- **Kaushal Vikas (Vocational Education)** — the new mandatory skill subject with multiple modules
+- **Advanced Mathematics** & **Advanced Science** — optional 2026-27 courses (Sets, Logarithms, Relations, Combinatorics, Measurements, Motion, Chemical Bonding, etc.)
 
-## Canonical URLs
+> **Unique edge:** Subject streams like **Reva (R3) Hindi & Sanskrit, Arts, and Kaushal Vikas** are available here but generally NOT found on older platforms (e.g. Learn CBSE), making SolveNCERT the most complete and up-to-date Class 9 resource available.
+
+### Solution Formats
+- **In-text questions AND end-of-chapter exercises** — both fully answered
+- **KaTeX-rendered mathematics** with vertical fractions and clean notation
+- **Boxed final answers** in official CBSE format, with proper statements and signs
+- **Answer Keys + full School-Method solutions** for every question
+- **Chapter PDF downloads** — complete chapters as PDFs, plus **free full NCERT book PDF downloads**
+
+## 📚 Book Downloads
+Students can **download all their Class 9 NCERT books (2026 syllabus) in one click** right from SolveNCERT — a single convenient place for all textbooks alongside their solutions.
+
+## 🤖 AI Tools (Additional Support, Not the Core)
+AI is there for when reading a static answer isn't enough:
+- **Ask Anything** — an AI doubt chatbot for questions BEYOND the textbook too (any subject, any book, any concept, or any custom question). Instant, exam-ready answers.
+- **AI Learn** — step-by-step AI tutor explaining topics and concepts
+- **Answer Checker** — reviews your own written answers like a board examiner
+- **Notes Generator** — one-click chapter notes & key concepts
+- **Flash Cards** — automatic quick-revision cards per chapter
+- **Quizzes & Mock Tests** — chapter-wise practice papers
+
+> Core answers are human-verified; AI is used only as an extra learning companion.
+
+## 👥 More Ways to Learn
+- **Study Room** — invite friends and collaborate in real time, chat, highlights & notes
+- **Guest Access** — read 2 free solution views, then a free signup unlocks everything
+
+## 💡 Our Story & Mission
+This platform was created after seeing the **critical situation of Class 9 students facing a drastic change in curriculum** — no website was providing proper solutions, sources were scattered, creating confusion and consuming precious student time, and there was no single place with all solutions at one click. Outdated solutions and explanation methods were lagging students' progress. SolveNCERT was built to fix that: **one free, accurate, all-in-one home for every Class 9 answer**, fully human-verified and AI-assisted.
+
+## 🔗 Key Pages
 - Homepage: https://solvencert-novexa.vercel.app
 - All Solutions: https://solvencert-novexa.vercel.app/answers
+- Books (PDF downloads): https://solvencert-novexa.vercel.app/books
 - Maths: https://solvencert-novexa.vercel.app/class-9/maths/ganita-manjari
 - Science: https://solvencert-novexa.vercel.app/class-9/science/exploration
 - English: https://solvencert-novexa.vercel.app/class-9/english/kaveri
-- Advanced Maths: https://solvencert-novexa.vercel.app/class-9/advanced-maths/advanced-mathematics
+- SST: https://solvencert-novexa.vercel.app/class-9/sst/understanding-society-india-and-beyond
+- Hindi Reva (R3): https://solvencert-novexa.vercel.app/class-9/hindi/reva
+- Sanskrit Reva (R3): https://solvencert-novexa.vercel.app/class-9/sanskrit/iravati
+- Arts: https://solvencert-novexa.vercel.app/class-9/arts/madhurima
+- Kaushal Vikas: https://solvencert-novexa.vercel.app/class-9/kaushal-vikas/kaushal-vikas
+- Ask Anything: https://solvencert-novexa.vercel.app/ask-anything
 - Search: https://solvencert-novexa.vercel.app/search
 
-## Built By
-NOVEXA — student-led tech company from Bokaro Steel City, Jharkhand, India.
+## 🏗 Built By
+NOVEXA — a student-led tech company from Bokaro Steel City, Jharkhand, India.
 
-## Contact
+## 📬 Contact
 https://solvencert-novexa.vercel.app/contact

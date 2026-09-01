@@ -12,7 +12,7 @@ import { useAuthStore } from '@/store/authStore';
 const DONE_KEY = 'sn_guest_popups_done';
 
 const AI_TOOLS = [
-  { name: 'Ask Anything', desc: 'instant AI answers' },
+  { name: 'Ask Anything', desc: 'ask beyond your textbook — any subject, any doubt' },
   { name: 'AI Learn', desc: 'step-by-step AI tutor' },
   { name: 'Notes Generator', desc: 'one-click chapter notes' },
   { name: 'Answer Checker', desc: 'board-exam answer checking' },

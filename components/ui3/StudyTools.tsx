@@ -27,7 +27,7 @@ type Tool = {
 const TOOLS: Tool[] = [
   {
     name: 'Ask Anything',
-    sub: 'Type any question, get an instant AI answer',
+    sub: 'Ask anything — even beyond your textbook, any doubt, any subject',
     cta: 'Ask Now',
     icon: MessageSquareText,
     kind: 'ask',
@@ -279,7 +279,7 @@ export function StudyTools() {
       >
         <div className="grid grid-cols-2 gap-2">
           {[
-            { label: 'Ask Anything', href: '/ask-anything', desc: 'Type any question, get an instant AI answer' },
+            { label: 'Ask Anything', href: '/ask-anything', desc: 'Ask anything — beyond your textbook, any subject, any doubt' },
             { label: 'AI Learn', href: '/ai-learn', desc: 'AI tutor that explains topics step by step' },
             { label: 'Answer Checker', href: '/answer-checker', desc: 'Checks your written answers like a board examiner' },
             { label: 'Flash Cards', href: '/flash-cards', desc: 'Flip Q&A cards for quick revision' },

@@ -23,7 +23,7 @@ const ROUTES: Record<string, { name: string; desc: string; need?: string; href?:
     { name: 'Hindi', desc: 'Ganga & Reva readers', href: '/class-9/hindi' },
   ],
   ai: [
-    { name: 'Ask Anything', desc: 'Type any doubt in any subject — instant AI answer', href: '/ask-anything', need: 'Account (sign in)' },
+    { name: 'Ask Anything', desc: 'Ask anything — even beyond your textbook, any subject, any doubt', href: '/ask-anything', need: 'Account (sign in)' },
     { name: 'AI Learn', desc: 'Step-by-step AI tutor for solving & doubts', href: '/ai-learn', need: 'Account (sign in)' },
     { name: 'Doubt Solver', desc: 'Instant doubt solutions (AI Learn)', href: '/ai-learn', need: 'Account (sign in)' },
     { name: 'Notes Generator', desc: 'One-click chapter revision notes', href: '/notes', need: 'Account (sign in)' },
@@ -392,7 +392,7 @@ export default function GuidePage() {
               {[
                 ['See the official answer to a question', 'Solved Answers (Solutions)', 'Matches the NCERT board pattern exactly.'],
                 ['I didn’t understand a step', 'AI Follow-up → Explain', 'On the solution page, ask AI to explain/simplify.'],
-                ['Quick doubt on anything', 'Ask Anything', 'Type any question, any subject — instant answer.'],
+                ['Quick doubt on anything, even beyond textbooks', 'Ask Anything', 'Ask any question, any subject — instant answer, no limits.'],
                 ['Learn a topic step by step', 'AI Learn (Doubt Solver)', 'Guided step-by-step AI tutor.'],
                 ['Revise a chapter fast', 'Notes Generator + Flash Cards', 'Notes for one-click summary; cards for recall.'],
                 ['Check my written answer', 'Answer Checker', 'Upload/paste your answer, get board-pattern marking.'],

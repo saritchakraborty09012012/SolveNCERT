@@ -73,7 +73,7 @@ export default function AskAnythingPage() {
           </div>
           <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">Ask Anything</h1>
           <p className="mx-auto mt-2 max-w-xl text-sm text-[var(--text-secondary)]">
-            Any subject. Any book. Any doubt. Get quick solutions and answer keys in the same pattern as our official solutions — with proper statements, signs and boxed answers.
+            Any subject. Any book. Any doubt — even beyond your textbooks. Ask anything, from a solved exercise to a completely new question, and get quick, exam-ready answers in the same official pattern — with proper statements, signs and boxed answers.
           </p>
         </div>
 
