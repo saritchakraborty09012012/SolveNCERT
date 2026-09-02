@@ -7,6 +7,7 @@ const PRIMARY_MODEL = 'gemini-3.6-flash'
 const FALLBACK_MODELS = ['gemini-flash-latest', 'gemini-flash-lite-latest']
 
 type IncomingMessage = { role?: string; text?: string }
+type IncomingAttachment = { name?: string; mimeType?: string; size?: number; dataUrl?: string }
 
 function friendlyError(message: string): { code: string; message: string } {
   if (/api key|forbidden|401|403|permission|invalid api/i.test(message)) {
@@ -19,6 +20,56 @@ function friendlyError(message: string): { code: string; message: string } {
     return { code: 'NETWORK', message: 'Network error while reaching the AI service.' }
   }
   return { code: 'API', message: 'The AI service returned an error. Please try again.' }
+}
+
+const MIME_PREFIXES_BINARY = ['image/', 'audio/', 'video/', 'application/pdf']
+
+function decodeDataUrl(dataUrl: string): { mimeType: string; base64: string } | null {
+  const match = dataUrl.match(/^data:([^;]+);base64,(.+)$/)
+  if (!match) return null
+  return { mimeType: match[1], base64: match[2] }
+}
+
+function isTextLikely(mimeType: string, fileName: string): boolean {
+  if (mimeType.startsWith('text/')) return true
+  if (MIME_PREFIXES_BINARY.some((p) => mimeType.startsWith(p))) return false
+  const ext = fileName.split('.').pop()?.toLowerCase() ?? ''
+  const textExts = [
+    'txt','md','json','js','jsx','ts','tsx','c','cpp','h','hpp','py','rb','java',
+    'html','htm','css','scss','less','xml','yaml','yml','toml','ini','cfg','conf',
+    'csv','tsv','log','sh','bash','bat','ps1','sql','r','swift','kt','scala','go',
+    'rs','php','pl','lua','dart','svelte','vue','astro','env','gitignore','dockerignore',
+    'makefile','cmake','gradle','sbt','cabal','elm','hs','ml','fs','ex','exs','erl',
+    'tex','bib','sty','cls','latex','markdown','rst','adoc','asciidoc','rtf',
+    'ipynb','dart','zig','nim','v','vhd','vhdl','sv','svh','vbs','psm1','psd1',
+    'csproj','fsproj','vbproj','sln','vcxproj','gradle','pro','mk','mak',
+  ]
+  return textExts.includes(ext)
+}
+
+function buildAttachmentParts(
+  attachments: IncomingAttachment[],
+): Array<Record<string, unknown>>[] {
+  const parts: Array<Record<string, unknown>>[] = []
+  for (const att of attachments) {
+    const dataUrl = att.dataUrl
+    if (!dataUrl) continue
+    const decoded = decodeDataUrl(dataUrl)
+    if (!decoded) continue
+    const mimeType = decoded.mimeType || att.mimeType || 'application/octet-stream'
+    const fileName = att.name || 'attachment'
+    if (isTextLikely(mimeType, fileName)) {
+      try {
+        const text = Buffer.from(decoded.base64, 'base64').toString('utf-8')
+        parts.push([{ text: `[File: ${fileName}]\n${text}` }])
+      } catch {
+        parts.push([{ inlineData: { mimeType, data: decoded.base64 } }])
+      }
+    } else {
+      parts.push([{ inlineData: { mimeType, data: decoded.base64 } }])
+    }
+  }
+  return parts
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -35,7 +86,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(500).json({ error: { code: 'NO_KEY', message: 'GEMINI_API_KEY is not configured.' } })
   }
 
-  let body: { messages?: IncomingMessage[]; mode?: string; profile?: Record<string, unknown> } = {}
+  let body: { messages?: IncomingMessage[]; mode?: string; profile?: Record<string, unknown>; attachments?: IncomingAttachment[] } = {}
   try { body = req.body } catch { /* malformed */ }
 
   const messages = Array.isArray(body.messages) ? body.messages.filter((m) => m && m.text) : []
@@ -45,6 +96,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const mode = typeof body.mode === 'string' ? body.mode : undefined
   const profile = body.profile as { classLevel?: string; board?: string; language?: string; learningGoals?: string[]; targetMarks?: string; weakSubjects?: string[]; teachingStyles?: string[]; competitiveExams?: string[]; otherExam?: string } | undefined
+  const attachments = Array.isArray(body.attachments) ? body.attachments : []
 
   const systemPrompt = buildSystemPrompt(
     profile ? {
@@ -62,10 +114,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     mode,
   )
 
-  const contents = messages.map((m) => ({
+  let contents = messages.map((m) => ({
     role: m.role === 'model' ? 'model' : 'user',
     parts: [{ text: String(m.text) }],
   }))
+
+  if (attachments.length > 0) {
+    let lastUserIdx = -1
+    for (let i = contents.length - 1; i >= 0; i--) {
+      if (contents[i].role === 'user') { lastUserIdx = i; break }
+    }
+    if (lastUserIdx !== -1) {
+      const attachmentParts = buildAttachmentParts(attachments)
+      contents[lastUserIdx].parts.push(...attachmentParts)
+    }
+  }
 
   let lastError: unknown = null
 

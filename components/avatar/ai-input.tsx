@@ -1,10 +1,24 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import { Loader2, Mic, MicOff, Send, Square, X, Radio } from 'lucide-react'
+import { useEffect, useRef, useState, type ChangeEvent } from 'react'
+import { Loader2, Mic, MicOff, Paperclip, Send, Square, X, Radio } from 'lucide-react'
 import { useAvatarSystem } from './avatar-state-controller'
 import { canSendAiMessage } from '@/lib/ai-learn/rate-limiter'
 import { useAuthStore } from '@/store/authStore'
+import type { AvatarAttachment } from '@/lib/avatar/types'
+
+const MAX_FILE_SIZE = 20 * 1024 * 1024 // 20 MB
+
+function formatBytes(bytes: number): string {
+  if (bytes < 1024) return `${bytes} B`
+  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`
+}
+
+function extFromName(name: string): string {
+  const dot = name.lastIndexOf('.')
+  return dot >= 0 ? name.slice(dot + 1).toUpperCase() : '?'
+}
 
 type Props = {
   liveMode?: {
@@ -15,16 +29,20 @@ type Props = {
 }
 
 export function AIInput({ liveMode }: Props) {
-  const { status, voice, sendMessage, handleTyping, stopSpeech, toggleListening, error, clearError } =
-    useAvatarSystem()
+  const {
+    status, voice, sendMessage, handleTyping, stopSpeech, toggleListening, error, clearError,
+    attachments, addAttachments, removeAttachment,
+  } = useAvatarSystem()
   const [value, setValue] = useState('')
   const taRef = useRef<HTMLTextAreaElement>(null)
+  const fileInputRef = useRef<HTMLInputElement>(null)
   const { isGuest } = useAuthStore()
 
   const busy = status === 'thinking' || status === 'generating'
   const displayValue = voice.isListening ? voice.interimTranscript : value
   const { allowed } = canSendAiMessage()
-  const canSend = displayValue.trim().length > 0 && !busy && allowed
+  const hasContent = displayValue.trim().length > 0 || attachments.length > 0
+  const canSend = hasContent && !busy && allowed
   const liveActive = liveMode?.isActive ?? false
 
   useEffect(() => {
@@ -34,9 +52,31 @@ export function AIInput({ liveMode }: Props) {
     ta.style.height = `${Math.min(ta.scrollHeight, 120)}px`
   }, [displayValue])
 
+  const readFiles = async (fileList: FileList | null) => {
+    if (!fileList || fileList.length === 0) return
+    const files = Array.from(fileList).filter((f) => f.size <= MAX_FILE_SIZE)
+    const readFile = (file: File): Promise<AvatarAttachment> =>
+      new Promise((resolve, reject) => {
+        const reader = new FileReader()
+        reader.onload = () =>
+          resolve({ name: file.name, mimeType: file.type || 'application/octet-stream', size: file.size, dataUrl: reader.result as string })
+        reader.onerror = reject
+        reader.readAsDataURL(file)
+      })
+    const batch = await Promise.all(files.map(readFile)).catch(() => [])
+    if (batch.length > 0) addAttachments(batch)
+  }
+
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    readFiles(e.target.files)
+    if (fileInputRef.current) fileInputRef.current.value = ''
+  }
+
   const submit = () => {
     const text = displayValue.trim()
-    if (!text || busy) return
+    const hasAttachments = attachments.length > 0
+    if (!text && !hasAttachments) return
+    if (busy) return
     if (voice.isListening) voice.stopListening()
     setValue('')
     clearError()
@@ -64,7 +104,9 @@ export function AIInput({ liveMode }: Props) {
         ? 'Sign up to continue learning...'
         : voice.isListening
           ? 'Listening... speak now'
-          : 'Ask NEXUS anything...'
+          : attachments.length > 0
+            ? 'Describe your files or just send...'
+            : 'Ask NEXUS anything...'
 
   return (
     <div className="w-full max-w-2xl">
@@ -79,11 +121,59 @@ export function AIInput({ liveMode }: Props) {
         </div>
       )}
 
+      {/* Attachment previews */}
+      {attachments.length > 0 && (
+        <div className="mb-2 flex flex-wrap gap-1.5">
+          {attachments.map((att, idx) => (
+            <div
+              key={`${att.name}-${idx}`}
+              className="flex items-center gap-1.5 rounded-md border border-cyan-400/30 bg-slate-900/60 px-2 py-1 backdrop-blur-md"
+            >
+              <Paperclip className="h-3 w-3 shrink-0 text-cyan-300/70" />
+              <span className="max-w-[120px] truncate font-mono text-[10px] text-cyan-100/80">
+                {att.name}
+              </span>
+              <span className="font-mono text-[9px] text-cyan-300/45">
+                {extFromName(att.name)} {formatBytes(att.size)}
+              </span>
+              <button
+                type="button"
+                onClick={() => removeAttachment(idx)}
+                aria-label={`Remove ${att.name}`}
+                className="ml-0.5 rounded p-0.5 text-cyan-300/40 transition-colors hover:bg-cyan-400/15 hover:text-cyan-200/80"
+              >
+                <X className="h-2.5 w-2.5" />
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
+
       <div className={`flex items-end gap-2 rounded-xl border p-2 backdrop-blur-md transition-all ${
         liveActive
           ? 'border-red-400/40 bg-slate-950/85 shadow-[0_0_50px_-12px_rgba(239,68,68,0.5)]'
           : 'border-cyan-400/30 bg-slate-950/75 shadow-[0_0_40px_-12px_rgba(80,200,255,0.55)]'
       }`}>
+        {/* Attach button */}
+        <button
+          type="button"
+          onClick={() => fileInputRef.current?.click()}
+          disabled={busy}
+          aria-label="Attach a file"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-cyan-300/40 bg-cyan-400/10 text-cyan-200 transition-colors hover:bg-cyan-400/20 disabled:cursor-not-allowed disabled:opacity-35"
+        >
+          <Paperclip className="h-4 w-4" />
+        </button>
+        <input
+          ref={fileInputRef}
+          type="file"
+          multiple
+          onChange={handleFileChange}
+          className="hidden"
+          aria-hidden="true"
+          tabIndex={-1}
+        />
+
         {/* Mic button */}
         <button
           type="button"

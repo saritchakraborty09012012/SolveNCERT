@@ -1,5 +1,5 @@
 import { buildFallback, salvageStructured, sanitizeStructured } from './structure'
-import type { ConversationMessage, StructuredResponse } from './types'
+import type { AvatarAttachment, ConversationMessage, StructuredResponse } from './types'
 import { getProfile } from '@/lib/ai-learn/profile'
 
 type ApiErrorBody = { code?: string; message?: string }
@@ -29,6 +29,7 @@ export async function fetchModelConfig(): Promise<ModelConfig> {
 export async function askGemini(
   messages: ConversationMessage[],
   mode?: string,
+  attachments?: AvatarAttachment[],
 ): Promise<StructuredResponse> {
   const profile = getProfile()
 
@@ -40,6 +41,9 @@ export async function askGemini(
       body: JSON.stringify({
         messages,
         mode: mode ?? undefined,
+        attachments: attachments
+          ?.map((a) => ({ name: a.name, mimeType: a.mimeType, size: a.size, dataUrl: a.dataUrl }))
+          ?? undefined,
         profile: profile.completedOnboarding
           ? {
               classLevel: profile.classLevel,

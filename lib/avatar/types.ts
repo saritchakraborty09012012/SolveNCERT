@@ -20,6 +20,17 @@ export type ConversationMessage = {
   text: string
 }
 
+/**
+ * A file attached to a message (e.g. an image, PDF, or any text/code file).
+ * `dataUrl` holds a base64 data URL produced by FileReader.readAsDataURL.
+ */
+export type AvatarAttachment = {
+  name: string
+  mimeType: string
+  size: number
+  dataUrl: string
+}
+
 export type SectionKind =
   | 'statement'
   | 'bullets'

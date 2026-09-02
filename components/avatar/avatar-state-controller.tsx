@@ -17,6 +17,7 @@ import { askGemini, fetchModelConfig } from '@/lib/avatar/gemini-client'
 import { memoryTopicsFromUser } from '@/lib/avatar/structure'
 import { canSendAiMessage, recordGuestUsage } from '@/lib/ai-learn/rate-limiter'
 import type {
+  AvatarAttachment,
   AvatarStatus,
   ConversationMessage,
   GazePoint,
@@ -48,7 +49,11 @@ export type AvatarSystem = {
   expressionRef: MutableRefObject<Expression>
   gazeRef: MutableRefObject<GazePoint>
   voice: VoiceControllerApi
-  sendMessage: (text: string) => void
+  sendMessage: (text: string, attachments?: AvatarAttachment[]) => void
+  attachments: AvatarAttachment[]
+  addAttachments: (attachments: AvatarAttachment[]) => void
+  removeAttachment: (index: number) => void
+  clearAttachments: () => void
   handleTyping: (text: string) => void
   toggleListening: () => void
   stopSpeech: () => void
@@ -80,6 +85,7 @@ export function AvatarStateController({ children }: { children: ReactNode }) {
   const speechRef = useRef<SpeechState>({ speaking: false, amp: 0 })
   const expressionRef = useRef<Expression>('neutral')
   const gazeRef = useRef<GazePoint>({ ...GAZE.forward })
+  const attachmentsRef = useRef<AvatarAttachment[]>([])
 
   // ---- reactive state ----------------------------------------------------
   const [status, setStatusState] = useState<AvatarStatus>('idle')
@@ -95,6 +101,7 @@ export function AvatarStateController({ children }: { children: ReactNode }) {
   const [conceptsProcessed, setConceptsProcessed] = useState(0)
   const [messageCount, setMessageCount] = useState(0)
   const [mode, setModeState] = useState('default')
+  const [attachments, setAttachmentsState] = useState<AvatarAttachment[]>([])
   const [capabilities, setCapabilities] = useState<SystemCapabilities>({
     apiKeyConfigured: true,
     speechSupported: false,
@@ -203,9 +210,13 @@ export function AvatarStateController({ children }: { children: ReactNode }) {
   }, [setStatus, setGaze])
 
   const sendMessage = useCallback(
-    async (raw: string) => {
+    async (raw: string, attachments?: AvatarAttachment[]) => {
       const text = raw.trim()
-      if (!text) return
+      const combinedAttachments = [...(attachments ?? []), ...attachmentsRef.current]
+      if (!text && combinedAttachments.length === 0) return
+
+      attachmentsRef.current = []
+      setAttachmentsState([])
 
       const current = statusRef.current
       if (current === 'thinking' || current === 'generating') return
@@ -255,7 +266,12 @@ export function AvatarStateController({ children }: { children: ReactNode }) {
       setGaze('generation')
 
       try {
-        const result = await askGemini(conversationRef.current, modeRef.current !== 'default' ? modeRef.current : undefined)
+        const attachmentsPayload = combinedAttachments.length > 0 ? combinedAttachments : undefined
+        const result = await askGemini(
+          conversationRef.current,
+          modeRef.current !== 'default' ? modeRef.current : undefined,
+          attachmentsPayload,
+        )
         conversationRef.current.push({ role: 'model', text: result.summary })
         setMessageCount((c) => c + 1)
 
@@ -379,6 +395,23 @@ export function AvatarStateController({ children }: { children: ReactNode }) {
     setModeState(newMode)
   }, [])
 
+  const addAttachments = useCallback((newAttachments: AvatarAttachment[]) => {
+    if (!newAttachments || newAttachments.length === 0) return
+    attachmentsRef.current = [...attachmentsRef.current, ...newAttachments]
+    setAttachmentsState((prev) => [...prev, ...newAttachments])
+  }, [])
+
+  const removeAttachment = useCallback((index: number) => {
+    const next = attachmentsRef.current.filter((_, i) => i !== index)
+    attachmentsRef.current = next
+    setAttachmentsState(next)
+  }, [])
+
+  const clearAttachments = useCallback(() => {
+    attachmentsRef.current = []
+    setAttachmentsState([])
+  }, [])
+
   useEffect(() => {
     return () => {
       if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
@@ -421,6 +454,10 @@ export function AvatarStateController({ children }: { children: ReactNode }) {
       gazeRef,
       voice,
       sendMessage,
+      attachments,
+      addAttachments,
+      removeAttachment,
+      clearAttachments,
       handleTyping,
       toggleListening,
       stopSpeech,
@@ -447,6 +484,10 @@ export function AvatarStateController({ children }: { children: ReactNode }) {
       gazeRef,
       voice,
       sendMessage,
+      attachments,
+      addAttachments,
+      removeAttachment,
+      clearAttachments,
       handleTyping,
       toggleListening,
       stopSpeech,
