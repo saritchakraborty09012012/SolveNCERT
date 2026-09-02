@@ -1,9 +1,5 @@
 import React from 'react'
 
-const WORDS = ['MATHEMATICS', 'CONCEPTS', 'QUESTIONS', 'EXAMPLES', 'SOLUTIONS']
-const WORD_LEFT = ['50%', '36%', '63%', '43%', '57%']
-const RING_COUNT = 12
-
 /** Derives a friendly banner label from the destination URL. */
 export function deriveLabel(url: string): string {
   const path = url.split('?')[0]
@@ -34,35 +30,21 @@ export default function TunnelLoader({ state, label }: Props) {
   const finishing = state === 'finish'
 
   return (
-    <div className={`tunnel-loader${finishing ? ' finishing' : ''}`} role="status" aria-live="polite">
-      {/* central light */}
-      <div className="tunnel-core" aria-hidden="true" />
-
-      {/* zooming tunnel rings */}
-      <div className="tunnel-rings" aria-hidden="true">
-        {Array.from({ length: RING_COUNT }, (_, i) => (
-          <span key={i} className="tunnel-ring" style={{ animationDelay: `${i * 0.22}s` }} />
-        ))}
+    <div className={`tunnel-loader${finishing ? ' finishing' : ''}`} role="status" aria-label="Loading next page" aria-live="polite">
+      <div className="solar-stars" aria-hidden="true" />
+      <div className="solar-streaks" aria-hidden="true" />
+      {!finishing && <div className="solar-planets" aria-hidden="true">
+        <span className="solar-sun" />
+        <span className="solar-planet solar-planet--earth" />
+        <span className="solar-planet solar-planet--jupiter" />
+        <span className="solar-planet solar-planet--saturn" />
+      </div>}
+      <div className="solar-arrival" aria-hidden="true">
+        <span className="solar-arrival__halo" />
+        <span className="solar-arrival__word">SOLVENCERT</span>
       </div>
-
-      {/* floating words flying past the camera */}
-      {!finishing && (
-        <div className="tunnel-words" aria-hidden="true">
-          {WORDS.map((w, i) => (
-            <span key={w} className="tunnel-word" style={{ left: WORD_LEFT[i], animationDelay: `${i * 0.42}s` }}>
-              {w}
-            </span>
-          ))}
-        </div>
-      )}
-
-      {/* welcome banner + boom on arrival */}
-      <div className="tunnel-welcome">
-        <p className="tunnel-welcome-kicker">WELCOME TO</p>
-        <p className="tunnel-welcome-title">{label}</p>
-      </div>
-
-      <div className="tunnel-boom" aria-hidden="true" />
+      {!finishing && <div className="solar-dots" aria-label="Loading"><span /><span /><span /></div>}
+      <span className="sr-only">Loading {label}</span>
     </div>
   )
 }

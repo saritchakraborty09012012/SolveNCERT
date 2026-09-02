@@ -1,9 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { CLASS_9_SUBJECTS } from '@/lib/content';
 import { ENGLISH_CHAPTERS } from '@/lib/content-english';
+import { SITE_URL } from '@/lib/site';
 
 export default function handler(_req: NextApiRequest, res: NextApiResponse) {
-  const base = 'https://solvencert-novexa.vercel.app';
+  const base = SITE_URL;
 
   const staticPages = [
     '', '/answers', '/books', '/premium', '/search',

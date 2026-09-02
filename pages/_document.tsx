@@ -1,6 +1,7 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
+  const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
   return (
     // en-IN signals to Google this is India-targeted content
     // suppressHydrationWarning: the pre-paint scripts below set data-ui and the
@@ -23,6 +24,7 @@ export default function Document() {
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="SolveNCERT" />
         <meta name="application-name" content="SolveNCERT" />
+        {googleVerification && <meta name="google-site-verification" content={googleVerification} />}
 
         {/* Favicons */}
         <link rel="icon" href="/solvencert-logo-32.png" type="image/png" sizes="32x32" />

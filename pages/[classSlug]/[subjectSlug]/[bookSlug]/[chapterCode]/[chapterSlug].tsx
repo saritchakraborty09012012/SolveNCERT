@@ -377,6 +377,7 @@ export default function ChapterPage({ classSlug, subjectSlug, bookSlug, chapterC
               {hasRealCode && (
                 <p className="text-xs text-[var(--text-muted)] mt-4">Chapter code: <span className="font-mono font-semibold text-[var(--text-secondary)]">{chapter.code}</span> · Book: {subject.book} · Class 9 {subject.name}</p>
               )}
+              <p className="text-sm text-[var(--text-secondary)] mt-3 leading-relaxed">Find complete NCERT solutions for Class 9 {subject.name}, {subject.book} Chapter {chapter.number}. Every question has a clear, step-by-step answer{hasRealCode ? ` for chapter code ${chapter.code.toUpperCase()}` : ''}.</p>
             </div>
 
             {/* Exercise selector + download */}

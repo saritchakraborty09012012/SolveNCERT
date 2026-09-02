@@ -258,6 +258,7 @@ export default function EnglishContentPage({ chapterCode, chapterSlug }: PagePro
               </h1>
               <p className="text-sm text-[var(--text-muted)] mt-1">Kaveri · {totalQ} questions · {content.sections.length} sections</p>
               <p className="text-xs text-[var(--text-muted)] mt-1">Chapter code: <span className="font-mono font-semibold text-[var(--text-secondary)]">{chapter.code}</span> · Book: Kaveri · Class 9 English</p>
+              <p className="text-sm text-[var(--text-secondary)] mt-3 leading-relaxed">Find complete NCERT solutions for Class 9 English, Kaveri Chapter {chapter.number}. This page covers {content.title} with clear answers for chapter code {chapter.code.toUpperCase()}.</p>
 
               {/* Real links to the sibling content — not an in-page tab, each is its own page */}
               {otherContent && (

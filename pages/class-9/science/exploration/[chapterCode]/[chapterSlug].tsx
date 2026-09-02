@@ -273,6 +273,7 @@ export default function ScienceChapterPage({ chapterCode, chapterSlug }: PagePro
               </h1>
               <p className="text-sm text-[var(--text-muted)] mt-1">Exploration · <MathRenderer text={chapter.description} /></p>
               <p className="text-xs text-[var(--text-muted)] mt-1">Chapter code: <span className="font-mono font-semibold text-[var(--text-secondary)]">{chapter.code}</span> · Book: Exploration · Class 9 Science</p>
+              <p className="text-sm text-[var(--text-secondary)] mt-3 leading-relaxed">Find complete NCERT solutions for Class 9 Science, Exploration Chapter {chapter.number}. Every question has a clear, step-by-step answer for chapter code {chapter.code.toUpperCase()}.</p>
             </div>
 
             <div className="mb-5 flex items-center gap-2 flex-wrap">

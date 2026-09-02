@@ -13,6 +13,7 @@ import AuthModal from '@/components/auth/AuthModal';
 import SubjectDropdowns from '@/components/features/SubjectDropdowns';
 import { HomePage } from '@/components/ui3/HomePage';
 import { cn } from '@/utils/helpers';
+import { PUBLISHER_NAME, SITE_ALTERNATE_NAME, SITE_NAME, SITE_URL } from '@/lib/site';
 
 const HOME_TITLE = 'NCERT Solutions for CBSE Class 9 — Free, AI-Powered, 2026 Revised Syllabus';
 const HOME_DESC = 'SolveNCERT — Free NCERT solutions for CBSE Class 9 as per 2026 Revised Syllabus. Maths (Ganita Manjari), Science (Exploration), English (Kaveri). Human-verified, AI-powered.';
@@ -21,23 +22,24 @@ const HOME_SCHEMA = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'SolveNCERT',
-    url: 'https://solvencert-novexa.vercel.app',
+    name: SITE_NAME,
+    alternateName: SITE_ALTERNATE_NAME,
+    url: SITE_URL,
     description: 'Free NCERT solutions for CBSE Class 9 — 2026 Revised Syllabus',
     potentialAction: {
       '@type': 'SearchAction',
-      target: { '@type': 'EntryPoint', urlTemplate: 'https://solvencert-novexa.vercel.app/search?q={search_term_string}' },
+      target: { '@type': 'EntryPoint', urlTemplate: `${SITE_URL}/search?q={search_term_string}` },
       'query-input': 'required name=search_term_string',
     },
   },
   {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'SolveNCERT',
-    url: 'https://solvencert-novexa.vercel.app',
-    logo: 'https://solvencert-novexa.vercel.app/solvencert-logo-256.png',
-    sameAs: ['https://solvencert-novexa.vercel.app'],
-    parentOrganization: { '@type': 'Organization', name: 'NOVEXA' },
+    '@type': ['Organization', 'EducationalOrganization'],
+    name: SITE_NAME,
+    alternateName: SITE_ALTERNATE_NAME,
+    url: SITE_URL,
+    logo: `${SITE_URL}/solvencert-logo-256.png`,
+    parentOrganization: { '@type': 'Organization', name: PUBLISHER_NAME },
   },
 ];
 

@@ -214,6 +214,7 @@ export default function MathsChapterPage({ chapterCode, chapterSlug }: PageProps
               <h1 className="text-2xl md:text-3xl font-display font-bold text-[var(--text-primary)] leading-tight">Chapter {chapter.number}: {chapter.title} <span className="text-lg md:text-xl font-normal text-[var(--text-muted)]">({chapter.code.toUpperCase()})</span></h1>
               <p className="text-sm text-[var(--text-muted)] mt-2">Ganita Manjari Part I · {totalQ} questions · {chapter.exercises.length} exercises</p>
               <p className="text-xs text-[var(--text-muted)] mt-4">Chapter code: <span className="font-mono font-semibold text-[var(--text-secondary)]">{chapter.code}</span> · Book: Ganita Manjari Part I · Class 9 Maths</p>
+              <p className="text-sm text-[var(--text-secondary)] mt-3 leading-relaxed">Find complete NCERT solutions for Class 9 Maths, Ganita Manjari Part I Chapter {chapter.number}. Every exercise has a clear, step-by-step answer for chapter code {chapter.code.toUpperCase()}.</p>
             </div>
 
             {/* Exercise selector + download */}

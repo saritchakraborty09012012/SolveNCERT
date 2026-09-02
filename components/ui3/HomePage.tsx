@@ -11,8 +11,9 @@ import { StudyTools } from './StudyTools'
 import { StatsStrip } from './StatsStrip'
 import { JourneyCta } from './JourneyCta'
 import { SiteFooter } from './SiteFooter'
+import { SITE_URL } from '@/lib/site'
 
-const BASE_URL = 'https://solvencert-novexa.vercel.app'
+const BASE_URL = SITE_URL
 
 export function HomePage({
   title = 'SolveNCERT — NCERT Solutions for CBSE Class 9',

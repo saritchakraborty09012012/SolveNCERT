@@ -12,6 +12,7 @@ import { useUIStore } from '@/store/uiStore';
 import { useCollabStore } from '@/store/collabStore';
 import { supabase } from '@/lib/supabase';
 import { describePath } from '@/lib/history';
+import { SITE_URL } from '@/lib/site';
 
 interface LayoutProps {
   children:      React.ReactNode;
@@ -27,7 +28,7 @@ interface LayoutProps {
   keywords?:     string;        // per-page SEO keywords (overrides default)
 }
 
-const BASE_URL   = 'https://solvencert-novexa.vercel.app';
+const BASE_URL   = SITE_URL;
 const DEFAULT_OG = `${BASE_URL}/solvencert-logo-256.png`;
 const DEFAULT_DESC = 'SolveNCERT — Free NCERT solutions for CBSE Class 9 as per 2026 Revised Syllabus. Maths, Science, English — AI-powered, human-verified answers.';
 
