@@ -34,14 +34,59 @@ function CopyBtn({ text }: { text: string }) {
   );
 }
 
-function NotebookQuestion({ q, exercise, chapter, onGuestBlock, guestBlocked }: {
+function ExerciseQuestions({ exercise, chapter, guestBlocked, onGuestBlock }: {
+  exercise: MathsSourceExercise;
+  chapter: { code: string; slug: string; title: string; number: number };
+  guestBlocked: boolean;
+  onGuestBlock: () => void;
+}) {
+  const [showKey, setShowKey] = useState(false);
+  const [showSol, setShowSol] = useState(true);
+  const keepScroll = useRef<number | null>(null);
+
+  React.useLayoutEffect(() => {
+    if (keepScroll.current !== null) {
+      const root = document.documentElement;
+      const prev = root.style.scrollBehavior;
+      root.style.scrollBehavior = 'auto';
+      window.scrollTo(0, keepScroll.current);
+      root.style.scrollBehavior = prev;
+      keepScroll.current = null;
+    }
+  });
+
+  function toggleKey() {
+    keepScroll.current = window.scrollY;
+    setShowKey(!showKey);
+    if (!showKey) setShowSol(false);
+  }
+
+  function toggleSol() {
+    keepScroll.current = window.scrollY;
+    setShowSol(!showSol);
+    if (!showSol) setShowKey(false);
+  }
+
+  return (
+    <>
+      {exercise.questions.map(q => (
+        <NotebookQuestion key={q.id} q={q} exercise={exercise} chapter={chapter}
+          guestBlocked={guestBlocked} onGuestBlock={onGuestBlock}
+          showKey={showKey} showSol={showSol}
+          onToggleKey={toggleKey} onToggleSol={toggleSol} />
+      ))}
+    </>
+  );
+}
+
+function NotebookQuestion({ q, exercise, chapter, onGuestBlock, guestBlocked, showKey, showSol, onToggleKey, onToggleSol }: {
   q: MathsSourceQuestion; exercise: MathsSourceExercise;
   chapter: { code: string; slug: string; title: string; number: number };
   onGuestBlock: () => void; guestBlocked: boolean;
+  showKey: boolean; showSol: boolean;
+  onToggleKey: () => void; onToggleSol: () => void;
 }) {
   const ctx = `Maths Question ${q.number}: ${q.plainText}`;
-  const [showKey, setShowKey] = useState(false);
-  const [showSol, setShowSol] = useState(true);
   return (
     <div className="question-block" id={`q-${exercise.id}-${q.id}`}>
       <div className="ganita-notebook">
@@ -55,18 +100,20 @@ function NotebookQuestion({ q, exercise, chapter, onGuestBlock, guestBlocked }: 
             <div className="qbody">
               {/* Answer type buttons */}
               <div className="flex items-center gap-2 flex-wrap mb-2">
-                <button onClick={() => { setShowKey(!showKey); if (!showKey) setShowSol(false); }}
+                <button onClick={onToggleKey}
                   className={cn('method-tab text-xs', showKey ? 'method-tab-active' : 'method-tab-inactive')}><KeyRound size={12}/> Answer Key</button>
-                <button onClick={() => { setShowSol(!showSol); if (!showSol) setShowKey(false); }}
+                <button onClick={onToggleSol}
                   className={cn('method-tab text-xs', showSol ? 'method-tab-active' : 'method-tab-inactive')}><BookOpen size={12}/> School Level Solution</button>
               </div>
 
               {showKey && (
                 <div className="p-3 rounded-xl bg-amber-50 dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/40 mb-2">
-                  <p className="text-[10px] font-bold text-amber-600 uppercase tracking-wider mb-1.5">Answer Key</p>
+                  <p className="font-bold text-amber-600 uppercase tracking-wider mb-1.5">Answer Key</p>
                   <div className="flex items-start gap-2">
-                    <span className="flex-shrink-0 mt-0.5 rounded-md bg-amber-600/10 dark:bg-amber-400/15 text-amber-600 dark:text-amber-400 text-xs font-bold px-2 py-0.5">Ans.</span>
-                    <p className="flex-1 min-w-0 text-sm text-[var(--text-secondary)] leading-relaxed">{q.answerKey}</p>
+                    <span className="flex-shrink-0 mt-1 rounded-md bg-amber-600/10 dark:bg-amber-400/15 text-amber-600 dark:text-amber-400 font-bold px-2 py-0.5">Ans.</span>
+                    <div className="flex-1 min-w-0">
+                      <span className="box" style={{ whiteSpace: 'pre-line' }}>{q.answerKey}</span>
+                    </div>
                   </div>
                   <div className="flex items-center justify-between mt-2">
                     <div className="answer-actions"><ReadAloud text={q.answerKey} size="sm" /><CopyBtn text={q.answerKey} /></div>
@@ -79,7 +126,7 @@ function NotebookQuestion({ q, exercise, chapter, onGuestBlock, guestBlocked }: 
               {showSol && (
                 <div className="p-1.5 rounded-xl bg-[var(--surface-1)] border border-[var(--border)] mb-2">
                   <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <p className="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">School Level Solution</p>
+                    <p className="font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">School Level Solution</p>
                     <BookmarkButton
                       subject="maths" chapterCode={chapter.code} chapterSlug={chapter.slug} chapterTitle={chapter.title}
                       questionId={`${exercise.id}-${q.id}`} questionNumber={q.number.replace(/\u2605/g, '')} questionText={q.plainText}
@@ -160,7 +207,7 @@ export default function MathsChapterPage({ chapterCode, chapterSlug }: PageProps
     <h1>Chapter ${chapter.number}: ${chapter.title} — Answer Keys</h1>
     <p style="color:#6b7280;font-size:12px;margin-bottom:20px">Class 9 Maths (Ganita Manjari Part I) · Quick-reference answer keys only · NCERT 2026 Revised Syllabus</p>
     ${exercises.map(ex => `<h2>${ex.title}</h2>${ex.questions.map(q => `
-      <div class="q"><p><strong>Q${q.number.replace(/\u2605/g, '')}.</strong> ${q.answerKey.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</p></div>`).join('')}`).join('')}
+      <div class="q"><p><strong>Q${q.number.replace(/\u2605/g, '')}.</strong> ${q.answerKey.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\n/g, '<br>')}</p></div>`).join('')}`).join('')}
     <div class="footer">SolveNCERT — Powered by NOVEXA | solvencert · NCERT 2026 Revised Syllabus</div>
     </body></html>`;
     htmlToPdf(html, `class-9-maths-${chapter.code}-${selEx === 'all' ? 'all-exercises' : selEx}-answer-keys.pdf`);
@@ -293,12 +340,12 @@ export default function MathsChapterPage({ chapterCode, chapterSlug }: PageProps
                   {exercise.title}
                   <span className="text-xs font-normal text-[var(--text-muted)]">({exercise.questions.length} questions)</span>
                 </h2>
-                {exercise.questions.map(q => (
-                  <NotebookQuestion key={q.id} q={q} exercise={exercise}
-                    chapter={{ code: chapter.code, slug: chapter.slug, title: chapter.title, number: chapter.number }}
-                    guestBlocked={guestBlocked && isGuest}
-                    onGuestBlock={() => setAuthModal('signup')} />
-                ))}
+                <ExerciseQuestions
+                  exercise={exercise}
+                  chapter={{ code: chapter.code, slug: chapter.slug, title: chapter.title, number: chapter.number }}
+                  guestBlocked={guestBlocked && isGuest}
+                  onGuestBlock={() => setAuthModal('signup')}
+                />
                 {exercise.introHtml && (
                   <div className="ganita-notebook" dangerouslySetInnerHTML={{ __html: exercise.introHtml }} />
                 )}
