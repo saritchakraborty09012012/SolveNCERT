@@ -1465,7 +1465,7 @@ export const MATHS_SOURCE_CHAPTERS: MathsSourceChapter[] = [
   {
     "id": "ch06",
     "number": 6,
-    "title": "Measuring Space",
+    "title": "Measuring Space: Perimeter and Area",
     "slug": "measuring-space-perimeter-and-area",
     "code": "0904ch06",
     "exercises": [
