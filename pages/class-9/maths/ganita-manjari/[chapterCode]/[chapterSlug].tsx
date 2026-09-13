@@ -42,27 +42,31 @@ function ExerciseQuestions({ exercise, chapter, guestBlocked, onGuestBlock }: {
 }) {
   const [showKey, setShowKey] = useState(false);
   const [showSol, setShowSol] = useState(true);
-  const keepScroll = useRef<number | null>(null);
+  const anchor = useRef<{ el: HTMLElement; top: number } | null>(null);
 
   React.useLayoutEffect(() => {
-    if (keepScroll.current !== null) {
+    if (anchor.current) {
       const root = document.documentElement;
       const prev = root.style.scrollBehavior;
       root.style.scrollBehavior = 'auto';
-      window.scrollTo(0, keepScroll.current);
+      const { el, top } = anchor.current;
+      const delta = el.getBoundingClientRect().top - top;
+      if (Math.abs(delta) > 0) window.scrollBy(0, delta);
       root.style.scrollBehavior = prev;
-      keepScroll.current = null;
+      anchor.current = null;
     }
   });
 
-  function toggleKey() {
-    keepScroll.current = window.scrollY;
+  function toggleKey(e: React.MouseEvent<HTMLButtonElement>) {
+    const block = e.currentTarget.closest('.question-block') as HTMLElement | null;
+    anchor.current = block ? { el: block, top: block.getBoundingClientRect().top } : null;
     setShowKey(!showKey);
     if (!showKey) setShowSol(false);
   }
 
-  function toggleSol() {
-    keepScroll.current = window.scrollY;
+  function toggleSol(e: React.MouseEvent<HTMLButtonElement>) {
+    const block = e.currentTarget.closest('.question-block') as HTMLElement | null;
+    anchor.current = block ? { el: block, top: block.getBoundingClientRect().top } : null;
     setShowSol(!showSol);
     if (!showSol) setShowKey(false);
   }
@@ -84,7 +88,7 @@ function NotebookQuestion({ q, exercise, chapter, onGuestBlock, guestBlocked, sh
   chapter: { code: string; slug: string; title: string; number: number };
   onGuestBlock: () => void; guestBlocked: boolean;
   showKey: boolean; showSol: boolean;
-  onToggleKey: () => void; onToggleSol: () => void;
+  onToggleKey: (e: React.MouseEvent<HTMLButtonElement>) => void; onToggleSol: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }) {
   const ctx = `Maths Question ${q.number}: ${q.plainText}`;
   return (
