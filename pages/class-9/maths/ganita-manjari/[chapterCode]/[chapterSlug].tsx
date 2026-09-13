@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Link from 'next/link';
-import { ChevronRight, BookOpen, Home, Download, Copy, Check } from 'lucide-react';
+import { ChevronRight, BookOpen, Home, Download, Copy, Check, KeyRound } from 'lucide-react';
 import Layout from '@/components/layout/Layout';
 import BackToTop from '@/components/features/BackToTop';
 import ReadAloud from '@/components/features/ReadAloud';
@@ -16,6 +16,7 @@ import { MATHS_SOURCE_CHAPTERS, type MathsSourceQuestion, type MathsSourceExerci
 import { useAuthStore } from '@/store/authStore';
 import { hasReachedGuestLimit, incrementSolutionView } from '@/lib/guestLimits';
 import { cn, getSubjectBackground } from '@/utils/helpers';
+import { htmlToPdf } from '@/lib/pdf';
 
 function CopyBtn({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
@@ -39,6 +40,8 @@ function NotebookQuestion({ q, exercise, chapter, onGuestBlock, guestBlocked }: 
   onGuestBlock: () => void; guestBlocked: boolean;
 }) {
   const ctx = `Maths Question ${q.number}: ${q.plainText}`;
+  const [showKey, setShowKey] = useState(false);
+  const [showSol, setShowSol] = useState(true);
   return (
     <div className="question-block" id={`q-${exercise.id}-${q.id}`}>
       <div className="ganita-notebook">
@@ -49,27 +52,51 @@ function NotebookQuestion({ q, exercise, chapter, onGuestBlock, guestBlocked }: 
               <GuestPaywall onSignUp={onGuestBlock} onLogin={onGuestBlock} />
             </div>
           ) : (
-            <div className="qbody" dangerouslySetInnerHTML={{ __html: q.body }} />
+            <div className="qbody">
+              {/* Answer type buttons */}
+              <div className="flex items-center gap-2 flex-wrap mb-2">
+                <button onClick={() => { setShowKey(!showKey); if (!showKey) setShowSol(false); }}
+                  className={cn('method-tab text-xs', showKey ? 'method-tab-active' : 'method-tab-inactive')}><KeyRound size={12}/> Answer Key</button>
+                <button onClick={() => { setShowSol(!showSol); if (!showSol) setShowKey(false); }}
+                  className={cn('method-tab text-xs', showSol ? 'method-tab-active' : 'method-tab-inactive')}><BookOpen size={12}/> School Level Solution</button>
+              </div>
+
+              {showKey && (
+                <div className="p-3 rounded-xl bg-amber-50 dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/40 mb-2">
+                  <p className="text-[10px] font-bold text-amber-600 uppercase tracking-wider mb-1.5">Answer Key</p>
+                  <div className="flex items-start gap-2">
+                    <span className="flex-shrink-0 mt-0.5 rounded-md bg-amber-600/10 dark:bg-amber-400/15 text-amber-600 dark:text-amber-400 text-xs font-bold px-2 py-0.5">Ans.</span>
+                    <p className="flex-1 min-w-0 text-sm text-[var(--text-secondary)] leading-relaxed">{q.answerKey}</p>
+                  </div>
+                  <div className="flex items-center justify-between mt-2">
+                    <div className="answer-actions"><ReadAloud text={q.answerKey} size="sm" /><CopyBtn text={q.answerKey} /></div>
+                    <ReportFlag reportedContent={q.answerKey} onGuestBlock={onGuestBlock} />
+                  </div>
+                  <ThumbsRating subject="maths" chapterNumber={chapter.number} exerciseLabel={exercise.title} itemKey={`${exercise.id}-${q.id}-key`} />
+                </div>
+              )}
+
+              {showSol && (
+                <div className="p-1.5 rounded-xl bg-[var(--surface-1)] border border-[var(--border)] mb-2">
+                  <div className="flex items-center justify-between gap-2 mb-1.5">
+                    <p className="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">School Level Solution</p>
+                    <BookmarkButton
+                      subject="maths" chapterCode={chapter.code} chapterSlug={chapter.slug} chapterTitle={chapter.title}
+                      questionId={`${exercise.id}-${q.id}`} questionNumber={q.number.replace(/\u2605/g, '')} questionText={q.plainText}
+                      onGuestBlock={onGuestBlock}
+                    />
+                  </div>
+                  <div dangerouslySetInnerHTML={{ __html: q.body }} />
+                  <div className="flex items-center justify-between mt-2">
+                    <div className="answer-actions"><ReadAloud text={q.plainText} size="sm" /><CopyBtn text={q.plainText} /></div>
+                    <ReportFlag reportedContent={q.plainText} onGuestBlock={onGuestBlock} />
+                  </div>
+                  <ThumbsRating subject="maths" chapterNumber={chapter.number} exerciseLabel={exercise.title} itemKey={`${exercise.id}-${q.id}-solution`} />
+                </div>
+              )}
+            </div>
           )}
         </div>
-
-        {!guestBlocked && (
-          <>
-            <div className="flex items-center justify-between gap-2 flex-wrap mt-2 px-1">
-              <div className="answer-actions">
-                <ReadAloud text={q.plainText} size="sm" />
-                <CopyBtn text={q.plainText} />
-                <BookmarkButton
-                  subject="maths" chapterCode={chapter.code} chapterSlug={chapter.slug} chapterTitle={chapter.title}
-                  questionId={`${exercise.id}-${q.id}`} questionNumber={q.number.replace(/\u2605/g, '')} questionText={q.plainText}
-                  onGuestBlock={onGuestBlock}
-                />
-              </div>
-              <ReportFlag reportedContent={q.plainText} onGuestBlock={onGuestBlock} />
-            </div>
-            <ThumbsRating subject="maths" chapterNumber={chapter.number} exerciseLabel={exercise.title} itemKey={`${exercise.id}-${q.id}`} />
-          </>
-        )}
       </div>
       <AIFollowUp context={ctx} subject="maths" chapterNumber={chapter.number} exerciseLabel={exercise.title} itemKey={`${exercise.id}-${q.id}`} onGuestBlock={onGuestBlock} />
     </div>
@@ -118,6 +145,25 @@ export default function MathsChapterPage({ chapterCode, chapterSlug }: PageProps
     pdf.setFontSize(9);
     write('SolveNCERT — Powered by NOVEXA | solvencert · NCERT 2026 Revised Syllabus');
     pdf.save(`class-9-maths-${chapter.code}-${selEx === 'all' ? 'all-exercises' : selEx}-solutions.pdf`);
+  }
+
+  async function downloadAnswerKeys() {
+    if (!chapter) return;
+    await import('jspdf');
+    const exercises = selEx === 'all' ? chapter.exercises : chapter.exercises.filter(e => e.id === selEx);
+    const html = `<html><head><title>${chapter.title} — Answer Keys Only</title>
+    <style>body{font-family:Georgia,serif;max-width:720px;margin:0 auto;padding:24px;font-size:13px;line-height:1.8}
+    h1{font-size:22px;border-bottom:2px solid #2563eb;padding-bottom:8px}h2{font-size:15px;color:#2563eb;margin-top:20px}
+    .q{margin:10px 0;padding:10px;border-left:3px solid #2563eb;background:#eff6ff;border-radius:0 8px 8px 0}
+    .footer{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:8px 24px;font-size:10px;color:#6b7280;border-top:1px solid #dde3f0;text-align:center}
+    @media print{body{padding-bottom:40px}}</style></head><body>
+    <h1>Chapter ${chapter.number}: ${chapter.title} — Answer Keys</h1>
+    <p style="color:#6b7280;font-size:12px;margin-bottom:20px">Class 9 Maths (Ganita Manjari Part I) · Quick-reference answer keys only · NCERT 2026 Revised Syllabus</p>
+    ${exercises.map(ex => `<h2>${ex.title}</h2>${ex.questions.map(q => `
+      <div class="q"><p><strong>Q${q.number.replace(/\u2605/g, '')}.</strong> ${q.answerKey.replace(/&/g, '&amp;').replace(/</g, '&lt;')}</p></div>`).join('')}`).join('')}
+    <div class="footer">SolveNCERT — Powered by NOVEXA | solvencert · NCERT 2026 Revised Syllabus</div>
+    </body></html>`;
+    htmlToPdf(html, `class-9-maths-${chapter.code}-${selEx === 'all' ? 'all-exercises' : selEx}-answer-keys.pdf`);
   }
 
   if (!chapter) {
@@ -231,6 +277,9 @@ export default function MathsChapterPage({ chapterCode, chapterSlug }: PageProps
                 </div>
               )}
               <div className="flex items-center gap-2 flex-wrap justify-end">
+                <button onClick={downloadAnswerKeys} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--surface-2)] hover:bg-[var(--surface-3)] text-[var(--text-secondary)] text-xs font-semibold border border-[var(--border)]">
+                  <Download size={13} /> Download Answer Keys
+                </button>
                 <button onClick={downloadPDF} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--surface-2)] hover:bg-[var(--surface-3)] text-[var(--text-secondary)] text-xs font-semibold border border-[var(--border)]">
                   <Download size={13} /> Download Solutions PDF
                 </button>
