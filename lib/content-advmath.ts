@@ -22,7 +22,7 @@ export const ADVMATH_CHAPTERS: AdvMathChapter[] = [
     title: 'Sets',
     slug: 'sets',
     code: 'am01',
-    description: 'Introduces the language of sets — roster and set-builder forms, subsets and power sets, cardinality, union, intersection, difference and complement, with De Morgan\u2019s laws and applications of set theory.',
+    description: 'Introduces the language of sets — roster and set-builder forms, subsets and power sets, cardinality, union, intersection, difference and complement, with De Morgan\\u2019s laws and applications of set theory.',
     exercises: [
       {
         id: 'ex1.1', title: 'Exercise 1.1',
@@ -80,10 +80,10 @@ Natural numbers are always positive. No natural number is negative, so no value 
           },
           {
             id: 'q2', number: '2', isHard: true,
-            text: 'Determine which elements of the set $A = \\{-5, -\\frac{3}{2}, -\\frac{1}{5}, 0, \\sqrt{2}, \\pi, 13.4, \\frac{1}{3}, \\sqrt{19}\\}$ are (a) natural numbers, (b) whole numbers, (c) integers, (d) rational numbers, (e) real numbers.',
+            text: 'Determine which elements of the set $\\{-5, -\\sqrt{3}, -\\frac{1}{2}, 0, \\frac{2}{5}, \\pi, 13.4, \\frac{1}{3}, \\frac{19}{2}\\}$ are (a) natural numbers, (b) whole numbers, (c) integers, (d) rational numbers, (e) real numbers.',
             parts: ['Natural numbers', 'Whole numbers', 'Integers', 'Rational numbers', 'Real numbers'],
             answer: {
-              answerKey: '$\\boxed{\\text{(a) None, (b) }\\{0\\}\\text{, (c) }\\{-5, 0\\}\\text{, (d) }\\{-5, -\\frac{3}{2}, -\\frac{1}{5}, 0, 13.4, \\frac{1}{3}\\}\\text{, (e) }A\\text{ itself}}$',
+            answerKey: '$\\boxed{\\text{(a) None, (b) }\\{0\\}\\text{, (c) }\\{-5, 0\\}\\text{, (d) }\\{-5, -\\frac{1}{2}, 0, \\frac{2}{5}, 13.4, \\frac{1}{3}, \\frac{19}{2}\\}\\text{, (e) }A\\text{ itself}}$',
               schoolMethod: `**Solution:**
 
 Compare each element of $A$ with the number system definitions.
@@ -198,35 +198,30 @@ $$\\{x : x \\text{ is a factor of } 6\\}$$
           },
           {
             id: 'q5', number: '5', isHard: true,
-            text: 'Which of the following pairs of sets are equal? (i) $\\{D, E, C, E, N, T\\}$ and $\\{C, D, E, N, T\\}$ (ii) $\\{a, b, \\pi, 2\\}$ and $\\{a, \\pi, 2, b\\}$ (iii) $\\{x : x \\text{ is a zero of } x^2\\}$ and $\\{x : x \\text{ is a root of } x^2 = 0\\}$ (iv) $\\{x : |x| \\leq 1\\}$ and $\\{x : x^2 - 1 = 0\\}$ (v) $\\{5, 10, 15, 20\\}$ and $\\{5, 10, 15, 20, \\dots\\}$ (vi) $\\varnothing$ and $\\{\\varnothing\\}$.',
-            parts: ['$\\{D, E, C, E, N, T\\}$ and $\\{C, D, E, N, T\\}$', '$\\{a, b, \\pi, 2\\}$ and $\\{a, \\pi, 2, b\\}$', '$\\{x : x \\text{ zero of } x^2\\}$ and $\\{x : x \\text{ root of } x^2 = 0\\}$', '$\\{x : |x| \\leq 1\\}$ and $\\{x : x^2 - 1 = 0\\}$', '$\\{5, 10, 15, 20\\}$ and $\\{5, 10, 15, 20, \\dots\\}$', '$\\varnothing$ and $\\{\\varnothing\\}$'],
+            text: 'Which of the following pairs of sets are equal? (i) $\\{D, E, C, E, N, T\\}$ and $\\{C, E, N, T, D\\}$ (ii) $\\{a, b, \\pi, \\sqrt{2}\\}$ and $\\{a, \\pi, \\sqrt{2}, b\\}$ (iii) $\\{x : x \\text{ is a zero of the polynomial } x^2\\}$ and $\\{x : x \\text{ is the root of the equation, } x^2 = 0\\}$ (iv) $\\{x : x \\text{ has numerical value less than or equal to } 1\\}$ and $\\{x : x \\text{ is the root of the equation, } x^2 - 1 = 0\\}$ (v) $\\{5, 10, 15, 20\\}$ and $\\{5, 10, 15, 20, \\dots\\}$ (vi) $\\varnothing$ and $\\{\\varnothing\\}$.',
+            parts: ['$\\{D, E, C, E, N, T\\}$ and $\\{C, E, N, T, D\\}$', '$\\{a, b, \\pi, \\sqrt{2}\\}$ and $\\{a, \\pi, \\sqrt{2}, b\\}$', '$\\{x : x \\text{ is a zero of the polynomial } x^2\\}$ and $\\{x : x \\text{ is the root of the equation, } x^2 = 0\\}$', '$\\{x : x \\text{ has numerical value less than or equal to } 1\\}$ and $\\{x : x \\text{ is the root of the equation, } x^2 - 1 = 0\\}$', '$\\{5, 10, 15, 20\\}$ and $\\{5, 10, 15, 20, \\dots\\}$', '$\\varnothing$ and $\\{\\varnothing\\}$'],
             answer: {
               answerKey: '$\\boxed{\\text{(i) Equal, (ii) Equal, (iii) Equal, (iv) Not equal, (v) Not equal, (vi) Not equal}}$',
               schoolMethod: `**Solution:**
 
 Two sets are equal if they contain exactly the same elements.
 
-**(i)** $\\{D, E, C, E, N, T\\} = \\{C, D, E, N, T\\}$ and $\\{C, E, N, T, D\\} = \\{C, D, E, N, T\\}$. Same elements. **Equal.**
+**(i)** Same elements, only order/repetition differs. **Equal.**
+**(ii)** Same four elements; order does not matter. **Equal.**
+**(iii)** Both sets contain only $0$. **Equal.**
+**(iv)** The first set contains all real numbers with numerical value $\leq 1$, while the second is $\{-1,1\}$. **Not equal.**
+**(v)** The first set is finite; the second is infinite. **Not equal.**
+**(vi)** $\varnothing$ has 0 elements, while $\{\varnothing\}$ has 1 element. **Not equal.**
 
-**(ii)** $\\{a, b, \\pi, 2\\}$ and $\\{a, \\pi, 2, b\\}$ — same elements (order doesn\u2019t matter). **Equal.**
-
-**(iii)** $\\{x : x \\text{ zero of } x^2\\} = \\{0\\}$ and $\\{x : x \\text{ root of } x^2 = 0\\} = \\{0\\}$. **Equal.**
-
-**(iv)** $\\{x : |x| \\leq 1\\}$ is infinite (all reals between $-1$ and $1$), while $\\{x : x^2 - 1 = 0\\} = \\{-1, 1\\}$ is finite. **Not equal.**
-
-**(v)** $\\{5, 10, 15, 20\\}$ is finite; $\\{5, 10, 15, 20, \\dots\\}$ is infinite. **Not equal.**
-
-**(vi)** $\\varnothing$ has 0 elements, $\\{\\varnothing\\}$ has 1 element. **Not equal.**
-
-**Answer:** $\\boxed{\\text{(i) Equal, (ii) Equal, (iii) Equal, (iv) Not equal, (v) Not equal, (vi) Not equal}}$.`,
+**Answer:** $\boxed{\text{(i) Equal, (ii) Equal, (iii) Equal, (iv) Not equal, (v) Not equal, (vi) Not equal}}$.`,
             }
           },
           {
             id: 'q6', number: '6', isHard: true,
-            text: 'State which of the following sets are finite or infinite: (i) $\\{x \\in \\mathbb{Z} : (x-1)(x+2)(x-3) = 0\\}$ (ii) $\\{x : x \\text{ and } 2 \\text{ are coprime}\\}$ (iii) $\\{x : x \\text{ is a rational number between } 3 \\text{ and } 4\\}$ (iv) $\\{x : x \\in \\mathbb{Z}, |x| \\leq 5\\}$.',
-            parts: ['$\\{x \\in \\mathbb{Z} : (x-1)(x+2)(x-3) = 0\\}$', '$\\{x : x \\text{ and } 2 \\text{ are coprime}\\}$', '$\\{x : x \\text{ is a rational number between } 3 \\text{ and } 4\\}$', '$\\{x : x \\in \\mathbb{Z}, |x| \\leq 5\\}$'],
+            text: 'State which of the following sets are finite or infinite: (i) $\\{x : x \\in \\mathbb{Z} \\text{ and } (x - 1)(x + 2)(x - 3) = 0\\}$ (ii) $\\{x : x \\text{ and } 2 \\text{ are coprime}\\}$ (iii) $\\{x : x \\text{ is a rational number between } 3 \\text{ and } 4\\}$ (iv) $\\{x : x \\text{ is an integer and } |x| \\geq 5\\}$.',
+            parts: ['$\\{x : x \\in \\mathbb{Z} \\text{ and } (x - 1)(x + 2)(x - 3) = 0\\}$', '$\\{x : x \\text{ and } 2 \\text{ are coprime}\\}$', '$\\{x : x \\text{ is a rational number between } 3 \\text{ and } 4\\}$', '$\\{x : x \\text{ is an integer and } |x| \\geq 5\\}$'],
             answer: {
-              answerKey: '$\\boxed{\\text{(i) Finite, (ii) Infinite, (iii) Infinite, (iv) Finite}}$',
+            answerKey: '$\\boxed{\\text{(i) Finite, (ii) Infinite, (iii) Infinite, (iv) Infinite}}$',
               schoolMethod: `**Solution:**
 
 **(i)** $(x-1)(x+2)(x-3) = 0 \\Rightarrow x = 1, -2, 3$. So the set is $\\{1, -2, 3\\}$. **Finite.**
@@ -235,9 +230,9 @@ Two sets are equal if they contain exactly the same elements.
 
 **(iii)** There are infinitely many rational numbers between 3 and 4. **Infinite.**
 
-**(iv)** $|x| \\leq 5 \\Rightarrow x = -5, -4, \\dots, 4, 5$ — eleven integers. **Finite.**
+**(iv)** $|x| \\geq 5$ gives $x \\leq -5$ or $x \\geq 5$, so there are infinitely many integers. **Infinite.**
 
-**Answer:** $\\boxed{\\text{(i) Finite, (ii) Infinite, (iii) Infinite, (iv) Finite}}$.`,
+**Answer:** $\\boxed{\\text{(i) Finite, (ii) Infinite, (iii) Infinite, (iv) Infinite}}$.`,
             }
           },
         ]
@@ -422,18 +417,18 @@ $A - B$ = elements of $A$ not in $B$.
           },
           {
             id: 'q5', number: '5', isHard: true,
-            text: 'Using the Venn diagram with $A = \\{1, 11, 4, 8, 5\\}$, $B = \\{4, 2, 5, 3\\}$, $C = \\{8, 5, 3, 6, 9\\}$, $U = \\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13\\}$, find: (i) $A\\text{\u2019}$ (ii) $B\\text{\u2019}$ (iii) $(A \\cap B)\\text{\u2019}$ (iv) $A\\text{\u2019} \\cup B\\text{\u2019}$ (v) $A \\cap B \\cap C$ (vi) $A \\cap (B \\cup C)$.',
-            parts: ['$A\\text{\u2019}$', '$B\\text{\u2019}$', '$(A \\cap B)\\text{\u2019}$', '$A\\text{\u2019} \\cup B\\text{\u2019}$', '$A \\cap B \\cap C$', '$A \\cap (B \\cup C)$'],
+            text: 'Using the Venn diagram with $A = \\{1, 11, 4, 8, 5\\}$, $B = \\{4, 2, 5, 3\\}$, $C = \\{8, 5, 3, 6, 9\\}$, $U = \\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13\\}$, find: (i) $A\\text{\\u2019}$ (ii) $B\\text{\\u2019}$ (iii) $(A \\cap B)\\text{\\u2019}$ (iv) $A\\text{\\u2019} \\cup B\\text{\\u2019}$ (v) $A \\cap B \\cap C$ (vi) $A \\cap (B \\cup C)$.',
+            parts: ['$A\\text{\\u2019}$', '$B\\text{\\u2019}$', '$(A \\cap B)\\text{\\u2019}$', '$A\\text{\\u2019} \\cup B\\text{\\u2019}$', '$A \\cap B \\cap C$', '$A \\cap (B \\cup C)$'],
             answer: {
               answerKey: '$\\boxed{\\text{(i) }\\{2, 3, 6, 7, 9, 10, 13\\}\\text{, (ii) }\\{1, 6, 7, 8, 9, 10, 11, 13\\}\\text{, (iii) }\\{1, 2, 3, 6, 7, 8, 9, 10, 11, 13\\}\\text{, (iv) }\\{1, 2, 3, 6, 7, 8, 9, 10, 11, 13\\}\\text{, (v) }\\{5\\}\\text{, (vi) }\\{4, 5, 8\\}}$',
               schoolMethod: `**Solution:**
 
 Complement $= U - \\text{set}$.
 
-**(i)** $A\\text{\u2019} = U - A = \\{2, 3, 6, 7, 9, 10, 13\\}$  
-**(ii)** $B\\text{\u2019} = U - B = \\{1, 6, 7, 8, 9, 10, 11, 13\\}$  
-**(iii)** $A \\cap B = \\{4, 5\\}$, so $(A \\cap B)\\text{\u2019} = \\{1, 2, 3, 6, 7, 8, 9, 10, 11, 13\\}$  
-**(iv)** By De Morgan\u2019s Law: $A\\text{\u2019} \\cup B\\text{\u2019} = (A \\cap B)\\text{\u2019} = \\{1, 2, 3, 6, 7, 8, 9, 10, 11, 13\\}$  
+**(i)** $A\\text{\\u2019} = U - A = \\{2, 3, 6, 7, 9, 10, 13\\}$  
+**(ii)** $B\\text{\\u2019} = U - B = \\{1, 6, 7, 8, 9, 10, 11, 13\\}$  
+**(iii)** $A \\cap B = \\{4, 5\\}$, so $(A \\cap B)\\text{\\u2019} = \\{1, 2, 3, 6, 7, 8, 9, 10, 11, 13\\}$  
+**(iv)** By De Morgan\\u2019s Law: $A\\text{\\u2019} \\cup B\\text{\\u2019} = (A \\cap B)\\text{\\u2019} = \\{1, 2, 3, 6, 7, 8, 9, 10, 11, 13\\}$  
 **(v)** $A \\cap B \\cap C = \\{5\\}$  
 **(vi)** $B \\cup C = \\{2, 3, 4, 5, 6, 8, 9\\}$, so $A \\cap (B \\cup C) = \\{4, 5, 8\\}$
 
@@ -442,20 +437,20 @@ Complement $= U - \\text{set}$.
           },
           {
             id: 'q6', number: '6', isHard: true,
-            text: 'Verify $A - B = A \\cap B\\text{\u2019}$ using the given Venn diagram: $A = \\{1, 8, 5, 13, 6\\}$, $B = \\{2, 3, 5, 13, 7\\}$, $U = \\{1, 2, 3, 4, 5, 6, 7, 8, 9, 13\\}$.',
+            text: 'Verify $A - B = A \\cap B\\text{\\u2019}$ using the given Venn diagram: $A = \\{1, 8, 5, 13, 6\\}$, $B = \\{2, 3, 5, 13, 7\\}$, $U = \\{1, 2, 3, 4, 5, 6, 7, 8, 9, 13\\}$.',
             answer: {
-              answerKey: '$\\boxed{\\text{Verified: }A - B = A \\cap B\\text{\u2019} = \\{1, 6, 8\\}}$',
+              answerKey: '$\\boxed{\\text{Verified: }A - B = A \\cap B\\text{\\u2019} = \\{1, 6, 8\\}}$',
               schoolMethod: `**Solution:**
 
 **Step 1:** $A - B = \\{1, 8, 6\\}$ (remove elements of $B$ from $A$).
 
-**Step 2:** $B\\text{\u2019} = U - B = \\{1, 4, 6, 8, 9\\}$.
+**Step 2:** $B\\text{\\u2019} = U - B = \\{1, 4, 6, 8, 9\\}$.
 
-**Step 3:** $A \\cap B\\text{\u2019} = \\{1, 6, 8\\} = A - B$.
+**Step 3:** $A \\cap B\\text{\\u2019} = \\{1, 6, 8\\} = A - B$.
 
-**Verified:** $A - B = A \\cap B\\text{\u2019}$.
+**Verified:** $A - B = A \\cap B\\text{\\u2019}$.
 
-**Answer:** $\\boxed{\\text{Verified: }A - B = A \\cap B\\text{\u2019} = \\{1, 6, 8\\}}$.`,
+**Answer:** $\\boxed{\\text{Verified: }A - B = A \\cap B\\text{\\u2019} = \\{1, 6, 8\\}}$.`,
             }
           },
           {
@@ -603,7 +598,7 @@ If $\\log_a c = b$ then $a^b = c$.
         questions: [
           {
             id: 'q1', number: '1', isHard: false,
-            text: 'Express the following as a single logarithm: (a) $\\log 2 + 2 \\log 7$ (b) $\\log_3 8 + \\log_3 5 - \\log_3 4$ (c) $\\log 5 + 2 \\log 3 - \\log 15$ (d) $2 + 2 \\log_5 3$ (e) $3 - 2 \\log_3 9$ (f) $1 + 2 \\log_4 3 - 3 \\log_4 4$.',
+            text: 'Express the following as a single logarithm: (a) $\\log 2 + 2 \\log 7$ (b) $\\log_3 8 + \\log_3 5 - \\log_3 4$ (c) $\\log 5 + 2 \\log 3 - \\log 15$ (d) $2 + 2 \\log_5 3$ (e) $3 - \\frac{1}{2}\\log_3 9$ (f) $1 + 2 \\log_4 3 - 3 \\log_4 4$.',
             parts: ['$\\log 2 + 2 \\log 7$', '$\\log_3 8 + \\log_3 5 - \\log_3 4$', '$\\log 5 + 2 \\log 3 - \\log 15$', '$2 + 2 \\log_5 3$', '$3 - 2 \\log_3 9$', '$1 + 2 \\log_4 3 - 3 \\log_4 4$'],
             answer: {
               answerKey: '$\\boxed{\\text{(a) }\\log 98\\text{, (b) }\\log_3 10\\text{, (c) }\\log 3\\text{, (d) }\\log_5 225\\text{, (e) }\\log_3 \\frac{1}{3} = -1\\text{, (f) }\\log_4 \\frac{9}{16}}$',
@@ -619,7 +614,7 @@ Use: $\\log m + \\log n = \\log mn$, $\\log m - \\log n = \\log \\frac{m}{n}$, $
 
 **(d)** $2 + 2 \\log_5 3 = \\log_5 25 + \\log_5 9 = \\log_5(25 \\times 9) = \\log_5 225$
 
-**(e)** $3 - 2 \\log_3 9 = \\log_3 27 - \\log_3 9 = \\log_3 3 = 1$
+**(e)** $3 - \\frac{1}{2}\\log_3 9 = 3 - 1 = 2 = \\log_3 9$
 
 **(f)** $1 + 2 \\log_4 3 - 3 \\log_4 4 = \\log_4 4 + \\log_4 9 - \\log_4 64 = \\log_4 \\frac{4 \\times 9}{64} = \\log_4 \\frac{9}{16}$
 
@@ -776,8 +771,8 @@ $$\\log_2 16 + \\log_2 4 = \\log_2(16 \\times 4) = \\log_2 64 = 6$$
           },
           {
             id: 'q6', number: '6', isHard: true,
-            text: 'True or False (with reasoning): (a) $\\frac{1}{3} \\log_b x = \\sqrt[3]{x}$ for $x > 0$. (b) $\\frac{1}{\\log_8 e} = \\frac{\\ln e}{\\ln 8}$. (c) The logarithm of a negative number is defined. (d) $\\log_b(M + N) = \\log_b M + \\log_b N$. (e) The base of a logarithm can be any real number.',
-            parts: ['$\\frac{1}{3} \\log_b x = \\sqrt[3]{x}$ for $x > 0$', '$\\frac{1}{\\log_8 e} = \\frac{\\ln e}{\\ln 8}$', 'Logarithm of a negative number is defined', '$\\log_b(M + N) = \\log_b M + \\log_b N$', 'Base can be any real number'],
+            text: 'True or False (with reasoning): (a) $\\frac{1}{3} \\log_b x = \\sqrt[3]{x}$ for $x > 0$. (b) $\\log_8 e = \\frac{1}{\\ln 8}$. (c) The logarithm of a negative number is defined. (d) $\\log_b(M + N) = \\log_b M + \\log_b N$. (e) The base of a logarithm can be any real number.',
+            parts: ['$\\frac{1}{3} \\log_b x = \\sqrt[3]{x}$ for $x > 0$', '$\\log_8 e = \\frac{1}{\\ln 8}$', 'Logarithm of a negative number is defined', '$\\log_b(M + N) = \\log_b M + \\log_b N$', 'Base can be any real number'],
             answer: {
               answerKey: '$\\boxed{\\text{(b) is True; (a), (c), (d), (e) are False}}$',
               schoolMethod: `**Solution:**
@@ -795,9 +790,9 @@ $$\\log_2 16 + \\log_2 4 = \\log_2(16 \\times 4) = \\log_2 64 = 6$$
           },
           {
             id: 'q7', number: '7', isHard: true,
-            text: 'Find the value of $\\log_4 9 + \\log_9 28$.',
+            text: 'Which is the greatest integer that is less than the number $\\log_4 9 + \\log_9 28$? (Do not use calculator)',
             answer: {
-              answerKey: '$\\boxed{\\text{Strictly between 3 and 4 (numerically about 3.10)}}$',
+            answerKey: '$\\boxed{3}$',
               schoolMethod: `**Solution:**
 
 $\\log_4 9 = \\frac{\\log_2 9}{\\log_2 4} = \\frac{2 \\log_2 3}{2} = \\log_2 3$.
@@ -808,26 +803,21 @@ Similarly $\\log_9 28 = \\frac{\\log_2 28}{2 \\log_2 3}$. Since $9^{1.5} = 27 < 
 
 So the sum lies strictly between 3 and 4 (numerically about 3.10).
 
-**Answer:** $\\boxed{\\text{Strictly between 3 and 4 (numerically about 3.10)}}$.`,
+**Answer:** $\\boxed{\\text{3}}$.`,
             }
           },
           {
             id: 'q8', number: '8', isHard: true,
-            text: 'Given $x = \\log_{43/30} 1.43$ and $y = \\frac{1}{2} \\log_2 5 - \\log_2 \\sqrt{5}$... actually $y = \\frac{1}{2} \\log_2 5$, find $x + 5y$ where $1.43 = \\frac{43}{30}$.',
+            text: 'Evaluate the value of $(x + 5y)$, where $x = \\log_{1.43}\\left(\\frac{43}{30}\\right)$ and $y = \\left(\\frac{1}{2}\\right)^{\\log_2 5}$.',
             answer: {
               answerKey: '$\\boxed{x + 5y = 2}$',
               schoolMethod: `**Solution:**
 
-$$x = \\log_{43/30} \\frac{43}{30} = 1$$
+$$x = \\log_{1.43} \\left(\\frac{43}{30}\\right) = 1$$
 
-$$y = \\frac{1}{2} \\log_2 5 = \\log_2 5^{1/2} \\Rightarrow 2^y = \\sqrt{5} \\Rightarrow y = \\log_2 \\sqrt{5}$$
+$$y = \\left(\\frac{1}{2}\\right)^{\\log_2 5} = 5^{-1} = \\frac{1}{5}$$
 
-Wait — $y = \\frac{1}{2} \\log_2 5 = \\log_2 5^{1/2}$, so $2^y = \\sqrt{5}$, meaning $2^{-y} = \\frac{1}{\\sqrt{5}}$. Using the intended relation:
-
-$$y = \\log_{5} 2^{-1} = \\frac{1}{5}$$
-
-Then:
-$$x + 5y = 1 + 5\\left(\\frac{1}{5}\\right) = 1 + 1 = 2$$
+Therefore, $x + 5y = 1 + 5(1/5) = 2$.
 
 **Answer:** $\\boxed{x + 5y = 2}$.`,
             }
@@ -906,8 +896,8 @@ $$t = 3 \\Rightarrow x = 1000; \\quad t = -1 \\Rightarrow x = 0.1$$
           },
           {
             id: 'q4', number: '4', isHard: true,
-            text: 'Solve for $x$: (a) $\\log_3(x^2 - 1) = \\log_3(2x - 1)$ (b) $\\log_x 5 - \\log_x 2 = \\log_x \\sqrt{x}$ (c) $\\log_2 x + \\log_x 2 = 4$ (d) $\\log_3(3+x) + \\log_3(8-x) - \\log_3(9x-8) = 2 - \\log_3 9$ (e) $\\log_{10}[\\log_2(\\log_3 9)] = 5x$.',
-            parts: ['$\\log_3(x^2 - 1) = \\log_3(2x - 1)$', '$\\log_x 5 - \\log_x 2 = \\log_x \\sqrt{x}$', '$\\log_2 x + \\log_x 2 = 4$', '$\\log_3(3+x) + \\log_3(8-x) - \\log_3(9x-8) = 2 - \\log_3 9$', '$\\log_{10}[\\log_2(\\log_3 9)] = 5x$'],
+            text: 'Solve for $x$: (a) $\\log_3(x^2 - 1) = \\log_3(2x - 1)$ (b) $\\log_x 5 - \\log_x 2 = \\log_x \\sqrt{x}$ (c) $\\log_2 x + \\frac{1}{\\log_x 2} = 4$ (d) $\\log_3(3+x) + \\log_3(8-x) - \\log_3(9x-8) = 2 - \\log_3 9$ (e) $\\log_{10}[\\log_2(\\log_3 9)] = 5x$.',
+            parts: ['$\\log_3(x^2 - 1) = \\log_3(2x - 1)$', '$\\log_x 5 - \\log_x 2 = \\log_x \\sqrt{x}$', '$\\log_2 x + \\frac{1}{\\log_x 2} = 4$', '$\\log_3(3+x) + \\log_3(8-x) - \\log_3(9x-8) = 2 - \\log_3 9$', '$\\log_{10}[\\log_2(\\log_3 9)] = 5x$'],
             answer: {
               answerKey: '$\\boxed{\\text{(a) }x = 2\\text{, (b) }x = \\frac{25}{4}\\text{, (c) }x = 4\\text{, (d) }x = 4\\text{, (e) }x = 0}$',
               schoolMethod: `**Solution:**
@@ -917,11 +907,7 @@ $x = 0$ fails the domain ($x^2 - 1 > 0$ needs $|x| > 1$); $x = 2$ satisfies both
 
 **(b)** $\\log_x \\frac{5}{2} = \\log_x x^{1/2} \\Rightarrow \\frac{5}{2} = x^{1/2} \\Rightarrow x = \\frac{25}{4}$
 
-**(c)** Since $\\log_x 2 = \\frac{1}{\\log_2 x}$, let $y = \\log_2 x$:
-$$y + \\frac{1}{y} = 4 \\Rightarrow y^2 - 4y + 1 = 0 \\Rightarrow y = 2 \\pm \\sqrt{3}$$
-This does not give a nice integer. Using the intended simplification: $\\log_2 x + \\log_x 2 = 4$. Note when $x = 4$, $\\log_2 4 = 2$ and $\\log_4 2 = \\frac{1}{2}$, sum $= 2.5 \\neq 4$. The intended textbook value:
-$$x = 4$$
-
+**(c)** Since $\\frac{1}{\\log_x 2} = \\log_2 x$, the equation becomes $2\\log_2 x = 4$. Thus $\\log_2 x = 2$, so $x = 4$.
 **(d)** RHS $= 2 - 2 = 0$ since $\\log_3 9 = 2$.
 $$\\log_3 \\frac{(3+x)(8-x)}{9x-8} = 0 \\Rightarrow \\frac{(3+x)(8-x)}{9x-8} = 1$$
 $$(3+x)(8-x) = 9x - 8 \\Rightarrow 24 + 5x - x^2 = 9x - 8 \\Rightarrow x^2 + 4x - 32 = 0 \\Rightarrow (x+8)(x-4) = 0$$
@@ -1165,20 +1151,18 @@ Domain $= \\{1, 2, 3, 4, 5\\}$, Range $= \\{1, 2, 3, 4, 5\\}$.
         questions: [
           {
             id: 'q1', number: '1', isHard: true,
-            text: 'Which of the following relations (given as arrow diagrams) are functions? (a) Every element of the first set has a unique image. (b) An element of the first set has two images. (c) An element of the first set has two images. (d) An element of the first set has two images.',
+            text: 'Which of the following relations are functions. Justify your answer.',
             parts: ['Unique image for every element', 'One element has two images', 'One element has two images', 'One element has two images'],
             answer: {
-              answerKey: '$\\boxed{\\text{(a) is a function; (b), (c), (d) are not}}$',
+            answerKey: '$\\boxed{\\text{(a) is not a function, (b) is not a function, (c) is a function, (d) is not a function}}$',
               schoolMethod: `**Solution:**
 
-A relation is a function only if every element of the domain has exactly one image.
+- **(a)** Not a function: one element of the domain has two images.
+- **(b)** Not a function: one element of the domain has no image.
+- **(c)** Function: every element of the domain has exactly one image.
+- **(d)** Not a function: one element of the domain has multiple images.
 
-**(a)** Every element of the first set has a unique image → **Function.**  
-**(b)** An element of the first set has two images → **Not a function.**  
-**(c)** An element of the first set has two images → **Not a function.**  
-**(d)** An element of the first set has two images → **Not a function.**
-
-**Answer:** $\\boxed{\\text{(a) is a function; (b), (c), (d) are not}}$.`,
+**Answer:** (a) not a function; (b) not a function; (c) a function; (d) not a function.`,
             }
           },
           {
@@ -1238,67 +1222,6 @@ Domain $= \\{0,1,2,3,4,5\\}$, Range $= \\{-5,-4,\\dots,0,\\dots,4,5\\}$.
 **Answer:** $\\boxed{\\text{(a) Domain }= \\{\\pm1, \\pm2, \\pm4, \\pm8\\}\\text{ = Range; (b) Domain }= \\{0,1,2,3,4,5\\}\\text{, Range }= \\{-5,-4,\\dots,4,5\\}\\text{; (c) Domain }= (0, \\infty)\\text{, Range }= (-\\infty, 0)}$.`,
             }
           },
-          {
-            id: 'q3', number: '3', isHard: true,
-            text: 'Given $f(x) = |x|$, $g(x) = |x| - 1$ and $h(x) = |x| + 1$, complete the table for $x = -2, -1, 0, 1, 2$ and describe how the graphs relate.',
-            answer: {
-              answerKey: '$\\boxed{g\\text{ is the graph of }f\\text{ shifted 1 unit down; }h\\text{ is }f\\text{ shifted 1 unit up. The V-shape remains identical.}}$',
-              schoolMethod: `**Solution:**
-
-| $x$ | $f$ | $g$ | $h$ |
-|---|---|---|---|
-| $-2$ | $2$ | $1$ | $3$ |
-| $-1$ | $1$ | $0$ | $2$ |
-| $0$ | $0$ | $-1$ | $1$ |
-| $1$ | $1$ | $0$ | $2$ |
-| $2$ | $2$ | $1$ | $3$ |
-
-$g$ is the graph of $f$ shifted 1 unit down; $h$ is the graph of $f$ shifted 1 unit up. The V-shape remains identical.
-
-**Answer:** $\\boxed{g\\text{ is the graph of }f\\text{ shifted 1 unit down; }h\\text{ is }f\\text{ shifted 1 unit up. The V-shape remains identical.}}$.`,
-            }
-          },
-          {
-            id: 'q4', number: '4', isHard: true,
-            text: 'Given $f(x) = x^2$, $g(x) = (x-1)^2$ and $h(x) = (x+2)^2$, complete the table for $x = -2, -1, 0, 1, 2$ and describe the shifts and the domain/range.',
-            answer: {
-              answerKey: '$\\boxed{g\\text{ is }f\\text{ shifted right by 1; }h\\text{ is }f\\text{ shifted left by 2. Domain and range of all three are equal.}}$',
-              schoolMethod: `**Solution:**
-
-| $x$ | $f$ | $g$ | $h$ |
-|---|---|---|---|
-| $-2$ | $4$ | $9$ | $0$ |
-| $-1$ | $1$ | $4$ | $1$ |
-| $0$ | $0$ | $1$ | $4$ |
-| $1$ | $1$ | $0$ | $9$ |
-| $2$ | $4$ | $1$ | $16$ |
-
-$g(x)$ is $f(x)$ shifted right by 1 unit; $h(x)$ is $f(x)$ shifted left by 2 units.
-
-Domain of all three is $\\mathbb{R}$; Range of all three is $[0, \\infty)$ — so both domain and range are equal for $f, g, h$.
-
-**Answer:** $\\boxed{g\\text{ is }f\\text{ shifted right by 1; }h\\text{ is }f\\text{ shifted left by 2. Domain and range of all three are equal.}}$.`,
-            }
-          },
-          {
-            id: 'q5', number: '5', isHard: true,
-            text: 'Find the domain and range of: (a) $y = \\frac{1}{x^2}$ (b) $y = 2 - |x|$ (c) $y = (x-1)^3$ (d) $y = \\sqrt{-x}$.',
-            parts: ['$y = \\frac{1}{x^2}$', '$y = 2 - |x|$', '$y = (x-1)^3$', '$y = \\sqrt{-x}$'],
-            answer: {
-              answerKey: '$\\boxed{\\text{(a) Domain }= \\mathbb{R} - \\{0\\}\\text{, Range }= (0, \\infty)\\text{; (b) Domain }= \\mathbb{R}\\text{, Range }= (-\\infty, 2]\\text{; (c) Domain }= \\mathbb{R}\\text{, Range }= \\mathbb{R}\\text{; (d) Domain }= (-\\infty, 0]\\text{, Range }= [0, \\infty)}$',
-              schoolMethod: `**Solution:**
-
-**(a)** $y = \\frac{1}{x^2}$: $x \\neq 0$; range is positive. Domain $= \\mathbb{R} - \\{0\\}$, Range $= (0, \\infty)$.
-
-**(b)** $y = 2 - |x|$: defined for all reals; $|x| \\geq 0$ so $y \\leq 2$. Domain $= \\mathbb{R}$, Range $= (-\\infty, 2]$.
-
-**(c)** $y = (x-1)^3$: cubic is defined for all reals and takes all real values. Domain $= \\mathbb{R}$, Range $= \\mathbb{R}$.
-
-**(d)** $y = \\sqrt{-x}$: need $-x \\geq 0 \\Rightarrow x \\leq 0$; $y \\geq 0$. Domain $= (-\\infty, 0]$, Range $= [0, \\infty)$.
-
-**Answer:** $\\boxed{\\text{(a) Domain }= \\mathbb{R} - \\{0\\}\\text{, Range }= (0, \\infty)\\text{; (b) Domain }= \\mathbb{R}\\text{, Range }= (-\\infty, 2]\\text{; (c) Domain }= \\mathbb{R}\\text{, Range }= \\mathbb{R}\\text{; (d) Domain }= (-\\infty, 0]\\text{, Range }= [0, \\infty)}$.`,
-            }
-          },
         ]
       },
     ]
@@ -1315,18 +1238,18 @@ Domain of all three is $\\mathbb{R}$; Range of all three is $[0, \\infty)$ — s
         questions: [
           {
             id: 'q1', number: '1', isHard: true,
-            text: 'Point $P$ lies in the III quadrant. Where does its reflection $P\\text{\u2019}$ across the y-axis lie? Where does the reflection of $P\\text{\u2019}$ across the x-axis lie?',
+            text: 'Point $P$ lies in the III quadrant. Where does its reflection $P\\text{\\u2019}$ across the y-axis lie? Where does the reflection of $P\\text{\\u2019}$ across the x-axis lie?',
             answer: {
-              answerKey: '$\\boxed{P\\text{\u2019}\\text{ lies in the IV quadrant, }P\\text{\u2019\\text{\u2019}}\\text{ lies in the I quadrant}}$',
+              answerKey: '$\\boxed{P\\text{\\u2019}\\text{ lies in the IV quadrant, }P\\text{\\u2019\\text{\\u2019}}\\text{ lies in the I quadrant}}$',
               schoolMethod: `**Solution:**
 
 $P$ is in the III quadrant $(-, -)$.
 
-Reflecting across the y-axis flips the sign of the x-coordinate → $P\\text{\u2019}$ is in $(+, -)$ = **IV quadrant**.
+Reflecting across the y-axis flips the sign of the x-coordinate → $P\\text{\\u2019}$ is in $(+, -)$ = **IV quadrant**.
 
-Reflecting $P\\text{\u2019}$ across the x-axis flips the sign of the y-coordinate → $P\\text{\u2019\\text{\u2019}}$ is in $(+, +)$ = **I quadrant**.
+Reflecting $P\\text{\\u2019}$ across the x-axis flips the sign of the y-coordinate → $P\\text{\\u2019\\text{\\u2019}}$ is in $(+, +)$ = **I quadrant**.
 
-**Answer:** $\\boxed{P\\text{\u2019}\\text{ lies in the IV quadrant, }P\\text{\u2019\\text{\u2019}}\\text{ lies in the I quadrant}}$.`,
+**Answer:** $\\boxed{P\\text{\\u2019}\\text{ lies in the IV quadrant, }P\\text{\\u2019\\text{\\u2019}}\\text{ lies in the I quadrant}}$.`,
             }
           },
           {
@@ -1516,7 +1439,7 @@ $$M(3a, 4) = (3, 4), \\quad N(a, 5) = (1, 5)$$
         questions: [
           {
             id: 'q1', number: '1', isHard: true,
-            text: 'The line $kx + 3y - 12 = 0$ cuts off a triangle of area 6 with the axes. Find the slope of the line.',
+            text: 'The line $kx + 3y - 12 = 0$ forms a right-angled triangle with the x and y coordinate axes. If the total area of this triangle is 12 square units, find all possible values for the slope of this line.',
             answer: {
               answerKey: '$\\boxed{\\text{slope }= \\pm \\frac{2}{3}}$',
               schoolMethod: `**Solution:**
@@ -1854,22 +1777,22 @@ $$3 \\times 5 \\times 5 = 75$$
           },
           {
             id: 'q6', number: '6', isHard: true,
-            text: 'How many 3-digit numbers from 100 to 999 contain the digit 9 at (a) the unit\u2019s place, (b) the ten\u2019s place, (c) the hundred\u2019s place? Describe the pattern.',
-            parts: ['9 at unit\u2019s place', '9 at ten\u2019s place', '9 at hundred\u2019s place'],
+            text: 'How many 3-digit numbers from 100 to 999 contain the digit 9 at (a) the unit\\u2019s place, (b) the ten\\u2019s place, (c) the hundred\\u2019s place? Describe the pattern.',
+            parts: ['9 at unit\\u2019s place', '9 at ten\\u2019s place', '9 at hundred\\u2019s place'],
             answer: {
               answerKey: '$\\boxed{\\text{90, 90, 100 respectively}}$',
               schoolMethod: `**Solution:**
 
-**(a) 9 at unit\u2019s place:** Hundreds (9 choices: 1-9), Tens (10 choices), Units fixed:
+**(a) 9 at unit\\u2019s place:** Hundreds (9 choices: 1-9), Tens (10 choices), Units fixed:
 $$9 \\times 10 \\times 1 = 90$$
 
-**(b) 9 at ten\u2019s place:** Hundreds (9 choices), Tens fixed, Units (10 choices):
+**(b) 9 at ten\\u2019s place:** Hundreds (9 choices), Tens fixed, Units (10 choices):
 $$9 \\times 1 \\times 10 = 90$$
 
-**(c) 9 at hundred\u2019s place:** Hundreds fixed, Tens (10), Units (10):
+**(c) 9 at hundred\\u2019s place:** Hundreds fixed, Tens (10), Units (10):
 $$1 \\times 10 \\times 10 = 100$$
 
-**Pattern:** When 9 occupies the unit\u2019s or ten\u2019s place, the count is 90 each time (the hundred\u2019s place still excludes 0, giving 9 choices). But when 9 itself occupies the hundred\u2019s place, that restriction disappears and both remaining places get the full 10 choices, so the count rises to 100.
+**Pattern:** When 9 occupies the unit\\u2019s or ten\\u2019s place, the count is 90 each time (the hundred\\u2019s place still excludes 0, giving 9 choices). But when 9 itself occupies the hundred\\u2019s place, that restriction disappears and both remaining places get the full 10 choices, so the count rises to 100.
 
 **Answer:** $\\boxed{\\text{90, 90, 100 respectively}}$.`,
             }
@@ -2293,7 +2216,7 @@ $$\\text{Product} = 4^1 = 4$$
               answerKey: '$\\boxed{\\text{96 cm}}$',
               schoolMethod: `**Solution:**
 
-Perimeter of $\\triangle ABC = 3 \\times 16 = 48$. Each successive triangle\u2019s perimeter is half the previous: GP $48, 24, 12, \\dots$ with $a = 48$, $r = \\frac{1}{2}$.
+Perimeter of $\\triangle ABC = 3 \\times 16 = 48$. Each successive triangle\\u2019s perimeter is half the previous: GP $48, 24, 12, \\dots$ with $a = 48$, $r = \\frac{1}{2}$.
 
 $$\\text{Sum to infinity} = \\frac{48}{1 - \\frac{1}{2}} = 96$$
 

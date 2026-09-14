@@ -259,15 +259,12 @@ The **International System of Units (SI)** is used internationally.
             id: 'q13', number: '13', isHard: false,
             text: 'Match the following: Column A - CGS, FPS, SI, MKS; Column B - Kelvin, Pound, International system, Meter-Kilogram-Second.',
             answer: {
-              answerKey: 'FPS - Pound; SI - International system; MKS - Meter-Kilogram-Second; CGS - Kelvin (matched by elimination as the remaining pair).',
+              answerKey: 'The columns are internally inconsistent as a one-to-one matching: Kelvin is an SI unit, while International system also denotes SI, and CGS should be centimetre-gram-second but that option is absent. Therefore no valid one-to-one matching exists from the options as printed.',
               schoolMethod: `**Solution:**
 
-- **FPS** - **Pound**
-- **SI** - **International system**
-- **MKS** - **Meter-Kilogram-Second**
-- **CGS** - **Kelvin** (matched by elimination as the remaining pair)
+The printed options do not form a valid one-to-one match. **Kelvin** belongs to the SI system, and **International system** also denotes SI. The correct expansion of **CGS** is centimetre-gram-second, but that option is missing. **FPS** correctly corresponds to pound and **MKS** to metre-kilogram-second.
 
-**Answer:** FPS-Pound; SI-International system; MKS-Meter-Kilogram-Second; CGS-Kelvin.`,
+**Answer:** The question is ambiguous/incomplete as printed; CGS has no correct matching option.`,
             }
           },
           {
@@ -644,6 +641,35 @@ $s(5) = 8 + \\frac{2}{2}(2 \\times 5 - 1) = 8 + 9 = 17 \\text{ m}$
           },
         ]
       },
+      {
+        id: 'ex2.act', title: 'Activities — How to Do',
+        questions: [
+          {
+            id: 'q1', number: '1', isHard: false,
+            text: 'Activity 2.1 (Let us observe): walk and run the same fixed distance and compare the time taken. Which takes longer, and what factors can change the result?',
+            answer: {
+              answerKey: 'Walking takes longer for the same distance; fitness, slope, surface and load affect timings.',
+              schoolMethod: 'Time both over the same marked distance with a stopwatch — **walking takes longer** because each stride is slower and shorter. Timings vary with **fitness, slope, surface, footwear and load**. Repeating twice and averaging gives a fairer comparison.',
+            }
+          },
+          {
+            id: 'q2', number: '2', isHard: false,
+            text: 'Which motion is faster — walking or running? How can you calculate speed?',
+            answer: {
+              answerKey: 'Running is faster; speed = distance ÷ time (m/s or km/h).',
+              schoolMethod: '**Running is faster** — it covers the same distance in less time. Speed = **distance ÷ time**: e.g., 50 m in 25 s (walk) = **2 m/s** vs 50 m in 8 s (run) = **6.25 m/s**. Use metres–seconds (m/s) or kilometres–hours (km/h); average speed uses total distance ÷ total time.',
+            }
+          },
+          {
+            id: 'q3', number: '3', isHard: false,
+            text: 'Can motion be described using measurable quantities such as distance and time?',
+            answer: {
+              answerKey: 'Yes — distance, time, speed, velocity and acceleration quantify and compare motion.',
+              schoolMethod: '**Yes.** Distance and time are directly measurable (tape, stopwatch); from them come **speed, velocity, displacement and acceleration**. These quantities let us compare motions, predict arrivals and test claims — the start of describing motion scientifically.',
+            }
+          },
+        ]
+      },
     ]
   },
   {
@@ -920,6 +946,43 @@ Torque $= F \\times d \\times \\sin\\theta$
 (c) 30°: $20 \\times 0.8 \\times 0.5 = 8 \\text{ N m}$
 
 **Answer:** (a) 16 Nm, (b) 13.86 Nm, (c) 8 Nm.`,
+            }
+          },
+        ]
+      },
+      {
+        id: 'ex3.act', title: 'Activities — How to Do',
+        questions: [
+          {
+            id: 'q1', number: '1', isHard: false,
+            text: 'Activity 3.3: where should the boy push the door to open it easily — (a) near the handle, (b) near the hinges, (c) at the centre?',
+            answer: {
+              answerKey: '(a) Near the handle — farthest from the hinges gives the largest turning effect.',
+              schoolMethod: 'Push **(a) near the handle**. Turning effect (moment) = **force × distance from hinges**; the handle is farthest, so the same push produces the **largest moment** and the door opens easiest. Near the hinges the lever arm is nearly zero.',
+            }
+          },
+          {
+            id: 'q2', number: '2', isHard: false,
+            text: 'Why are door handles fixed far away from the hinges and not near them?',
+            answer: {
+              answerKey: 'A longer lever arm multiplies the turning effect, so less force opens the door.',
+              schoolMethod: 'Handles sit far from hinges to give a **long lever arm**. Since moment = F × d, a large d means even a **small push** creates enough turning effect. Near the hinges you would need an impractically **large force** for the same opening.',
+            }
+          },
+          {
+            id: 'q3', number: '3', isHard: false,
+            text: 'The boy pushes in a straight direction, yet the door rotates. Why does this happen?',
+            answer: {
+              answerKey: 'The hinges supply a pivot reaction, so the straight push becomes a turning moment about them.',
+              schoolMethod: 'The **hinges act as a fixed pivot**: they hold one edge while the handle is pushed sideways, and the push has a **perpendicular distance** from the hinge line. An off-centre force about a pivot always produces **rotation (moment)** instead of straight-line motion.',
+            }
+          },
+          {
+            id: 'q4', number: '4', isHard: false,
+            text: 'How is it possible to rotate such a heavy object by applying force at just one end?',
+            answer: {
+              answerKey: 'The long lever arm converts a modest force into a large moment that overcomes hinge friction.',
+              schoolMethod: 'Because the push acts at the **maximum distance** from the hinges, its **moment is large** even when the force is modest — enough to beat hinge friction and the door\u2019s inertia. Heavy objects rotate easily when force is applied **far from the pivot**.',
             }
           },
         ]
@@ -1312,6 +1375,43 @@ Energy stored $= \\frac{1}{2} F x = 0.5 \\times 98 \\times 0.001 = 0.049 \\text{
 - Work done $= mg \\times 1 = 9.8 \\times m$ joules ($m$ = rod's mass).
 
 **Answer:** Work done = $9.8m$ joules, where m is the rod's mass.`,
+            }
+          },
+        ]
+      },
+      {
+        id: 'ex5.act', title: 'Activities — How to Do',
+        questions: [
+          {
+            id: 'q1', number: '1', isHard: false,
+            text: 'Activity 5.2: hang masses on a spring, record extension each time, and plot Force (Y-axis, N) against Extension (X-axis, m/cm). What should the graph look like, and what does it show?',
+            answer: {
+              answerKey: 'A straight line through the origin — extension is proportional to force (Hooke\u2019s law).',
+              schoolMethod: 'Tabulate load vs stretch; plot **Force (Y) vs Extension (X)** with labelled axes and units. Points form a **straight line through the origin** (within the elastic limit): **extension is proportional to force (Hooke\u2019s law)**. The slope gives the spring\u2019s stiffness; bending marks the elastic limit.',
+            }
+          },
+          {
+            id: 'q2', number: '2', isHard: false,
+            text: 'Reflect: if there were no friction, would a moving object ever stop?',
+            answer: {
+              answerKey: 'No — it would continue forever at constant velocity (Newton\u2019s First Law).',
+              schoolMethod: '**No.** Without friction (or any opposing force), net force is zero, so by **Newton\u2019s First Law** the object keeps its **constant velocity forever**. Real objects stop only because friction and air drag continuously oppose motion.',
+            }
+          },
+          {
+            id: 'q3', number: '3', isHard: false,
+            text: 'Why do pendulums slowly stop after some time?',
+            answer: {
+              answerKey: 'Air drag and pivot friction drain mechanical energy as heat each swing.',
+              schoolMethod: 'Each swing loses a little energy to **air resistance** on the bob and **friction at the pivot**, converted to **heat**. With less total mechanical energy, the amplitude shrinks until the pendulum **stops** — energy is conserved overall, just no longer in the swing.',
+            }
+          },
+          {
+            id: 'q4', number: '4', isHard: false,
+            text: 'Why do machines require lubrication?',
+            answer: {
+              answerKey: 'Lubricants cut friction between moving parts, reducing wear, heat and energy waste.',
+              schoolMethod: 'Moving parts rub and waste energy as **heat** while **wearing out**. A lubricant film separates surfaces, **lowering friction** — so machines run cooler, parts last longer, fuel/electricity use drops, and seizure is prevented.',
             }
           },
         ]
@@ -2367,12 +2467,45 @@ The component **most soluble in the mobile phase (solvent)** moves down the colu
           },
         ]
       },
+
       {
-        id: 'ex9.2', title: 'Activity 9.4 (Monocot vs Dicot Leaf Peels)',
+        id: 'ex9.2', title: 'Activity 9.2 (A Timeline Strip)',
         questions: [
           {
             id: 'q1', number: '1', isHard: false,
-            text: 'Compare the epidermal cells, guard cells, and stomata distribution of a monocot leaf and a dicot leaf.',
+            text: 'Draw a horizontal line. Mark at least 5 important dates in microscopy and add a tiny sketch or symbol for each (e.g., cork cells, bacteria, electron beam etc.).',
+            answer: {
+              answerKey: 'Use milestones from the chapter in chronological order, for example 1590 (Janssen compound microscope), 1665 (Hooke and cork cells), 1670s (Leeuwenhoek and microorganisms), 1878 (Ernst Abbe and resolution theory), 1938 (Ernst Ruska and the electron microscope), and 1953 (Frits Zernike and the phase-contrast microscope). Add a small sketch or symbol for each milestone.',
+              schoolMethod: 'Use milestones from the chapter in chronological order: 1590 Janssen; 1665 Hooke; 1670s Leeuwenhoek; 1878 Ernst Abbe; 1938 Ernst Ruska; and 1953 Frits Zernike. Add a small symbol for each milestone.',
+            }
+          },
+        ]
+      },
+
+      {
+        id: 'ex9.3', title: 'Activity 9.3 (Let us examine a compound microscope)',
+        questions: [
+          {
+            id: 'q1', number: '1', isHard: false,
+            text: 'Identify the key parts of a compound microscope: eyepiece, objectives, nosepiece, stage with clips, coarse/fine focus, condenser, iris diaphragm, illuminator, arm, and base.',
+            answer: {
+              answerKey: 'The key parts are the eyepiece, objective lenses, revolving nosepiece, stage with clips/mechanical stage, coarse and fine adjustment knobs, condenser, substage/iris diaphragm, illuminator or mirror, arm, and base.',
+              schoolMethod: `**Solution:**
+
+Identify and label the **eyepiece, objective lenses, revolving nosepiece, stage and clips, condenser, substage diaphragm, coarse adjustment knob, fine adjustment knob, illuminator/mirror, arm, and base**. The objective lenses form the real magnified image; the eyepiece further magnifies it.
+
+**Answer:** Label all the listed microscope parts and their roles as described in the book.`,
+            }
+          },
+        ]
+      },
+
+      {
+        id: 'ex9.4', title: 'Activity 9.4 (Leaf Peels of Monocot and Dicot Leaves)',
+        questions: [
+          {
+            id: 'q1', number: '1', isHard: false,
+            text: 'Take peels from both upper and lower epidermis of a monocot leaf (Rhoeo/maize/lily) and a dicot leaf (Bryophyllum/petunia/balsam). Prepare their temporary mounts. Observe them under the microscope, compare their structure and draw labelled diagrams. Record similarities and differences, if any. Now correlate the points noted by you in Activity 9.1 with your observations.',
             answer: {
               answerKey: 'Monocot leaf epidermal cells are elongated with a regular parallel pattern, and stomata are distributed evenly on both surfaces. Dicot leaf cells are irregular, jigsaw-shaped, with stomata mainly on the lower surface.',
               schoolMethod: `**Solution:**
@@ -2385,12 +2518,13 @@ The component **most soluble in the mobile phase (solvent)** moves down the colu
           },
         ]
       },
+
       {
-        id: 'ex9.3', title: 'Activity 9.5 (Permanent Slides)',
+        id: 'ex9.5', title: 'Activity 9.5 (Permanent Slides)',
         questions: [
           {
             id: 'q1', number: '1', isHard: false,
-            text: 'Do you find any difference in the clarity of temporary and permanent slides? Identify two common anatomical differences that remain consistent.',
+            text: 'Observe permanent slides of leaf peel of a monocot and dicot. Compare them with the temporary mounts and note the differences in clarity and preservation.',
             answer: {
               answerKey: 'Permanent slides show clearer, sharper, and well-stained cell walls and guard cells compared to temporary mounts. Two consistent features across both: distinct guard cell shape around stomata, and visible cell wall boundaries.',
               schoolMethod: `**Solution:**
@@ -2405,8 +2539,9 @@ The component **most soluble in the mobile phase (solvent)** moves down the colu
           },
         ]
       },
+
       {
-        id: 'ex9.4', title: 'Let Us Find Out',
+        id: 'ex9.6', title: 'Let Us Find Out',
         questions: [
           {
             id: 'q1', number: '1', isHard: true,
@@ -2446,8 +2581,9 @@ Size of one cell $= \\dfrac{0.8}{4} = 0.2 \\text{ mm}$
           },
         ]
       },
+
       {
-        id: 'ex9.5', title: 'Think',
+        id: 'ex9.7', title: 'Think',
         questions: [
           {
             id: 'q1', number: '1', isHard: false,
@@ -2466,8 +2602,9 @@ Size of one cell $= \\dfrac{0.8}{4} = 0.2 \\text{ mm}$
           },
         ]
       },
+
       {
-        id: 'ex9.6', title: 'Check Your Understanding',
+        id: 'ex9.8', title: 'Check Your Understanding',
         questions: [
           {
             id: 'q1', number: '1', isHard: true,
@@ -2702,15 +2839,6 @@ Today I observed thin slices of **cork bark** under my microscope and was astoni
           },
         ]
       },
-    ]
-  },
-  {
-    id: 'ch10', number: 10,
-    title: 'Engineering Life - Miracles in Biotechnology',
-    slug: 'engineering-life-miracles-in-biotechnology',
-    code: 'as10',
-    description: 'Definition of biotechnology, traditional vs modern biotechnology, fermenters and sterility, microbial growth curve, and genetic engineering (insulin, GM crops, bioremediation).',
-    exercises: [
       {
         id: 'ex10.1', title: 'Quick Check',
         questions: [
@@ -2868,13 +2996,13 @@ Modern biotechnology **involves genetic modification**.
         ]
       },
       {
-        id: 'ex10.4', title: 'Activity (Growth Simulation)',
+        id: 'ex10.4', title: 'Activity 5.4: Growth Simulation',
         questions: [
           {
             id: 'q1', number: '1', isHard: false,
-            text: 'Using the hypothetical fermenter data, plot a graph of time versus number of microorganisms.',
+            text: 'Using the following hypothetical data, plot a graph using time (hours) on the X-axis and number of microorganisms on the Y-axis: Time (hours): 0, 2, 4, 6, 8, 10, 12, 14; Number of microorganisms: 10, 12, 25, 60, 120, 125, 123, 90.',
             answer: {
-              answerKey: 'The graph rises slowly at first, then increases steeply, flattens near its peak, and finally declines, forming a typical S-shaped microbial growth curve.',
+              answerKey: 'Plot the eight points (0,10), (2,12), (4,25), (6,60), (8,120), (10,125), (12,123), and (14,90), then join them smoothly. The curve rises slowly at first, rises rapidly, levels off near the peak, and then declines.',
               schoolMethod: `**Solution:**
 
 - The graph **rises slowly at first**.
@@ -2889,27 +3017,28 @@ Modern biotechnology **involves genetic modification**.
             id: 'q2', number: '2', isHard: false,
             text: 'Identify and label the growth phases: lag, log, stationary, and death.',
             answer: {
-              answerKey: 'Lag phase: initial hours with slow adaptation; Log phase: period of rapid, steep rise; Stationary phase: levelling off near the peak; Death phase: decline after nutrient depletion.',
+              answerKey: 'Lag phase: approximately 0–2 hours; Log phase: approximately 2–8 hours; Stationary phase: approximately 8–10 hours; Death/decline phase: approximately 10–14 hours.',
               schoolMethod: `**Solution:**
 
-- **Lag phase:** initial hours with **slow adaptation**.
-- **Log phase:** period of **rapid, steep rise**.
-- **Stationary phase:** **levelling off near the peak**.
-- **Death phase:** **decline after nutrient depletion**.
+From the data and growth curve:
+- **Lag phase:** about **0–2 h**.
+- **Log phase:** about **2–8 h**.
+- **Stationary phase:** about **8–10 h**.
+- **Death/decline phase:** about **10–14 h**.
 
-**Answer:** Lag, Log, Stationary, Death.`,
+**Answer:** Label the graph with these four phases.`,
             }
           },
           {
             id: 'q3', number: '3', isHard: false,
             text: 'During which time period do microorganisms grow most rapidly?',
             answer: {
-              answerKey: 'Microorganisms grow most rapidly during the middle hours of the experiment, corresponding to the log (exponential) phase.',
+              answerKey: 'Microorganisms grow most rapidly from 6 to 8 hours, during the log (exponential) phase.',
               schoolMethod: `**Solution:**
 
-Microorganisms grow most rapidly during the **middle hours** of the experiment, corresponding to the **log (exponential) phase**.
+From 6 to 8 hours, the population increases from **60 to 120**, an increase of **60 microorganisms**, which is the largest increase over any 2-hour interval. Therefore the most rapid growth occurs during **6–8 hours**, in the log/exponential phase.
 
-**Answer:** During the log (exponential) phase.`,
+**Answer:** **6–8 hours (log phase).**`,
             }
           },
           {
@@ -3207,6 +3336,35 @@ Microorganisms show **maximum growth** during the **log (exponential) phase**.
 - The reason **correctly explains** the assertion.
 
 **Answer:** (a) Both assertion and reason are true, and the reason explains the assertion.`,
+            }
+          },
+        ]
+      },
+      {
+        id: 'ex10.act', title: 'Activities — How to Do',
+        questions: [
+          {
+            id: 'q1', number: '1', isHard: false,
+            text: 'Activity 10.1: in what times or situations does curd take a long time to form?',
+            answer: {
+              answerKey: 'Cold weather, cold milk, weak or stale starter, or a disturbed vessel slow curdling.',
+              schoolMethod: 'Curd sets slowly when it is **cold** (winter nights), the milk is **cold**, the **starter (jaman) is weak or stale**, or the vessel is **moved/disturbed** while setting. Lactobacillus multiplies fastest in **warmth (~35–40 °C)** — chill slows it sharply.',
+            }
+          },
+          {
+            id: 'q2', number: '2', isHard: false,
+            text: 'What conditions support the curdling of milk?',
+            answer: {
+              answerKey: 'Warmth, a live starter culture, stillness, and clean lukewarm milk.',
+              schoolMethod: 'Use **lukewarm milk**, stir in a spoon of **fresh curd starter**, cover and keep the vessel **warm and undisturbed** for 6–8 hours. Warmth speeds bacterial conversion of **lactose to lactic acid**, which curdles the protein; cold, disturbance or a dead starter prevents setting.',
+            }
+          },
+          {
+            id: 'q3', number: '3', isHard: false,
+            text: 'Think and Discuss (ethical principles): beneficence (doing good), non-maleficence (do no harm), autonomy (freedom of choice), justice and fairness — how do they evaluate biotechnologies like SynBio?',
+            answer: {
+              answerKey: 'Each technology is judged by doing good, avoiding harm, respecting choice, and sharing fairly.',
+              schoolMethod: 'Sort each technology by where its concern falls: **Beneficence** (does it heal or feed people?), **Non-maleficence** (could it harm health or ecosystems?), **Autonomy** (are consent and choice respected?), **Justice** (are benefits and risks shared fairly?). Classify SynBio and others accordingly, with one reason each.',
             }
           },
         ]
