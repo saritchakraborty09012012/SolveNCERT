@@ -15,10 +15,10 @@ export const DANCE_ARTS_CHAPTERS = [
             id: 'q1',
             number: '1',
             isHard: false,
-            text: 'While holding the Sauhhava pose with hands on the waist and feet joined, observe: are you leaning slightly forward or backward?',
+            text: 'While holding the Sauṣhṭhava pose with hands on the waist and feet joined, observe: are you leaning slightly forward or backward?',
             answer: {
-              answerKey: "In the correct Sauhhava pose, body weight rests evenly on both feet with no forward or backward lean. The ears, shoulders, and waist stay aligned along one vertical central meridian line, keeping the torso upright, balanced, and relaxed.",
-              schoolMethod: "In the correct Sauhhava pose, body weight rests evenly on both feet with no forward or backward lean. The ears, shoulders, and waist stay aligned along one vertical central meridian line, keeping the torso upright, balanced, and relaxed.",
+              answerKey: "In the correct Sauṣhṭhava pose, body weight rests evenly on both feet with no forward or backward lean. The ears, shoulders, and waist stay aligned along one vertical central meridian line, keeping the torso upright, balanced, and relaxed.",
+              schoolMethod: "In the correct Sauṣhṭhava pose, body weight rests evenly on both feet with no forward or backward lean. The ears, shoulders, and waist stay aligned along one vertical central meridian line, keeping the torso upright, balanced, and relaxed.",
             },
           },
         ],
@@ -143,20 +143,20 @@ export const DANCE_ARTS_CHAPTERS = [
             id: 'q1',
             number: '1',
             isHard: false,
-            text: 'Which of these are not essential for proper body alignment -- (i) Sauhhava (ii) Vāchika (iii) Rūpa (iv) Rekhā?',
+            text: 'Which of these are not essential for proper body alignment -- (i) Sauṣhṭhava (ii) Vāchika (iii) Rūpa (iv) Rekhā?',
             answer: {
-              answerKey: "Vāchika is not essential for body alignment. Sauhhava (poised posture), Rūpa (expressive disposition), and Rekhā (clear body lines) directly shape alignment, while Vāchika concerns verbal, not physical, expression.",
-              schoolMethod: "Vāchika is not essential for body alignment. Sauhhava (poised posture), Rūpa (expressive disposition), and Rekhā (clear body lines) directly shape alignment, while Vāchika concerns verbal, not physical, expression.",
+              answerKey: "Vāchika is not essential for body alignment. Sauṣhṭhava (poised posture), Rūpa (expressive disposition), and Rekhā (clear body lines) directly shape alignment, while Vāchika concerns verbal, not physical, expression.",
+              schoolMethod: "Vāchika is not essential for body alignment. Sauṣhṭhava (poised posture), Rūpa (expressive disposition), and Rekhā (clear body lines) directly shape alignment, while Vāchika concerns verbal, not physical, expression.",
             },
           },
           {
             id: 'q2',
             number: '2',
             isHard: false,
-            text: 'Explain the following concepts.',
+            text: 'Explain any one of these: (i) Nṛitta and Nṛitya. (ii) Rhythm (tāla) and Tempo (laya). (iii) Sauṣhṭhava.',
             answer: {
-              answerKey: "• (i) Nṛtta and Nṛtya: Nṛtta is pure, non-narrative dance expressing only joy through rhythmic movement, with no story. Nṛtya blends nṛtta with abhinaya (expressive communication) to narrate a story or meaning, making the dance both beautiful and meaningful.\n• (ii) Rhythm (Tāla) and Tempo (Laya): Tāla is the rhythmic cycle of beats (commonly 3, 4, 5, 7, or 9) that structures a dance. Laya is the speed of these beats -- slow, medium, or fast. Together, tāla and laya shape a dance's movement quality.\n• (iii) Sauhhava: Sauhhava is the poised, balanced stance of a dancer, achieved by standing upright with weight evenly distributed, torso lifted, and ears, shoulders, and waist aligned -- the foundation for all technique and injury-free movement.",
-              schoolMethod: "• (i) Nṛtta and Nṛtya: Nṛtta is pure, non-narrative dance expressing only joy through rhythmic movement, with no story. Nṛtya blends nṛtta with abhinaya (expressive communication) to narrate a story or meaning, making the dance both beautiful and meaningful.\n• (ii) Rhythm (Tāla) and Tempo (Laya): Tāla is the rhythmic cycle of beats (commonly 3, 4, 5, 7, or 9) that structures a dance. Laya is the speed of these beats -- slow, medium, or fast. Together, tāla and laya shape a dance's movement quality.\n• (iii) Sauhhava: Sauhhava is the poised, balanced stance of a dancer, achieved by standing upright with weight evenly distributed, torso lifted, and ears, shoulders, and waist aligned -- the foundation for all technique and injury-free movement.",
+              answerKey: "• (i) Nṛtta and Nṛtya: Nṛtta is pure, non-narrative dance expressing only joy through rhythmic movement, with no story. Nṛtya blends nṛtta with abhinaya (expressive communication) to narrate a story or meaning, making the dance both beautiful and meaningful.\n• (ii) Rhythm (Tāla) and Tempo (Laya): Tāla is the rhythmic cycle of beats (commonly 3, 4, 5, 7, or 9) that structures a dance. Laya is the speed of these beats -- slow, medium, or fast. Together, tāla and laya shape a dance's movement quality.\n• (iii) Sauṣhṭhava: Sauṣhṭhava is the poised, balanced stance of a dancer, achieved by standing upright with weight evenly distributed, torso lifted, and ears, shoulders, and waist aligned -- the foundation for all technique and injury-free movement.",
+              schoolMethod: "• (i) Nṛtta and Nṛtya: Nṛtta is pure, non-narrative dance expressing only joy through rhythmic movement, with no story. Nṛtya blends nṛtta with abhinaya (expressive communication) to narrate a story or meaning, making the dance both beautiful and meaningful.\n• (ii) Rhythm (Tāla) and Tempo (Laya): Tāla is the rhythmic cycle of beats (commonly 3, 4, 5, 7, or 9) that structures a dance. Laya is the speed of these beats -- slow, medium, or fast. Together, tāla and laya shape a dance's movement quality.\n• (iii) Sauṣhṭhava: Sauṣhṭhava is the poised, balanced stance of a dancer, achieved by standing upright with weight evenly distributed, torso lifted, and ears, shoulders, and waist aligned -- the foundation for all technique and injury-free movement.",
             },
           },
           {
@@ -165,15 +165,15 @@ export const DANCE_ARTS_CHAPTERS = [
             isHard: false,
             text: 'Identify the abhinaya represented in Figures 10.29–10.32 and fill in the blanks.',
             answer: {
-              answerKey: "• Fig. 10.29 -- Purulia Chhau costume — Āhārya Abhinaya (elaborate mask and costume create the character)\n• Fig. 10.30 -- Yakhagna — Vāchika Abhinaya (the Bhgavata's live sung narration drives the enactment)\n• Fig. 10.31 -- Expression in Mohiniyattam — Sāttvika Abhinaya (inner emotion projected through the face and eyes)\n• Fig. 10.32 -- Krishna in Sattriya dance — Āngika Abhinaya (the story of Krishna enacted through body movement and gesture)",
-              schoolMethod: "• Fig. 10.29 -- Purulia Chhau costume — Āhārya Abhinaya (elaborate mask and costume create the character)\n• Fig. 10.30 -- Yakhagna — Vāchika Abhinaya (the Bhgavata's live sung narration drives the enactment)\n• Fig. 10.31 -- Expression in Mohiniyattam — Sāttvika Abhinaya (inner emotion projected through the face and eyes)\n• Fig. 10.32 -- Krishna in Sattriya dance — Āngika Abhinaya (the story of Krishna enacted through body movement and gesture)",
+              answerKey: "• Fig. 10.29 -- Purulia Chhau costume — Āhārya Abhinaya (elaborate mask and costume create the character)\n• Fig. 10.30 -- Yakṣhagāna — Vāchika Abhinaya (the Bhāgavata's live sung narration drives the enactment)\n• Fig. 10.31 -- Expression in Mohiniyattam — Sāttvika Abhinaya (inner emotion projected through the face and eyes)\n• Fig. 10.32 -- Krishna in Sattriya dance — Āngika Abhinaya (the story of Krishna enacted through body movement and gesture)",
+              schoolMethod: "• Fig. 10.29 -- Purulia Chhau costume — Āhārya Abhinaya (elaborate mask and costume create the character)\n• Fig. 10.30 -- Yakṣhagāna — Vāchika Abhinaya (the Bhāgavata's live sung narration drives the enactment)\n• Fig. 10.31 -- Expression in Mohiniyattam — Sāttvika Abhinaya (inner emotion projected through the face and eyes)\n• Fig. 10.32 -- Krishna in Sattriya dance — Āngika Abhinaya (the story of Krishna enacted through body movement and gesture)",
             },
           },
           {
             id: 'q4',
             number: '4',
             isHard: false,
-            text: 'Fill in the blanks with the name of a legend in the dance form.',
+            text: 'Fill in the blanks with the name of a legend in the dance forms: (i) Kathak — (ii) Sattriya — (iii) Purulia Chhau — (iv) Pulikaḻi — (v) Kathakali — (vi) Mohiniyattam — (vii) Bharatanatyam — (viii) Odissi — (ix) Manipuri —',
             answer: {
               answerKey: "• Kathak — Pandit Birju Maharaj (Padma Vibhushan)\n• Sattriya — Jatin Goswami (Padma Bhushan)\n• Purulia Chhau — Gambhir Singh Mura (Padma Shri)\n• Pulikali — Chathunni Asan\n• Kathakali — Kalamandalam Gopi (Padma Bhushan)\n• Mohiniyattam — Kanak Rele (Padma Bhushan)\n• Bharatanatyam — Saroja Vaidyanathan (Padma Bhushan)\n• Odissi — Kelucharan Mohapatra (Padma Vibhushan)\n• Manipuri — Bipin Singh",
               schoolMethod: "• Kathak — Pandit Birju Maharaj (Padma Vibhushan)\n• Sattriya — Jatin Goswami (Padma Bhushan)\n• Purulia Chhau — Gambhir Singh Mura (Padma Shri)\n• Pulikali — Chathunni Asan\n• Kathakali — Kalamandalam Gopi (Padma Bhushan)\n• Mohiniyattam — Kanak Rele (Padma Bhushan)\n• Bharatanatyam — Saroja Vaidyanathan (Padma Bhushan)\n• Odissi — Kelucharan Mohapatra (Padma Vibhushan)\n• Manipuri — Bipin Singh",
@@ -183,10 +183,10 @@ export const DANCE_ARTS_CHAPTERS = [
             id: 'q5',
             number: '5',
             isHard: false,
-            text: 'Journal: Present your observations on (i) the performance watched, and (ii) the cinema dance sequence, analysing body movements, language, costume, emotional context, rhythm, and tempo.',
+            text: 'Journal: Present your observations based on the following: (i) The performance watched. (ii) The cinema dance sequence. (a) Explore your understanding of all the dance elements you have learnt in this chapter in the above two dances. (b) Reflect on your choice of cinema dance sequence. (c) Analyse it based on all elements learnt in this chapter — body movements, language, costume, emotional context, rhythm, and tempo.',
             answer: {
-              answerKey: "• (i) Live performance -- Bharatanatyam recital: Body movements (Āngika) were precise adavus and sculptural poses; language (Vāchika) was Carnatic shitya sung live; costume (Āhārya) was traditional silk and temple jewellery; the emotional context (Sāttvika) conveyed devotion; rhythm followed Adi Tala in rising laya.\n• (ii) Cinema -- Ghoomar sequence, Padmavat: Body movements were circular Ghoomar twirls; language was folk Rajasthani lyrics and dhol beats; costume was flared ghagra-choli with mirror-work; the emotional context was festive joy and community celebration; rhythm was in a lively, accelerating folk tāla.",
-              schoolMethod: "• (i) Live performance -- Bharatanatyam recital: Body movements (Āngika) were precise adavus and sculptural poses; language (Vāchika) was Carnatic shitya sung live; costume (Āhārya) was traditional silk and temple jewellery; the emotional context (Sāttvika) conveyed devotion; rhythm followed Adi Tala in rising laya.\n• (ii) Cinema -- Ghoomar sequence, Padmavat: Body movements were circular Ghoomar twirls; language was folk Rajasthani lyrics and dhol beats; costume was flared ghagra-choli with mirror-work; the emotional context was festive joy and community celebration; rhythm was in a lively, accelerating folk tāla.",
+              answerKey: "• (i) Live performance -- Bharatanatyam recital: Body movements (Āngika) were precise adavus and sculptural poses; language (Vāchika) was Carnatic sahitya sung live; costume (Āhārya) was traditional silk and temple jewellery; the emotional context (Sāttvika) conveyed devotion; rhythm followed Adi Tala in rising laya.\n• (ii) Cinema -- Ghoomar sequence, Padmavat: Body movements were circular Ghoomar twirls; language was folk Rajasthani lyrics and dhol beats; costume was flared ghagra-choli with mirror-work; the emotional context was festive joy and community celebration; rhythm was in a lively, accelerating folk tāla.",
+              schoolMethod: "• (i) Live performance -- Bharatanatyam recital: Body movements (Āngika) were precise adavus and sculptural poses; language (Vāchika) was Carnatic sahitya sung live; costume (Āhārya) was traditional silk and temple jewellery; the emotional context (Sāttvika) conveyed devotion; rhythm followed Adi Tala in rising laya.\n• (ii) Cinema -- Ghoomar sequence, Padmavat: Body movements were circular Ghoomar twirls; language was folk Rajasthani lyrics and dhol beats; costume was flared ghagra-choli with mirror-work; the emotional context was festive joy and community celebration; rhythm was in a lively, accelerating folk tāla.",
             },
           },
         ],
@@ -227,8 +227,8 @@ export const DANCE_ARTS_CHAPTERS = [
             isHard: false,
             text: "What is the difference in experience between dancing to instrumental music, dancing to lyrical music, and dancing to one's own singing?",
             answer: {
-              answerKey: "Instrumental music (e.g., Trp, Rut Nch) lets movement follow pure rhythm freely; lyrical music (e.g., Bihu, Ghoomar) ties movement to word meaning; dancing to one's own singing demands simultaneous vocal and physical control, deepening the performer's connection to the piece.",
-              schoolMethod: "Instrumental music (e.g., Trp, Rut Nch) lets movement follow pure rhythm freely; lyrical music (e.g., Bihu, Ghoomar) ties movement to word meaning; dancing to one's own singing demands simultaneous vocal and physical control, deepening the performer's connection to the piece.",
+              answerKey: "Instrumental music (e.g., Tārpā, Rāut Nāchā) lets movement follow pure rhythm freely; lyrical music (e.g., Bihu, Ghoomar) ties movement to word meaning; dancing to one's own singing demands simultaneous vocal and physical control, deepening the performer's connection to the piece.",
+              schoolMethod: "Instrumental music (e.g., Tārpā, Rāut Nāchā) lets movement follow pure rhythm freely; lyrical music (e.g., Bihu, Ghoomar) ties movement to word meaning; dancing to one's own singing demands simultaneous vocal and physical control, deepening the performer's connection to the piece.",
             },
           },
         ],
@@ -277,10 +277,10 @@ export const DANCE_ARTS_CHAPTERS = [
             id: 'q1',
             number: '1',
             isHard: false,
-            text: 'In Figures 11.9–11.16, identify the dance form based on the costume, make-up, and accessories, from the list: Lavani (Maharashtra), Cheraw (Mizoram), Kullu N (Himachal Pradesh), Baiga (Madhya Pradesh), Puja Kunitha (Karnataka), Siddi Dhamal (Gujarat), Bastar (Chhattisgarh), and Phag (Haryana).',
+            text: 'In Figures 11.9–11.16, identify the dance form based on the costume, make-up, and accessories, from the list: Lavani (Maharashtra), Cheraw (Mizoram), Kullu Nāṭī (Himachal Pradesh), Baiga (Madhya Pradesh), Pūjā Kunitā (Karnataka), Siddi Dhamal (Gujarat), Bastar (Chattisgarh), and Phāg (Haryana).',
             answer: {
-              answerKey: "Match each photograph to a dance form using its Āhārya (costume/prop) markers below, then confirm against the photograph in the textbook:\n• Lavani (Maharashtra) — Nauvari (nine-yard) saree, twirling ghagra-style drape, bold jewellery, dancer performing with vigorous hip and eye movements\n• Cheraw (Mizoram) — Bamboo poles held and clapped horizontally at ankle height as dancers step in and out in coloured Mizo attire\n• Kullu N (Himachal Pradesh) — Women in black woollen dresses with bright embroidered borders, headscarves, and white handkerchiefs, dancing in a line/semicircle\n• Baiga (Madhya Pradesh) — Tribal dancers in simple cloth wraps, beads, and feather or leaf headgear, performing with drums (mandar/dhol)\n• Puja Kunitha (Karnataka) — Elaborate tall peacock-feather or decorated headgear balanced on the head while carrying/beating a large drum\n• Siddi Dhamal (Gujarat) — African-origin Siddi community dancers in bright costumes, energetic drumming (mugarman/musindo) and vigorous jumps\n• Bastar (Chhattisgarh) — Gond tribal dancers in dark costumes with silver ornaments, cowrie-shell decoration, and tall feathered headdresses\n• Phag (Haryana) — Festive Holi-season dance with colourful turbans/odhnis, dhol accompaniment, and playful group formations\n\nNote: Since Figs. 11.9–11.16 are intentionally left unlabelled in the textbook for student observation, match each photograph to the description above by comparing headgear, costume colour, and props, then write the dance's name in the blank provided in your book.",
-              schoolMethod: "Match each photograph to a dance form using its Āhārya (costume/prop) markers below, then confirm against the photograph in the textbook:\n• Lavani (Maharashtra) — Nauvari (nine-yard) saree, twirling ghagra-style drape, bold jewellery, dancer performing with vigorous hip and eye movements\n• Cheraw (Mizoram) — Bamboo poles held and clapped horizontally at ankle height as dancers step in and out in coloured Mizo attire\n• Kullu N (Himachal Pradesh) — Women in black woollen dresses with bright embroidered borders, headscarves, and white handkerchiefs, dancing in a line/semicircle\n• Baiga (Madhya Pradesh) — Tribal dancers in simple cloth wraps, beads, and feather or leaf headgear, performing with drums (mandar/dhol)\n• Puja Kunitha (Karnataka) — Elaborate tall peacock-feather or decorated headgear balanced on the head while carrying/beating a large drum\n• Siddi Dhamal (Gujarat) — African-origin Siddi community dancers in bright costumes, energetic drumming (mugarman/musindo) and vigorous jumps\n• Bastar (Chhattisgarh) — Gond tribal dancers in dark costumes with silver ornaments, cowrie-shell decoration, and tall feathered headdresses\n• Phag (Haryana) — Festive Holi-season dance with colourful turbans/odhnis, dhol accompaniment, and playful group formations\n\nNote: Since Figs. 11.9–11.16 are intentionally left unlabelled in the textbook for student observation, match each photograph to the description above by comparing headgear, costume colour, and props, then write the dance's name in the blank provided in your book.",
+              answerKey: "Use the following dance forms, which are given in no particular order in the textbook, and identify the correct name under each figure by comparing costume, make-up and accessories:\n• Lavani (Maharashtra) — Nauvari (nine-yard) saree, twirling ghagra-style drape, bold jewellery, dancer performing with vigorous hip and eye movements\n• Cheraw (Mizoram) — Bamboo poles held and clapped horizontally at ankle height as dancers step in and out in coloured Mizo attire\n• Kullu Nāṭī (Himachal Pradesh) — Women in black woollen dresses with bright embroidered borders, headscarves, and white handkerchiefs, dancing in a line/semicircle\n• Baiga (Madhya Pradesh) — Tribal dancers in simple cloth wraps, beads, and feather or leaf headgear, performing with drums (mandar/dhol)\n• Pūjā Kunitā (Karnataka) — Elaborate tall peacock-feather or decorated headgear balanced on the head while carrying/beating a large drum\n• Siddi Dhamal (Gujarat) — African-origin Siddi community dancers in bright costumes, energetic drumming (mugarman/musindo) and vigorous jumps\n• Bastar (Chattisgarh) — Gond tribal dancers in dark costumes with silver ornaments, cowrie-shell decoration, and tall feathered headdresses\n• Phāg (Haryana) — Festive Holi-season dance with colourful turbans/odhnis, dhol accompaniment, and playful group formations\n\nNote: Since Figs. 11.9–11.16 are intentionally left unlabelled in the textbook for student observation, match each photograph to the description above by comparing headgear, costume colour, and props, then write the dance's name in the blank provided in your book.",
+              schoolMethod: "Use the following dance forms, which are given in no particular order in the textbook, and identify the correct name under each figure by comparing costume, make-up and accessories:\n• Lavani (Maharashtra) — Nauvari (nine-yard) saree, twirling ghagra-style drape, bold jewellery, dancer performing with vigorous hip and eye movements\n• Cheraw (Mizoram) — Bamboo poles held and clapped horizontally at ankle height as dancers step in and out in coloured Mizo attire\n• Kullu Nāṭī (Himachal Pradesh) — Women in black woollen dresses with bright embroidered borders, headscarves, and white handkerchiefs, dancing in a line/semicircle\n• Baiga (Madhya Pradesh) — Tribal dancers in simple cloth wraps, beads, and feather or leaf headgear, performing with drums (mandar/dhol)\n• Pūjā Kunitā (Karnataka) — Elaborate tall peacock-feather or decorated headgear balanced on the head while carrying/beating a large drum\n• Siddi Dhamal (Gujarat) — African-origin Siddi community dancers in bright costumes, energetic drumming (mugarman/musindo) and vigorous jumps\n• Bastar (Chattisgarh) — Gond tribal dancers in dark costumes with silver ornaments, cowrie-shell decoration, and tall feathered headdresses\n• Phāg (Haryana) — Festive Holi-season dance with colourful turbans/odhnis, dhol accompaniment, and playful group formations\n\nNote: Since Figs. 11.9–11.16 are intentionally left unlabelled in the textbook for student observation, match each photograph to the description above by comparing headgear, costume colour, and props, then write the dance's name in the blank provided in your book.",
             },
           },
         ],
@@ -417,13 +417,13 @@ export const DANCE_ARTS_CHAPTERS = [
       },
       {
         id: 's5',
-        title: 'A Creative Rmyaa Presentation -- Activity 12.5',
+        title: 'A Creative Rāmāyaṇa Presentation -- Activity 12.5',
         questions: [
           {
             id: 'q1',
             number: '1',
             isHard: false,
-            text: 'How can elements from different Rmyaa dance traditions be incorporated into a group\'s own presentation of an episode?',
+            text: 'How can elements from different Rāmāyaṇa dance traditions be incorporated into a group\'s own presentation of an episode?',
             answer: {
               answerKey: "Groups can thoughtfully borrow characteristic gestures, group formations, musical patterns, costumes, or storytelling styles from traditions such as Kathakali, Khon, or Kecak, while choosing a movement vocabulary they are comfortable performing.",
               schoolMethod: "Groups can thoughtfully borrow characteristic gestures, group formations, musical patterns, costumes, or storytelling styles from traditions such as Kathakali, Khon, or Kecak, while choosing a movement vocabulary they are comfortable performing.",
@@ -451,8 +451,8 @@ export const DANCE_ARTS_CHAPTERS = [
             isHard: false,
             text: 'Match the following.',
             answer: {
-              answerKey: "• (i) Dance in funeral rites — (b) Naa-Sakrtana\n• (ii) Dance as a celebration of good harvest — (a) Bihu\n• (iii) Martial art presented as a dance — (d) Mayurbhanj Chhau\n• (iv) Dance for community joy and togetherness — (c) Garba",
-              schoolMethod: "• (i) Dance in funeral rites — (b) Naa-Sakrtana\n• (ii) Dance as a celebration of good harvest — (a) Bihu\n• (iii) Martial art presented as a dance — (d) Mayurbhanj Chhau\n• (iv) Dance for community joy and togetherness — (c) Garba",
+              answerKey: "• (i) Dance in funeral rites — (b) Naṭa-Saṅkīrtana\n• (ii) Dance as a celebration of good harvest — (a) Bihu\n• (iii) Martial art presented as a dance — (d) Mayurbhanj Chhau\n• (iv) Dance for community joy and togetherness — (c) Garba",
+              schoolMethod: "• (i) Dance in funeral rites — (b) Naṭa-Saṅkīrtana\n• (ii) Dance as a celebration of good harvest — (a) Bihu\n• (iii) Martial art presented as a dance — (d) Mayurbhanj Chhau\n• (iv) Dance for community joy and togetherness — (c) Garba",
             },
           },
           {
@@ -471,8 +471,8 @@ export const DANCE_ARTS_CHAPTERS = [
             isHard: false,
             text: 'Match the following.',
             answer: {
-              answerKey: "• (i) Thailand — (c) Ramakien\n• (ii) Java (Indonesia) — (d) Sendratari\n• (iii) Bali (Indonesia) — (e) Kecak\n• (iv) Laos — (b) Phra Lak Phra Rm\n• (v) Cambodia — (a) Reamker",
-              schoolMethod: "• (i) Thailand — (c) Ramakien\n• (ii) Java (Indonesia) — (d) Sendratari\n• (iii) Bali (Indonesia) — (e) Kecak\n• (iv) Laos — (b) Phra Lak Phra Rm\n• (v) Cambodia — (a) Reamker",
+              answerKey: "• (i) Thailand — (c) Ramakien\n• (ii) Java (Indonesia) — (d) Sendratari\n• (iii) Bali (Indonesia) — (e) Kecak\n• (iv) Laos — (b) Phra Lak Phra Rām\n• (v) Cambodia — (a) Reamker",
+              schoolMethod: "• (i) Thailand — (c) Ramakien\n• (ii) Java (Indonesia) — (d) Sendratari\n• (iii) Bali (Indonesia) — (e) Kecak\n• (iv) Laos — (b) Phra Lak Phra Rām\n• (v) Cambodia — (a) Reamker",
             },
           },
         ],

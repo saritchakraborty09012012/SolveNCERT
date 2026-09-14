@@ -53,8 +53,8 @@ export const KRITI_ARTS_CHAPTERS = [
             isHard: false,
             text: 'What is the purpose of using lights for a play? How many types of lights are commonly used for stage lighting?',
             answer: {
-              answerKey: "• Purpose of stage lighting: Visibility of performers and objects.\n• Gives information about the scene (day/night, indoor/outdoor).\n• Creates mood (joy, dullness, mystery, aggression, etc.).\n• Achieves visual composition and stage balance.\n• Draws attention to a specific area, object, or person.\n• Conveys symbolism and special effects.\n\nFive types of lights are commonly used for stage lighting: Floodlight, PAR (PARcan), Fresnel (including its PC version), Profile (spotlight), and Moving lights.",
-              schoolMethod: "• Purpose of stage lighting: Visibility of performers and objects.\n• Gives information about the scene (day/night, indoor/outdoor).\n• Creates mood (joy, dullness, mystery, aggression, etc.).\n• Achieves visual composition and stage balance.\n• Draws attention to a specific area, object, or person.\n• Conveys symbolism and special effects.\n\nFive types of lights are commonly used for stage lighting: Floodlight, PAR (PARcan), Fresnel (including its PC version), Profile (spotlight), and Moving lights.",
+              answerKey: "• Purpose of stage lighting: Visibility of performers and objects.\n• Gives information about the scene (day/night, indoor/outdoor).\n• Creates mood (joy, dullness, mystery, aggression, etc.).\n• Achieves visual composition and stage balance.\n• Draws attention to a specific area, object, or person.\n• Conveys symbolism and special effects.\n\nThe textbook describes four named stage-lighting fixtures: Floodlight, PAR (PARcan), Fresnel (with the related PC version), and Profile (spotlight).",
+              schoolMethod: "• Purpose of stage lighting: Visibility of performers and objects.\n• Gives information about the scene (day/night, indoor/outdoor).\n• Creates mood (joy, dullness, mystery, aggression, etc.).\n• Achieves visual composition and stage balance.\n• Draws attention to a specific area, object, or person.\n• Conveys symbolism and special effects.\n\nThe textbook describes four named stage-lighting fixtures: Floodlight, PAR (PARcan), Fresnel (with the related PC version), and Profile (spotlight).",
             },
           },
           {
@@ -79,7 +79,28 @@ export const KRITI_ARTS_CHAPTERS = [
           },
         ],
       },
-    ],
+      {
+        id: 's3', title: 'Activities — How to Do',
+        questions: [
+          {
+            id: 'q1', number: '1', isHard: false,
+            text: 'Activity 4.1 (spotlight and gobo): in groups of 5–6, build a spotlight tube and a stencil gobo, project patterned light on a wall, then create a 1-minute scene around the image (e.g., a tree a child saves from a woodcutter). How should you do it?',
+            answer: {
+              answerKey: 'Tube the torch light leak-proof; stencil-cut a pattern; tune distance for sharp shadows; build the scene on the image.',
+              schoolMethod: 'Wrap <u>black chart paper</u> round the torch as a leak-proof tube and tape it. Cut a <u>stencil pattern</u> (branches, bars, stars) in black paper with teacher help; tape it before the tube and <u>adjust distance</u> till shadows sharpen on the wall. Then devise the <u>1-minute scene</u> with the projected image as its heart.',
+            }
+          },
+          {
+            id: 'q2', number: '2', isHard: false,
+            text: 'Activity 4.2 (Design the moment): for a 10–15 second situation (lost child, hidden treasure, magic door), choose colour, direction and sound, stage it with classroom objects/puppets, and justify choices. How should the group work?',
+            answer: {
+              answerKey: 'Match light colour, direction and sound to the mood; stage with objects; present with reasons.',
+              schoolMethod: 'Discuss: which <u>colour</u> fits the mood, which <u>direction</u> (top/side/front), which <u>sound</u>? Aim the tinted torch at desk objects (bottle = tree, pens = walkers) or stick puppets while another member plays sound. Present the moment <u>explaining every choice</u>.',
+            }
+          },
+        ]
+      },
+    ]
   },
   {
     id: 'ch05',
@@ -107,7 +128,7 @@ export const KRITI_ARTS_CHAPTERS = [
             id: 'q2',
             number: '2',
             isHard: false,
-            text: 'What are the nine stage divisions? If you were to plan the given scene, where would the characters be positioned on stage, based on the nine stage divisions?',
+            text: 'What are the nine stage divisions? If you were to plan the following scene, where would the characters be positioned on stage, based on the nine stage divisions? Scene: We are in Chhatrapati Śhivājī Mahārāja\'s court, and a famous poet of a neighbouring state is visiting him. Give positions on stage for — Chhatrapati Śhivājī Mahārāja, the famous poet, the in-house poets of Chhatrapati Śhivājī Mahārāja, and the royal guards escorting the poet. You can make a drawing to indicate stage positions.',
             answer: {
               answerKey: "The nine stage divisions are: Upstage Right, Upstage Centre, Upstage Left, Stage Right, Centre Stage, Stage Left, Downstage Right, Downstage Centre, and Downstage Left.\n\nScene: Chhatrapati Shivaji Maharaja's court, with a visiting poet.\n\n• Chhatrapati Shivaji Maharaja – Centre Stage/Downstage Centre, the most prominent position, as he is the focal figure holding court.\n• The famous visiting poet – Downstage Right, facing the King, since this position carries strength and honours the important guest.\n• In-house poets – Stage Left/Upstage Left, placed as supporting figures around the King.\n• Royal guards escorting the poet – Upstage Right and Upstage Left, flanking the entrances/wings, showing their protective, background role.",
               schoolMethod: "The nine stage divisions are: Upstage Right, Upstage Centre, Upstage Left, Stage Right, Centre Stage, Stage Left, Downstage Right, Downstage Centre, and Downstage Left.\n\nScene: Chhatrapati Shivaji Maharaja's court, with a visiting poet.\n\n• Chhatrapati Shivaji Maharaja – Centre Stage/Downstage Centre, the most prominent position, as he is the focal figure holding court.\n• The famous visiting poet – Downstage Right, facing the King, since this position carries strength and honours the important guest.\n• In-house poets – Stage Left/Upstage Left, placed as supporting figures around the King.\n• Royal guards escorting the poet – Upstage Right and Upstage Left, flanking the entrances/wings, showing their protective, background role.",
@@ -127,7 +148,7 @@ export const KRITI_ARTS_CHAPTERS = [
             id: 'q4',
             number: '4',
             isHard: false,
-            text: "Improvise and perform the given scene with (a) just two people on stage and (b) at least 5–6 people on stage. Note down the differences you felt in the scene as an actor and as an audience.",
+            text: "Improvise and perform the following scene with: (a) just two people on stage; (b) at least 5–6 people on stage. Scene: You are going to a shop to buy a notebook. You meet a friend from your childhood you haven't spoken to for many years. Note down the differences you felt in the scene as an actor and as an audience.",
             answer: {
               answerKey: "As an actor, the two-person version demands sustained personal energy and intimacy, while the group version requires listening, timing, and shared focus so no one is upstaged. As audience, the two-person scene feels more intimate and focused, while the group scene feels lively but needs clear stage balance so attention is not scattered.\n\nNote: This question is a live improvisation activity performed in class; the answer above is a model reflection framework. Students should replace it with their own actual observations after performing the scene.",
               schoolMethod: "As an actor, the two-person version demands sustained personal energy and intimacy, while the group version requires listening, timing, and shared focus so no one is upstaged. As audience, the two-person scene feels more intimate and focused, while the group scene feels lively but needs clear stage balance so attention is not scattered.\n\nNote: This question is a live improvisation activity performed in class; the answer above is a model reflection framework. Students should replace it with their own actual observations after performing the scene.",
@@ -147,15 +168,68 @@ export const KRITI_ARTS_CHAPTERS = [
             id: 'q6',
             number: '6',
             isHard: false,
-            text: "Match the following.\n\ni. Āngika — a. Performance in Manipur\nii. Bhta-kola — b. Costume, jewellery, set, and props\niii. Gaura-ll — c. Body language\niv. Āhārya — d. A divine folk tradition of Karnataka",
+            text: "Match the following.\n\nIndian Name — Description\ni. Āṅgika — a. Performance in Manipur\nii. Bhūta-kola — b. Costume, jewellery, set, and props\niii. Gaura-līlā — c. Body language\niv. Āhārya — d. A divine folk tradition of Karnataka",
             answer: {
-              answerKey: "The correct matches are given below.\n\n• Āngika — c. Body language\n• Bhta-kola — d. A divine folk tradition of Karnataka\n• Gaura-ll — a. Performance in Manipur\n• Āhārya — b. Costume, jewellery, set, and props\n\nNote: Activity 5.1 ('The director in you') and Activity 5.2 ('The living painting') are group performance activities to be enacted physically in class, as instructed in the textbook; they do not carry a single written answer.",
-              schoolMethod: "The correct matches are given below.\n\n• Āngika — c. Body language\n• Bhta-kola — d. A divine folk tradition of Karnataka\n• Gaura-ll — a. Performance in Manipur\n• Āhārya — b. Costume, jewellery, set, and props\n\nNote: Activity 5.1 ('The director in you') and Activity 5.2 ('The living painting') are group performance activities to be enacted physically in class, as instructed in the textbook; they do not carry a single written answer.",
+              answerKey: "The correct matches are given below.\n\n• Āngika — c. Body language\n• Bhūta-kola — d. A divine folk tradition of Karnataka\n• Gaura-līlā — a. Performance in Manipur\n• Āhārya — b. Costume, jewellery, set, and props\n\nNote: Activity 5.1 ('The director in you') and Activity 5.2 ('The living painting') are group performance activities to be enacted physically in class, as instructed in the textbook; they do not carry a single written answer.",
+              schoolMethod: "The correct matches are given below.\n\n• Āngika — c. Body language\n• Bhūta-kola — d. A divine folk tradition of Karnataka\n• Gaura-līlā — a. Performance in Manipur\n• Āhārya — b. Costume, jewellery, set, and props\n\nNote: Activity 5.1 ('The director in you') and Activity 5.2 ('The living painting') are group performance activities to be enacted physically in class, as instructed in the textbook; they do not carry a single written answer.",
             },
           },
         ],
       },
-    ],
+      {
+        id: 's2', title: 'Activities — How to Do',
+        questions: [
+          {
+            id: 'q1', number: '1', isHard: false,
+            text: 'Activity 5.1 (the director in you): pick a performed scene and redesign it in groups — emphasise angika, then vachika, rework positions on the nine stage parts, and try it emotionless. What should you compare at the end?',
+            answer: {
+              answerKey: 'Enact each version and compare how movement, voice, positions and feeling change the impact.',
+              schoolMethod: 'Redesign the same scene four ways: <u>angika-heavy</u> (movement), <u>vachika-heavy</u> (voice), <u>re-blocked</u> on nine stage parts, and <u>emotionless</u>. Enact all, then discuss <u>how differently each lands</u> — that contrast is the lesson in direction.',
+            }
+          },
+          {
+            id: 'q2', number: '2', isHard: false,
+            text: 'Activity 5.2 (the living painting): bring a famous artwork alive in 1 minute — imagine before/after, plan positions and entries, then play it angika-only, vachika-only, and with music. How should you build it?',
+            answer: {
+              answerKey: 'Story first, then positions and entries, then three versions (silent, spoken, musical).',
+              schoolMethod: 'Choose the artwork; invent its <u>before and after</u> story. Plan <u>positions by importance</u> and <u>entries/exits</u>. Perform three passes: <u>angika-only</u> (no speech), <u>vachika-only</u> (no movement), then <u>with music/rhythm</u> — and feel how each channel carries meaning.',
+            }
+          },
+          {
+            id: 'q3', number: '3', isHard: false,
+            text: 'Activity 5.3 (solo to ensemble): one student performs a silent action; then 5–6 perform the same situation together; then one actor disrupts tempo/emotion and the group adjusts silently. What should observers watch?',
+            answer: {
+              answerKey: 'Solo: readability without words. Group: unspoken leadership and spacing. Disruption: silent rebalancing.',
+              schoolMethod: '<u>Solo</u>: what made the action readable (posture, energy, clarity)? <u>Group</u>: who leads unintentionally, how energy spreads, how spacing holds? <u>Disruption</u>: how the group <u>rebalances without speaking</u> — listening with eyes and bodies.',
+            }
+          },
+          {
+            id: 'q4', number: '4', isHard: false,
+            text: 'Discussion circle: what is the difference in impact between the angika and vachika versions?',
+            answer: {
+              answerKey: 'Angika shows feeling through the body instantly; vachika builds meaning through words — each moves the audience differently.',
+              schoolMethod: '<u>Angika</u> hits through <u>visible energy</u> — posture, gesture, rhythm felt at once. <u>Vachika</u> works through <u>words and tone</u> — ideas and emotion unfold line by line. Discuss which carried the story further and where each fell short.',
+            }
+          },
+          {
+            id: 'q5', number: '5', isHard: false,
+            text: 'Discussion circle: how did acting solo feel different from acting in a group?',
+            answer: {
+              answerKey: 'Solo brings full control and exposure; group brings support, adjustment and shared energy.',
+              schoolMethod: '<u>Solo</u>: total control but total exposure — every choice is yours and visible. <u>Group</u>: safety and shared energy, but you must <u>listen, adjust spacing and rhythm</u> constantly. Reflect which felt freer and which felt richer.',
+            }
+          },
+          {
+            id: 'q6', number: '6', isHard: false,
+            text: 'Project Work (basic workshop): plan and conduct a 3-hour theatre workshop for Grades 3–5 in pairs — warm-up hour, core-activity hour, creation-sharing hour — then reflect. What must planning cover?',
+            answer: {
+              answerKey: 'Theme, divided roles, audience-appropriate activities, materials, rehearsal plus backups, and double reflection.',
+              schoolMethod: 'Pick a <u>theme</u> (storytelling, emotions, animals, folk tales…); <u>divide roles</u>; design for <u>young children</u> (simple, playful); ready <u>materials</u>; <u>rehearse as facilitators</u> with backup games. Afterward hold the children\u2019s <u>discussion circle</u>, then your own <u>what-worked/what-didn\u2019t</u> review.',
+            }
+          },
+        ]
+      },
+    ]
   },
   {
     id: 'ch06',
@@ -313,6 +387,67 @@ export const KRITI_ARTS_CHAPTERS = [
           },
         ],
       },
-    ],
+      {
+        id: 's4', title: 'Activities — How to Do',
+        questions: [
+          {
+            id: 'q1', number: '1', isHard: false,
+            text: 'Activity 6.1 (my music journal): keep a dedicated music journal across Grades 9–10 logging songs heard, learnt and created. How should you start and maintain it?',
+            answer: {
+              answerKey: 'Invent a creative journal name, decorate the cover, and log every song and exercise dated.',
+              schoolMethod: 'Give the journal a <u>creative name</u> (like classical treatises do) and <u>decorate the cover</u>. For each song note <u>name, genre and learning</u>; file every activity (playlists, maps, songs) <u>dated</u> — it becomes your two-year musical autobiography.',
+            }
+          },
+          {
+            id: 'q2', number: '2', isHard: false,
+            text: 'Activity 6.2 (listening to genres): as you hear pieces through the year, tick their genres — Hindustani/Carnatic vocal and instrumental, Indipop, folk, patriotic, film, world, devotional and others. How should you fill it?',
+            answer: {
+              answerKey: 'Log each song\u2019s name against its genre; aim to cover every genre by year-end.',
+              schoolMethod: 'Keep the <u>genre checklist</u> in your journal; each time you hear a piece, enter its <u>name and tick one genre</u>. Review monthly and deliberately seek <u>unheard genres</u> so all boxes fill by year-end.',
+            }
+          },
+          {
+            id: 'q3', number: '3', isHard: false,
+            text: 'Activity 6.3 (identify the genre): for the classroom song, record genre with identifying features, instruments and their sound, musicians and their style, your feelings, and one change you would make. What should the journal entry hold?',
+            answer: {
+              answerKey: 'Genre + evidence, instruments in words, artists\u2019 style, your emotional response, and a reasoned change.',
+              schoolMethod: 'Write the <u>song details</u>; name the <u>genre and the features</u> proving it; describe each <u>instrument\u2019s sound in words</u>; note the <u>musicians\u2019 distinctive style</u>; record <u>how it made you feel</u>; finish with <u>one change and its reason</u>.',
+            }
+          },
+          {
+            id: 'q4', number: '4', isHard: false,
+            text: 'Activity 6.4 (my playlist): build a 5-song playlist (e.g., mood-uplifter, calm) noting name, genre, raga-tala, composer-lyricist, artists, why you like it, and when you play it. How should you frame it?',
+            answer: {
+              answerKey: 'Name the playlist by purpose; give all seven details per song, ending with the feeling it serves.',
+              schoolMethod: 'Title the playlist by its <u>purpose or mood</u>. Per song record: <u>name, genre, raga-tala</u> (if classical), <u>composer-lyricist, artists, why you like it, and the feeling</u> you play it in. A playlist should <u>mirror or balance emotions</u>, not just collect songs.',
+            }
+          },
+          {
+            id: 'q5', number: '5', isHard: false,
+            text: 'Activity 6.5 (songs and traditional knowledge): find the given songs online, sing along, note the community traditions they document, and compare with a similar song from your region. What should you capture?',
+            answer: {
+              answerKey: 'Traditions recorded in the song, plus a regional parallel compared point to point.',
+              schoolMethod: 'Listen and sing along (invite <u>local musicians</u> if possible). Note which <u>community practices</u> the lyrics preserve (harvest, wedding, craft). Then find a <u>similar song from your region</u> and compare <u>theme, occasion and values</u> side by side.',
+            }
+          },
+          {
+            id: 'q6', number: '6', isHard: false,
+            text: 'Activity 6.6 (mapping regional traditions): draw India\u2019s map in your journal and mark folk music forms in their regions. What is the method and the takeaway?',
+            answer: {
+              answerKey: 'Recall folk forms heard/learnt, place each in its region, and read off India\u2019s musical diversity.',
+              schoolMethod: 'Draw the <u>outline map</u>; recall every <u>folk form</u> you know and <u>mark it in its region</u> with a label. The finished map shows at a glance that <u>each region nurses distinct genres and communities</u> of music.',
+            }
+          },
+          {
+            id: 'q7', number: '7', isHard: false,
+            text: 'Activity 6.7 (my family tradition): ask elders about a family tradition or recipe, write song lyrics on it using structures from Activity 6.3, set a tune, and share it at the next gathering. What are the steps?',
+            answer: {
+              answerKey: 'Interview elders → pick one tradition → lyricise it → tune it → perform for family.',
+              schoolMethod: 'Ask <u>parents/grandparents</u> about traditions or recipes; choose one to preserve. Draft <u>lyrics</u> borrowing structures seen in Activity 6.3; set them to <u>your own tune</u>; <u>sing it at the next festival/gathering</u> — your family\u2019s own song.',
+            }
+          },
+        ]
+      },
+    ]
   },
 ];

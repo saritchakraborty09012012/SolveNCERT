@@ -28,7 +28,7 @@ export const MUSIC_ARTS_CHAPTERS = [
           {
             id: 'q4', number: '4', isHard: false,
             text: "How does the sound change when rubber bands of different thickness are used?",
-            answer: { answerKey: "A thicker band vibrates more slowly and gives a lower-pitched sound; a thinner band vibrates faster and gives a higher-pitched sound.", schoolMethod: "A thicker band vibrates more slowly and gives a lower-pitched sound; a thinner band vibrates faster and gives a higher-pitched sound." },
+            answer: { answerKey: "The sound quality (tone/timbre) changes with the thickness of the vibrating band; the textbook treats thickness/material as affecting the quality of sound.", schoolMethod: "The sound quality (tone/timbre) changes with the thickness of the vibrating band; the textbook treats thickness/material as affecting the quality of sound." },
           },
           {
             id: 'q5', number: '5', isHard: false,
@@ -53,12 +53,12 @@ export const MUSIC_ARTS_CHAPTERS = [
           {
             id: 'q9', number: '9', isHard: false,
             text: "How does the thickness of the string affect the sound?",
-            answer: { answerKey: "Thicker strings vibrate more slowly and produce a lower pitch; thinner strings vibrate faster and produce a higher pitch.", schoolMethod: "Thicker strings vibrate more slowly and produce a lower pitch; thinner strings vibrate faster and produce a higher pitch." },
+            answer: { answerKey: "Changing the thickness of the string changes the quality (tone/timbre) of the sound; the textbook specifically describes thickness/material as affecting sound quality.", schoolMethod: "Changing the thickness of the string changes the quality (tone/timbre) of the sound; the textbook specifically describes thickness/material as affecting sound quality." },
           },
           {
             id: 'q10', number: '10', isHard: false,
             text: "Describe the tone of a note played on the instrument -- is it short or sustained? Is it high-pitched or low-pitched?",
-            answer: { answerKey: "This depends on the specific instrument played in class; generally, a note on a tanpura/veena/violin is sustained and resonant, and its pitch is high or low depending on how tight and thin the plucked string is.", schoolMethod: "This depends on the specific instrument played in class; generally, a note on a tanpura/veena/violin is sustained and resonant, and its pitch is high or low depending on how tight and thin the plucked string is." },
+            answer: { answerKey: "This depends on the instrument used in class and the note played. Describe whether the note is short or sustained and whether it is high- or low-pitched, based on your actual observation.", schoolMethod: "This depends on the instrument used in class and the note played. Describe whether the note is short or sustained and whether it is high- or low-pitched, based on your actual observation." },
           },
         ],
       },
@@ -104,18 +104,18 @@ export const MUSIC_ARTS_CHAPTERS = [
         questions: [
           {
             id: 'q1', number: 'Q1', isHard: false,
-            text: "Fill in the blanks.",
+            text: "Fill in the blanks: (i) When a string is tightened, the pitch ______. (ii) The diaphragm and lungs form part of the ______ subsystem. (iii) The hollow body of a musical instrument is important because ______.",
             answer: { answerKey: "• When a string is tightened, the pitch increases (becomes higher).\n• The diaphragm and lungs form part of the Air Pressure subsystem.\n• The hollow body of a musical instrument is important because it resonates and amplifies the sound, increasing its loudness.", schoolMethod: "• When a string is tightened, the pitch increases (becomes higher).\n• The diaphragm and lungs form part of the Air Pressure subsystem.\n• The hollow body of a musical instrument is important because it resonates and amplifies the sound, increasing its loudness." },
           },
           {
             id: 'q2', number: 'Q2', isHard: false,
-            text: "State whether the following statements are True or False.",
+            text: "State whether the following statements are True or False: (i) The thickness of a string affects the quality of sound. (ii) Drinking water is bad for the voice. (iii) C.V. Raman conducted experiments on the sound of the veena.",
             answer: { answerKey: "• The thickness of a string affects the quality of sound. -- True.\n• Drinking water is bad for the voice. -- False (drinking water keeps vocal cords hydrated and helps them vibrate efficiently).\n• C.V. Raman conducted experiments on the sound of the veena. -- False (Raman experimented on the mridangam and the tabla).", schoolMethod: "• The thickness of a string affects the quality of sound. -- True.\n• Drinking water is bad for the voice. -- False (drinking water keeps vocal cords hydrated and helps them vibrate efficiently).\n• C.V. Raman conducted experiments on the sound of the veena. -- False (Raman experimented on the mridangam and the tabla)." },
           },
           {
             id: 'q3', number: 'Q3', isHard: false,
             text: "Name the three subsystems of the human vocal system, and describe the function of each.",
-            answer: { answerKey: "The three subsystems are:\n• Air Pressure System (diaphragm, lungs, surrounding muscles) -- supplies the breath that powers the voice.\n• Vibratory System (larynx/voice box and vocal cords) -- vibrates to produce musical sound (nda).\n• Resonating System (throat, mouth, nasal cavities) -- shapes and amplifies the vibrations into distinct vowel tones.", schoolMethod: "The three subsystems are:\n• Air Pressure System (diaphragm, lungs, surrounding muscles) -- supplies the breath that powers the voice.\n• Vibratory System (larynx/voice box and vocal cords) -- vibrates to produce musical sound (nda).\n• Resonating System (throat, mouth, nasal cavities) -- shapes and amplifies the vibrations into distinct vowel tones." },
+            answer: { answerKey: "The three subsystems are:\n• Air Pressure System (diaphragm, lungs, surrounding muscles) -- supplies the breath that powers the voice.\n• Vibratory System (larynx/voice box and vocal cords) -- vibrates to produce musical sound .\n• Resonating System (throat, mouth, nasal cavities) -- shapes and amplifies the vibrations into distinct vowel tones.", schoolMethod: "The three subsystems are:\n• Air Pressure System (diaphragm, lungs, surrounding muscles) -- supplies the breath that powers the voice.\n• Vibratory System (larynx/voice box and vocal cords) -- vibrates to produce musical sound .\n• Resonating System (throat, mouth, nasal cavities) -- shapes and amplifies the vibrations into distinct vowel tones." },
           },
           {
             id: 'q4', number: 'Q4', isHard: false,
@@ -145,7 +145,7 @@ export const MUSIC_ARTS_CHAPTERS = [
           {
             id: 'q9', number: 'Q9', isHard: false,
             text: "If you were to design a string instrument using the principles of sound, how would it look and sound? (Diagram description)",
-            answer: { answerKey: "Design description: A string instrument with the following labelled parts, based on the science of sound learnt in this chapter:\n• A hollow wooden resonator box -- to amplify the sound (loudness).\n• A long neck fitted with tuning pegs -- to tighten or loosen the strings and control pitch.\n• Several strings of varying thickness -- thinner strings for higher notes, thicker strings for lower notes.\n• A bridge over the resonator -- to transmit string vibrations to the hollow body for a richer, sustained tone.\n(Draw and label these parts -- resonator box, neck, tuning pegs, strings of varying thickness, and bridge -- on a simple outline sketch.)", schoolMethod: "Design description: A string instrument with the following labelled parts, based on the science of sound learnt in this chapter:\n• A hollow wooden resonator box -- to amplify the sound (loudness).\n• A long neck fitted with tuning pegs -- to tighten or loosen the strings and control pitch.\n• Several strings of varying thickness -- thinner strings for higher notes, thicker strings for lower notes.\n• A bridge over the resonator -- to transmit string vibrations to the hollow body for a richer, sustained tone.\n(Draw and label these parts -- resonator box, neck, tuning pegs, strings of varying thickness, and bridge -- on a simple outline sketch.)" },
+            answer: { answerKey: "Design description: A string instrument with the following labelled parts, based on the science of sound learnt in this chapter:\n• A hollow wooden resonator box -- to amplify the sound (loudness).\n• A long neck fitted with tuning pegs -- to tighten or loosen the strings and control pitch.\n• Several strings of different thickness/material, chosen to provide the desired tone quality.\n• A bridge over the resonator -- to transmit string vibrations to the hollow body for a richer, sustained tone.\n(Draw and label these parts -- resonator box, neck, tuning pegs, strings of varying thickness, and bridge -- on a simple outline sketch.)", schoolMethod: "Design description: A string instrument with the following labelled parts, based on the science of sound learnt in this chapter:\n• A hollow wooden resonator box -- to amplify the sound (loudness).\n• A long neck fitted with tuning pegs -- to tighten or loosen the strings and control pitch.\n• Several strings of different thickness/material, chosen to provide the desired tone quality.\n• A bridge over the resonator -- to transmit string vibrations to the hollow body for a richer, sustained tone.\n(Draw and label these parts -- resonator box, neck, tuning pegs, strings of varying thickness, and bridge -- on a simple outline sketch.)" },
           },
           {
             id: 'q10', number: 'Q10', isHard: false,
@@ -154,7 +154,20 @@ export const MUSIC_ARTS_CHAPTERS = [
           },
         ],
       },
-    ],
+      {
+        id: 's4', title: 'Activities — How to Do',
+        questions: [
+          {
+            id: 'q1', number: '1', isHard: false,
+            text: 'Activity 7.3 (experiencing the vocal system): feel the belly move on breathing; add a soft mmmm on exhaling; then shape mmmm into aaaa, oooo, eeee, uuuuu. What three systems are you feeling?',
+            answer: {
+              answerKey: 'Air-pressure system (belly/lungs), vibratory system (voice box), resonating system (throat–mouth–nose).',
+              schoolMethod: 'Hand on belly: expansion shows the <u>air-pressure system</u> (diaphragm, lungs). Adding <u>mmmm</u> links breath to the <u>vibratory system</u> (larynx, vocal folds). Shaping vowels shows the <u>resonating system</u> (throat, mouth, nasal cavities) colouring the tone.',
+            }
+          },
+        ]
+      },
+    ]
   },
   {
     id: 'ch08', number: 8,
@@ -179,13 +192,13 @@ export const MUSIC_ARTS_CHAPTERS = [
           },
           {
             id: 'q3', number: '3', isHard: false,
-            text: "Write any Audava-Shadava scale (5 notes in ascent, 6 in descent).",
+            text: "Write any Auḍava-Ṣhāḍava scale (5 notes in ascent, 6 in descent).",
             answer: { answerKey: "Arohana (5 notes): S G M P N ; Avarohana (6 notes): N D P M G S.", schoolMethod: "Arohana (5 notes): S G M P N ; Avarohana (6 notes): N D P M G S." },
           },
           {
             id: 'q4', number: '4', isHard: false,
             text: "If you could name a rāga, what would it be? Describe how you would like it to make a listener feel.",
-            answer: { answerKey: "Sample answer: `Rāga hnti' -- using soft, sustained notes in the lower octave, sung slowly, so that the listener feels a deep sense of calm, peace and quiet reflection.", schoolMethod: "Sample answer: `Rāga hnti' -- using soft, sustained notes in the lower octave, sung slowly, so that the listener feels a deep sense of calm, peace and quiet reflection." },
+            answer: { answerKey: "Sample answer: `Rāga Śānti' -- using soft, sustained notes in the lower octave, sung slowly, so that the listener feels a deep sense of calm, peace and quiet reflection.", schoolMethod: "Sample answer: `Rāga Śānti' -- using soft, sustained notes in the lower octave, sung slowly, so that the listener feels a deep sense of calm, peace and quiet reflection." },
           },
         ],
       },
@@ -207,27 +220,27 @@ export const MUSIC_ARTS_CHAPTERS = [
           {
             id: 'q1', number: 'Q1', isHard: false,
             text: "Explain the following in one line:",
-            answer: { answerKey: "• Shadava-Sampurna -- a rāga-Jāti in which the Arohana uses 6 notes and the Avarohana uses 7 notes (or vice versa).\n• Vibhag -- a division or group of beats within a tāla.\n• Jatis in Hindustani Music -- the classification of rāgas according to the number of notes (5, 6, or 7) used in their ascending and descending scales.", schoolMethod: "• Shadava-Sampurna -- a rāga-Jāti in which the Arohana uses 6 notes and the Avarohana uses 7 notes (or vice versa).\n• Vibhag -- a division or group of beats within a tāla.\n• Jatis in Hindustani Music -- the classification of rāgas according to the number of notes (5, 6, or 7) used in their ascending and descending scales." },
+            answer: { answerKey: "• Ṣhāḍava-Saṁpūrṇa -- a rāga-Jāti in which the Arohana uses 6 notes and the Avarohana uses 7 notes (or vice versa).\n• Vibhag -- a division or group of beats within a tāla.\n• Jatis in Hindustani Music -- the classification of rāgas according to the number of notes (5, 6, or 7) used in their ascending and descending scales.", schoolMethod: "• Ṣhāḍava-Saṁpūrṇa -- a rāga-Jāti in which the Arohana uses 6 notes and the Avarohana uses 7 notes (or vice versa).\n• Vibhag -- a division or group of beats within a tāla.\n• Jatis in Hindustani Music -- the classification of rāgas according to the number of notes (5, 6, or 7) used in their ascending and descending scales." },
           },
           {
             id: 'q2', number: 'Q2', isHard: false,
-            text: "If a rāga has 6 svaras in the Arohana and 6 in the Avarohana, what is the Jāti of the rāga? Give an example.",
+            text: "If a rāga has 6 svaras in the ārohaṇa and 6 in the avarohaṇa, what is the jāti of the rāga? Give an example from the rāgas you have learnt.",
             answer: { answerKey: "The Jāti is Shadava-Shadava. Example: Rāga Gurjari Todi (S R G M D N S), which uses 6 notes in both ascent and descent.", schoolMethod: "The Jāti is Shadava-Shadava. Example: Rāga Gurjari Todi (S R G M D N S), which uses 6 notes in both ascent and descent." },
           },
           {
             id: 'q3', number: 'Q3', isHard: false,
-            text: "Which are achala-svaras/prakiti-svaras and chala-svaras/vikiti-svaras? Explain with examples.",
-            answer: { answerKey: "• Achala-svaras/prakiti-svaras -- the invariant notes that have no variant form: S (Shadja) and P (Panchama).\n• Chala-svaras/vikiti-svaras -- the movable notes that have a lower and a higher variant: R, G, M, D and N. For example, R has Komala R (lower) and Shuddha R (higher).", schoolMethod: "• Achala-svaras/prakiti-svaras -- the invariant notes that have no variant form: S (Shadja) and P (Panchama).\n• Chala-svaras/vikiti-svaras -- the movable notes that have a lower and a higher variant: R, G, M, D and N. For example, R has Komala R (lower) and Shuddha R (higher)." },
+            text: "Which are achala-svaras/prakṛiti-svaras and chala-svaras/vikṛiti-svaras? Explain with examples.",
+            answer: { answerKey: "• Achala-svaras/prakṛiti-svaras -- the invariant notes that have no variant form: S (Shadja) and P (Panchama).\n• Chala-svaras/vikṛiti-svaras -- the movable notes that have a lower and a higher variant: R, G, M, D and N. For example, R has Komala R (lower) and Shuddha R (higher).", schoolMethod: "• Achala-svaras/prakṛiti-svaras -- the invariant notes that have no variant form: S (Shadja) and P (Panchama).\n• Chala-svaras/vikṛiti-svaras -- the movable notes that have a lower and a higher variant: R, G, M, D and N. For example, R has Komala R (lower) and Shuddha R (higher)." },
           },
           {
             id: 'q4', number: 'Q4', isHard: false,
-            text: "Name two rāgas and their scales derived from hakarbharaam.",
-            answer: { answerKey: "• Rāga Hamsadhvani (audava) -- Arohana: S R G P N ; Avarohana: N P G R S -- formed by removing M and D.\n• Rāga Mohanam (audava) -- Arohana: S R G P D ; Avarohana: D P G R S -- formed by removing M and N.", schoolMethod: "• Rāga Hamsadhvani (audava) -- Arohana: S R G P N ; Avarohana: N P G R S -- formed by removing M and D.\n• Rāga Mohanam (audava) -- Arohana: S R G P D ; Avarohana: D P G R S -- formed by removing M and N." },
+            text: "Name two rāgas and their scales derived from Śhaṅkarābharaṇam.",
+            answer: { answerKey: "• Rāga Hamsadhvani (audava) -- Arohana: S R G P N ; Avarohana: N P G R S -- formed by removing M and D from Śhaṅkarābharaṇam.\n• The textbook explicitly demonstrates Hamsadhvani as the named example; it does not name a second rāga in this section.", schoolMethod: "• Rāga Hamsadhvani (audava) -- Arohana: S R G P N ; Avarohana: N P G R S -- formed by removing M and D from Śhaṅkarābharaṇam.\n• The textbook explicitly demonstrates Hamsadhvani as the named example; it does not name a second rāga in this section." },
           },
           {
             id: 'q5', number: 'Q5', isHard: false,
             text: "Answer the following:",
-            answer: { answerKey: "• A rāga with 5 notes is called Audava.\n• The Melakarta system was devised by Venkatamakhi.\n• Vishnu Narayan Bhatkhande grouped the Hindustani rāgas in the That system.\n• Complete the series SMGR, RPMG, GDPM, MNDP, PND, DN, N (each group of 4 notes is the previous group shifted one svara step higher).", schoolMethod: "• A rāga with 5 notes is called Audava.\n• The Melakarta system was devised by Venkatamakhi.\n• Vishnu Narayan Bhatkhande grouped the Hindustani rāgas in the That system.\n• Complete the series SMGR, RPMG, GDPM, MNDP, PND, DN, N (each group of 4 notes is the previous group shifted one svara step higher)." },
+            answer: { answerKey: "• A rāga with 5 notes is called Audava.\n• The Melakarta system was devised by Venkatamakhi.\n• Vishnu Narayan Bhatkhande grouped the Hindustani rāgas in the That system.\n• Complete the series: SMGR, RPMG, _____.", schoolMethod: "• A rāga with 5 notes is called Audava.\n• The Melakarta system was devised by Venkatamakhi.\n• Vishnu Narayan Bhatkhande grouped the Hindustani rāgas in the That system.\n• Complete the series: SMGR, RPMG, _____." },
           },
           {
             id: 'q6', number: 'Q6', isHard: false,
@@ -237,36 +250,53 @@ export const MUSIC_ARTS_CHAPTERS = [
           {
             id: 'q7', number: 'Q7', isHard: false,
             text: "Give a brief introduction of Rāga Hamsadhvani.",
-            answer: { answerKey: "Hamsadhvani is an audava (5-note) janya rāga of hakarbharaam, formed by omitting M and D. Arohana: S R G P N ; Avarohana: N P G R S. It has a bright, joyful, invocatory character and is common to both Hindustani and Carnatic music.", schoolMethod: "Hamsadhvani is an audava (5-note) janya rāga of hakarbharaam, formed by omitting M and D. Arohana: S R G P N ; Avarohana: N P G R S. It has a bright, joyful, invocatory character and is common to both Hindustani and Carnatic music." },
+            answer: { answerKey: "Hamsadhvani is an audava (5-note) janya rāga derived from Śhaṅkarābharaṇam, formed by omitting M and D. Arohana: S R G P N ; Avarohana: N P G R S. The textbook shows its five-note scale and explains that M and D are removed from Śhaṅkarābharaṇam to form it.", schoolMethod: "Hamsadhvani is an audava (5-note) janya rāga derived from Śhaṅkarābharaṇam, formed by omitting M and D. Arohana: S R G P N ; Avarohana: N P G R S. The textbook shows its five-note scale and explains that M and D are removed from Śhaṅkarābharaṇam to form it." },
           },
           {
             id: 'q8', number: 'Q8', isHard: false,
             text: "Describe one system of classification of rāgas with examples.",
             answer: { answerKey: "Rāgas are classified by Rāga-Jāti -- the number of notes used in the Arohana and Avarohana. A 7-note scale is Sampurna (e.g., Yaman), a 6-note scale is Shadava (e.g., Gurjari Todi), and a 5-note scale is Audava (e.g., Bhoopali).", schoolMethod: "Rāgas are classified by Rāga-Jāti -- the number of notes used in the Arohana and Avarohana. A 7-note scale is Sampurna (e.g., Yaman), a 6-note scale is Shadava (e.g., Gurjari Todi), and a 5-note scale is Audava (e.g., Bhoopali)." },
           },
-          {
-            id: 'q9', number: 'Q9', isHard: false,
-            text: "Find out about the contributions of the following stalwarts to Indian music.",
-            answer: { answerKey: "• Tansen -- a legendary court musician of Emperor Akbar and one of his `Navaratnas'; credited with composing several rāgas, including Miyan ki Todi and Miyan ki Malhar.\n• Kumar Gandharva -- an eminent 20th-century Hindustani vocalist known for his original, unconventional gayaki and for popularising the mystic poetry of Kabir through music.\n• Meera -- a 16th-century Bhakti-movement poet-saint whose devotional bhajans dedicated to Lord Krishna remain central to the Hindustani vocal repertoire.\n• M.S. Subbulakshmi -- a celebrated Carnatic vocalist, famed for her rendition of the Venkatesa Suprabhatam, and the first musician to be honoured with the Bharat Ratna.", schoolMethod: "• Tansen -- a legendary court musician of Emperor Akbar and one of his `Navaratnas'; credited with composing several rāgas, including Miyan ki Todi and Miyan ki Malhar.\n• Kumar Gandharva -- an eminent 20th-century Hindustani vocalist known for his original, unconventional gayaki and for popularising the mystic poetry of Kabir through music.\n• Meera -- a 16th-century Bhakti-movement poet-saint whose devotional bhajans dedicated to Lord Krishna remain central to the Hindustani vocal repertoire.\n• M.S. Subbulakshmi -- a celebrated Carnatic vocalist, famed for her rendition of the Venkatesa Suprabhatam, and the first musician to be honoured with the Bharat Ratna." },
-          },
-          {
-            id: 'q10', number: 'Q10', isHard: false,
-            text: "Identify the Rāga-Jāti based on the following:",
-            answer: { answerKey: "• 5 svaras in roha and 6 svaras in avaroha -- Audava-Shadava.\n• 6 svaras in roha and 5 svaras in avaroha -- Shadava-Audava.\n• 5 svaras in roha and avaroha -- Audava-Audava.\n• 7 svaras in roha and avaroha -- Sampurna-Sampurna.", schoolMethod: "• 5 svaras in roha and 6 svaras in avaroha -- Audava-Shadava.\n• 6 svaras in roha and 5 svaras in avaroha -- Shadava-Audava.\n• 5 svaras in roha and avaroha -- Audava-Audava.\n• 7 svaras in roha and avaroha -- Sampurna-Sampurna." },
-          },
-          {
-            id: 'q11', number: 'Q11', isHard: false,
-            text: "Complete the table.",
-            answer: { answerKey: "<table><thead><tr><th>Svara</th><th>Note Position</th><th>Variant Name (Hindustani)</th><th>Variant Name (Carnatic)</th></tr></thead><tbody><tr><td>S (Shadja)</td><td>No variant</td><td>No variant</td><td>No variant</td></tr><tr><td>Higher R</td><td>Higher</td><td>Shuddha</td><td>Chatuhruti</td></tr><tr><td>Lower M</td><td>Lower</td><td>Shuddha</td><td>Shuddha</td></tr><tr><td>Higher N</td><td>Higher</td><td>Shuddha</td><td>Kakali</td></tr><tr><td>Panchama (P)</td><td>No variant</td><td>No variant</td><td>No variant</td></tr></tbody></table>", schoolMethod: "<table><thead><tr><th>Svara</th><th>Note Position</th><th>Variant Name (Hindustani)</th><th>Variant Name (Carnatic)</th></tr></thead><tbody><tr><td>S (Shadja)</td><td>No variant</td><td>No variant</td><td>No variant</td></tr><tr><td>Higher R</td><td>Higher</td><td>Shuddha</td><td>Chatuhruti</td></tr><tr><td>Lower M</td><td>Lower</td><td>Shuddha</td><td>Shuddha</td></tr><tr><td>Higher N</td><td>Higher</td><td>Shuddha</td><td>Kakali</td></tr><tr><td>Panchama (P)</td><td>No variant</td><td>No variant</td><td>No variant</td></tr></tbody></table>" },
-          },
-          {
-            id: 'q12', number: 'Q12', isHard: false,
-            text: "Write the tāla lipi (notation) of Teental.",
-            answer: { answerKey: "<table><thead><tr><th>Mātrā</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th></tr></thead><tbody><tr><th>Bol</th><td>dha</td><td>dhin</td><td>dhin</td><td>dha</td><td>dha</td><td>dhin</td><td>dhin</td><td>dha</td><td>dha</td><td>tin</td><td>tin</td><td>ta</td><td>ta</td><td>dhin</td><td>dhin</td><td>dha</td></tr><tr><th>Tāl/Khālī</th><td>X</td><td></td><td></td><td></td><td>2</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td></td><td>3</td><td></td><td></td><td></td></tr></tbody></table>\nTeental has 16 mātrā in 4 vibhags; Tāl falls on beats 1, 5 and 13, and Khālī falls on beat 9.", schoolMethod: "<table><thead><tr><th>Mātrā</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th></tr></thead><tbody><tr><th>Bol</th><td>dha</td><td>dhin</td><td>dhin</td><td>dha</td><td>dha</td><td>dhin</td><td>dhin</td><td>dha</td><td>dha</td><td>tin</td><td>tin</td><td>ta</td><td>ta</td><td>dhin</td><td>dhin</td><td>dha</td></tr><tr><th>Tāl/Khālī</th><td>X</td><td></td><td></td><td></td><td>2</td><td></td><td></td><td></td><td>0</td><td></td><td></td><td></td><td>3</td><td></td><td></td><td></td></tr></tbody></table>\nTeental has 16 mātrā in 4 vibhags; Tāl falls on beats 1, 5 and 13, and Khālī falls on beat 9." },
-          },
         ],
       },
-    ],
+      {
+        id: 's4', title: 'Activities — How to Do (Tala)',
+        questions: [
+          {
+            id: 'q1', number: '1', isHard: false,
+            text: 'Activity 8.2 (identifying bols): listen to a theka recording on tabla and pick out its bols. How should you listen?',
+            answer: {
+              answerKey: 'Replay short stretches, vocalise each stroke sound, and map bols to beats till the cycle is clear.',
+              schoolMethod: 'Play the theka in <u>short loops</u>; <u>speak each bol</u> (dha, dhin, na…) aloud with the strokes; count which bol falls on each <u>beat</u>. Repeat till you can recite the full <u>bol-cycle from memory</u>.',
+            }
+          },
+          {
+            id: 'q2', number: '2', isHard: false,
+            text: 'Activity 8.3 (finding sam): follow the bandish\u2019s tabla theka in class and catch the sam; watch how the artist lands on it differently each time. What should you track?',
+            answer: {
+              answerKey: 'Keep the beat count running, mark each sam arrival, and note the artist\u2019s different routes to it.',
+              schoolMethod: 'Keep <u>silent beat-counting</u> through the theka; raise a finger at every <u>sam</u>. During elaboration, track <u>how the artist curves back</u> to sam each cycle — different phrases, same landing point.',
+            }
+          },
+          {
+            id: 'q3', number: '3', isHard: false,
+            text: 'Activity 8.4 (tala pattern of a song): first respond naturally (tap, clap), then find how many beats the tala cycle holds. What is the method?',
+            answer: {
+              answerKey: 'Feel the pulse physically first, then count beats per cycle to name the tala length.',
+              schoolMethod: '<u>Tap or clap along</u> freely till the pulse sits in the body. Then <u>count beats</u> from one sam to the next — that number is the <u>tala\u2019s cycle length</u> (e.g., 8 for Keherwa, 16 for Teental).',
+            }
+          },
+          {
+            id: 'q4', number: '4', isHard: false,
+            text: 'Activity 8.6 (fitting your song to tala): take your Activity 6.7 family song — does it fall into a tala? Reshape it (speed, stretched/compressed syllables, added/dropped words) and sing it on a steady beat. What should you test?',
+            answer: {
+              answerKey: 'Check natural fit, reshape rhythm elements to lock to a tala, and feel how the mood shifts.',
+              schoolMethod: 'Sing the song against a <u>steady clap</u>: does it already <u>sit in a cycle</u>? If not, <u>speed/slow it, stretch or squeeze syllables, add or drop a word</u> till it locks. Note <u>how the feel changes</u> once tala holds it.',
+            }
+          },
+        ]
+      },
+    ]
   },
   {
     id: 'ch09', number: 9,

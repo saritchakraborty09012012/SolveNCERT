@@ -104,7 +104,44 @@ export const VISUAL_ARTS_CHAPTERS = [
           },
         ],
       },
-    ],
+      {
+        id: 's3', title: 'Activities — How to Do',
+        questions: [
+          {
+            id: 'q1', number: '1', isHard: false,
+            text: 'Activity 13.1 (plan a choreography): on the marked stage diagrams, plot dancer positions and formations for your chosen number of dancers (on paper or physically). What should the plan show?',
+            answer: {
+              answerKey: 'Every formation drawn on stage markings, with dancer counts and movement paths between them.',
+              schoolMethod: 'Take the <u>marked stage diagram</u>; for your dancer count, <u>plot each formation</u> (lines, circles, diagonals) and <u>arrows for transitions</u>. Test it <u>physically in space</u> — adjust spacing till shapes read clearly from the front.',
+            }
+          },
+          {
+            id: 'q2', number: '2', isHard: false,
+            text: 'Activity 13.2 (creating your choreography): each lead choreographer builds a solo, then expands it for the group using formations, spacing, timing and the four abhinayas; present solo then group versions. What should you compare?',
+            answer: {
+              answerKey: 'How expression, spacing and energy transform the same phrase from solo to group.',
+              schoolMethod: 'Choreograph the <u>solo phrase</u> first (any theme: nature, festival, contemporary). Expand with <u>formations, spacing, timing, interaction</u> plus <u>abhinayas</u> (gesture, rhythm-speech, props, emotion). Present <u>solo then group</u> and compare how <u>meaning shifts</u>.',
+            }
+          },
+          {
+            id: 'q3', number: '3', isHard: false,
+            text: 'Activity 13.3 (reflections): review the Activity 13.2 choreography through self, peer and expert feedback, recorded in your dance journal. What should each review answer?',
+            answer: {
+              answerKey: 'Self: did the concept communicate, what worked. Peer: observed gaps. Expert: clarity, creativity, effectiveness.',
+              schoolMethod: '<u>Self</u>: did the concept reach viewers; what worked? <u>Peer</u>: collect classmates\u2019 observations and discuss. <u>Expert</u> (teacher/invitee): note verdicts on <u>clarity, creativity, effectiveness</u>. File all three in the journal with action points.',
+            }
+          },
+          {
+            id: 'q4', number: '4', isHard: false,
+            text: 'Activity 13.4 (well-being discussion circle): discuss the year\u2019s dance journey — creating, sharing, collaborating — and close by naming your silver lining. How should the circle run?',
+            answer: {
+              answerKey: 'Share experiences round by round, then each person names one positive discovery about self, group and process.',
+              schoolMethod: 'Go round sharing <u>experiences of creating, sharing and collaborating</u> across the concepts learnt. End with each member\u2019s <u>silver lining</u> — one positive thing discovered about <u>self, group and the creative process</u>.',
+            }
+          },
+        ]
+      },
+    ]
   },
   {
     id: 'ch14', number: 14,
@@ -136,8 +173,8 @@ export const VISUAL_ARTS_CHAPTERS = [
             id: 'q3', number: '3', isHard: false,
             text: 'Observe the artwork in Fig. 14.5 (Jamini Roy, Santhal Dance) and answer the following:',
             answer: {
-              answerKey: '• (i) Identify any three elements of art.\n  Answer: Line, colour, and shape are the three prominent elements of art used in this artwork, seen through the bold outlines, flat earthy tones, and simplified stylised human figures.\n\n• (ii) How is balance created?\n  Answer: Balance is created through the symmetrical, evenly spaced repetition of similarly sized figures arranged in a rhythmic horizontal row across the entire composition.\n\n• (iii) Write about two or more aspects that attract you towards the artwork.\n  Answer: The bold flat colours and rhythmic repetition of simplified folk figures create a strong sense of unity and rustic charm, making the artwork visually striking and harmonious.',
-              schoolMethod: '• (i) Identify any three elements of art.\n  Answer: Line, colour, and shape are the three prominent elements of art used in this artwork, seen through the bold outlines, flat earthy tones, and simplified stylised human figures.\n\n• (ii) How is balance created?\n  Answer: Balance is created through the symmetrical, evenly spaced repetition of similarly sized figures arranged in a rhythmic horizontal row across the entire composition.\n\n• (iii) Write about two or more aspects that attract you towards the artwork.\n  Answer: The bold flat colours and rhythmic repetition of simplified folk figures create a strong sense of unity and rustic charm, making the artwork visually striking and harmonious.',
+              answerKey: '• (i) Identify any three elements of art.\n  Answer: Line, colour, and shape are the three prominent elements of art used in this artwork, seen through the bold outlines, flat earthy tones, and simplified stylised human figures.\n\n• (ii) How is balance created?\n  Answer: Balance is created through the repeated figures distributed across the horizontal composition, with recurring colours, similar figure sizes, and a steady visual rhythm rather than a single isolated focal point.\n\n• (iii) Write about two or more aspects that attract you towards the artwork.\n  Answer: The bold flat colours and rhythmic repetition of simplified folk figures create a strong sense of unity and rustic charm, making the artwork visually striking and harmonious.',
+              schoolMethod: '• (i) Identify any three elements of art.\n  Answer: Line, colour, and shape are the three prominent elements of art used in this artwork, seen through the bold outlines, flat earthy tones, and simplified stylised human figures.\n\n• (ii) How is balance created?\n  Answer: Balance is created through the repeated figures distributed across the horizontal composition, with recurring colours, similar figure sizes, and a steady visual rhythm rather than a single isolated focal point.\n\n• (iii) Write about two or more aspects that attract you towards the artwork.\n  Answer: The bold flat colours and rhythmic repetition of simplified folk figures create a strong sense of unity and rustic charm, making the artwork visually striking and harmonious.',
             },
           },
           {
@@ -150,7 +187,44 @@ export const VISUAL_ARTS_CHAPTERS = [
           },
         ],
       },
-    ],
+      {
+        id: 's2', title: 'Activities — How to Do',
+        questions: [
+          {
+            id: 'q1', number: '1', isHard: false,
+            text: 'Activity 14.1 (artists\u2019 journals): in five groups, research artists\u2019 journals (e.g., Da Vinci\u2019s notebooks, Frida Kahlo\u2019s diary, Tagore\u2019s doodles, Mansur\u2019s birds-animals, Nandalal Bose) and share how artists recorded experience. What should each group present?',
+            answer: {
+              answerKey: 'How the chosen artist captured ideas — medium, habit and purpose — with one example shown.',
+              schoolMethod: 'Search <u>books or digital sources</u> (or Fig. 14.1 examples); find <u>how that artist recorded</u> observations and ideas (sketches, notes, doodles). Present with <u>one shown example</u> and one line on what your group will borrow.',
+            }
+          },
+          {
+            id: 'q2', number: '2', isHard: false,
+            text: 'Activity 14.2 (elements of art): dedicate one journal page to each of the seven elements — point, line, shape-form, texture, colour, value, space — in varied mediums. What goes on each page?',
+            answer: {
+              answerKey: 'A full page exploring one element in many varieties, materials and patterns.',
+              schoolMethod: 'Per the day-plan: <u>dots</u> of sizes; <u>lines</u> curvy to dashed; <u>shapes with shading</u>; <u>texture rubbings</u>; <u>colour blotches</u>; <u>tints-tones-shades</u>; <u>space divisions</u>. Fill the <u>whole page</u> with designs, not single samples.',
+            }
+          },
+          {
+            id: 'q3', number: '3', isHard: false,
+            text: 'Activity 14.3 (daily sketching): follow the table (5-min objects ×2, 10-min plants ×2, 10-min creatures ×1, 10-min postures ×2, 15-min buildings ×1) toward 8 sketches weekly, dating each. How should you keep it up?',
+            answer: {
+              answerKey: 'Beat the minimum minutes daily, date-time-place every sketch, and hit 8 a week.',
+              schoolMethod: 'Sketch <u>daily beyond the minimum</u> minutes; write <u>date, time and place</u> on each (paste loose sheets into the journal). Cover <u>all five themes</u> across the week to reach the <u>8-sketch target</u>.',
+            }
+          },
+          {
+            id: 'q4', number: '4', isHard: false,
+            text: 'Activity 14.4 (principles of design): revise unity-harmony, balance, rhythm-movement, emphasis, proportion, hierarchy; spot them in print around you; make 3–4 journal entries (good and bad designs). What should entries contain?',
+            answer: {
+              answerKey: 'Cut-out analysed for principles present — or faults — with the principle named in each case.',
+              schoolMethod: 'Cut interesting <u>print designs</u> (ads, covers, wrappers, textiles); for each, name the <u>principles visible</u> and where. Add <u>poor designs</u> too, diagnosing <u>what fails</u>. Three to four such <u>analysed entries</u> complete the task.',
+            }
+          },
+        ]
+      },
+    ]
   },
   {
     id: 'ch15', number: 15,
@@ -219,8 +293,8 @@ export const VISUAL_ARTS_CHAPTERS = [
             id: 'q3', number: '3', isHard: false,
             text: 'Write a paragraph about the painting in Fig. 15.13 (Abanindranath Tagore, Emperor\'s March to Kashmir) covering: (i) description of scene, (ii) analysis of perspective, and (iii) medium to blend colours as seen in the painting.',
             answer: {
-              answerKey: '• The painting depicts a royal procession of elephants and riders crossing a hazy, golden desert under a glowing evening sky.\n\n• Aerial perspective is used, as the foreground elephant is rendered with more detail while distant figures fade into soft, hazy tones.\n\n• The wash-and-tempera technique, using thin watercolour washes, would best achieve the soft, hazy gradation of colour seen in the painting.',
-              schoolMethod: '• The painting depicts a royal procession of elephants and riders crossing a hazy, golden desert under a glowing evening sky.\n\n• Aerial perspective is used, as the foreground elephant is rendered with more detail while distant figures fade into soft, hazy tones.\n\n• The wash-and-tempera technique, using thin watercolour washes, would best achieve the soft, hazy gradation of colour seen in the painting.',
+              answerKey: '• The painting depicts elephants and riders moving through a hazy, warm-toned landscape.\n\n• Aerial perspective is used: the nearer elephant and riders are clearer, while more distant forms fade into softer, hazier tones.\n\n• The wash-and-tempera technique, using thin watercolour washes, would best achieve the soft, hazy gradation of colour seen in the painting.',
+              schoolMethod: '• The painting depicts elephants and riders moving through a hazy, warm-toned landscape.\n\n• Aerial perspective is used: the nearer elephant and riders are clearer, while more distant forms fade into softer, hazier tones.\n\n• The wash-and-tempera technique, using thin watercolour washes, would best achieve the soft, hazy gradation of colour seen in the painting.',
             },
           },
           {
@@ -233,7 +307,68 @@ export const VISUAL_ARTS_CHAPTERS = [
           },
         ],
       },
-    ],
+      {
+        id: 's3', title: 'Activities — How to Do',
+        questions: [
+          {
+            id: 'q1', number: '1', isHard: false,
+            text: 'Activity 15.1 (mediums): list all mediums mentioned, find the easily available ones, and use them in your artwork. How should you choose?',
+            answer: {
+              answerKey: 'List every medium, tick what is locally available, and rotate them across artworks.',
+              schoolMethod: 'Write the <u>full medium list</u> from the chapter; mark what is <u>easily available</u> (pencils, crayons, clay, fabric); use a <u>different available medium per artwork</u> so skill spreads widely.',
+            }
+          },
+          {
+            id: 'q2', number: '2', isHard: false,
+            text: 'Activity 15.2 (Indian sculptural crafts): research any two crafts into a one-page journal report with drawings/photos — tradition and region, artist, materials, technique, source. What must the page hold?',
+            answer: {
+              answerKey: 'All six prompts answered for two crafts, illustrated, with the information source cited.',
+              schoolMethod: 'For each craft record: <u>tradition + region</u>, a <u>practising artist</u> if known, <u>materials/mediums</u>, <u>technique/process</u>, and your <u>source</u>. Add <u>drawings or photos</u> — one page per craft.',
+            }
+          },
+          {
+            id: 'q3', number: '3', isHard: false,
+            text: 'Activity 15.3 (3D object): handcraft a functional or decorative object from clay, fabric, fibre or soft wood using traditional processes; display and share the experience. What are the steps?',
+            answer: {
+              answerKey: 'Choose material and use, plan the process, build it, display it, and narrate the experience.',
+              schoolMethod: 'Pick an <u>object</u> (pen stand, headgear, jewellery) and a <u>traditional-suitable material</u>; <u>plan steps</u>; build (innovate without an expert if needed); <u>display</u> the piece and <u>share what worked and what failed</u>.',
+            }
+          },
+          {
+            id: 'q4', number: '4', isHard: false,
+            text: 'Activity 15.4 (mixed-media colour wheel): build the primary–secondary–tertiary wheel in varied mediums; map warm–cool, tints–shades–tones, and complementary/analogous pairs (Fig. 15.7). What should it display?',
+            answer: {
+              answerKey: 'Full wheel in mixed mediums with warm–cool zones, value ranges and opposite/adjacent pairs marked.',
+              schoolMethod: 'Lay the <u>12-colour wheel</u> using <u>pencils, crayons, collage, fabric scraps</u>; ring the <u>warm vs cool halves</u>; practise <u>tints, shades, tones</u>; mark <u>complementary opposites</u> and <u>analogous neighbours</u> per Fig. 15.7.',
+            }
+          },
+          {
+            id: 'q5', number: '5', isHard: false,
+            text: 'Activity 15.5 (vanishing point): on the Fig. 15.9 painting (Aristotle–Plato gathering), mark the vanishing point and draw converging lines below and above eye level. How should you do it?',
+            answer: {
+              answerKey: 'Find the architecture\u2019s convergence centre, dot the vanishing point, and rule the converging lines.',
+              schoolMethod: 'Study the <u>architecture lines</u> with your teacher (look the painting up together); they meet at the <u>centre near Aristotle–Plato</u> — dot the <u>vanishing point</u> in pencil; rule lines <u>below and above eye level</u> converging into it.',
+            }
+          },
+          {
+            id: 'q6', number: '6', isHard: false,
+            text: 'Activity 15.7 (perspective artwork): re-imagine dancers of your own time on A4 using linear and aerial perspective (9 steps: visualise → sketch → feedback → draw → colour → display → review). What must the final piece show?',
+            answer: {
+              answerKey: 'Two-plus dancers in a real setting with correct linear drawing and aerial colouring — original, not copied.',
+              schoolMethod: '<u>Visualise</u> dancers, costumes and a setting with architecture; <u>sketch and plan</u> both perspectives; take <u>peer-teacher feedback</u>; draw with <u>linear perspective</u>, colour with <u>aerial perspective</u>; <u>display and journal-review</u> others\u2019 work. Do not copy the miniature.',
+            }
+          },
+          {
+            id: 'q7', number: '7', isHard: false,
+            text: 'Colour theory: how many complementary pairs can you list (and your favourite, with reason)? List analogous colours in threes (and your favourite, with reason).',
+            answer: {
+              answerKey: 'Opposites (red–green, blue–orange, yellow–violet…); neighbours in threes (red–orange–yellow…) — each with a personal reason.',
+              schoolMethod: 'From your wheel read <u>opposite pairs</u> (red–green, blue–orange, yellow–violet and intermediates — <u>six pairs</u> on a 12-wheel); group <u>adjacent threes</u> (e.g., yellow–yellow-green–green). Pick a <u>favourite of each with one reason</u> (mood, contrast, harmony).',
+            }
+          },
+        ]
+      },
+    ]
   },
   {
     id: 'ch16', number: 16,
@@ -260,22 +395,14 @@ export const VISUAL_ARTS_CHAPTERS = [
         questions: [
           {
             id: 'q1', number: '1', isHard: false,
-            text: 'Which pair of speech balloons suit the dialogues below? Child: Maa! Look at what I have made! Parent: Shhh... your sister is sleeping. Come closer and show it to me.',
+            text: 'Which pair of speech balloons suit the dialogues below? Child: Maa! Look at what I have made! Parent: Shhh… your sister is sleeping. Come closer and show it to me. Options: (a) child—plain oval, parent—jagged; (b) child—jagged, parent—cloud; (c) child—plain oval, parent—plain oval; (d) child—jagged, parent—dark/jagged. Then write a dialogue that you have had with your parents, teachers, or other elders and place the lines in suitable speech balloons to capture moods and expressions.',
             answer: {
-              answerKey: 'Option (c) suits best. Plain, rounded speech balloons represent calm, normal speech, which matches the child\'s simple exclamation and the parent\'s quiet, hushed response, unlike the jagged \'shouting\' balloons in the other options.',
-              schoolMethod: 'Option (c) suits best. Plain, rounded speech balloons represent calm, normal speech, which matches the child\'s simple exclamation and the parent\'s quiet, hushed response, unlike the jagged \'shouting\' balloons in the other options.',
+              answerKey: 'Option (c) is the best match for the given dialogue: both speakers use ordinary/quiet speech balloons, with the parent speaking softly. The second part is a personal drawing-and-writing task: write a real dialogue and choose balloon shapes that match each line’s mood or expression.',
+              schoolMethod: 'Option (c) is the best match for the given dialogue. Then write your own short dialogue and place each line in a speech balloon suited to its mood or expression.',
             },
           },
           {
-            id: 'q2', number: '1', isHard: false,
-            text: 'Write a dialogue that you have had with your parents, teachers, or other elders and place them in suitable speech balloons to capture moods and expressions.',
-            answer: {
-              answerKey: 'This is a personal, practical task. Write a short real-life dialogue and represent each line in a speech-balloon shape matching its mood (speaking, shouting, whispering, thinking), as shown in Fig. 16.5.\n\nNote: Practical/creative question -- to be completed individually as a hand-drawn response.',
-              schoolMethod: 'This is a personal, practical task. Write a short real-life dialogue and represent each line in a speech-balloon shape matching its mood (speaking, shouting, whispering, thinking), as shown in Fig. 16.5.\n\nNote: Practical/creative question -- to be completed individually as a hand-drawn response.',
-            },
-          },
-          {
-            id: 'q3', number: '2', isHard: false,
+            id: 'q2', number: '2', isHard: false,
             text: 'Observe the paintings shown in Figs. 16.10 and 16.11 and answer the following:',
             answer: {
               answerKey: '• (i) Explain the difference between the terms realistic and abstract.\n  Answer: Realistic (naturalistic) artworks resemble objects, nature, and people as they appear in real life, whereas abstract artworks are imaginative creations with no direct resemblance to reality.\n\n• (ii) Which term would be used for each painting given below?\n  Answer: Fig. 16.10, \'The Source\' by Jehangir Sabavala, is abstract, showing fragmented imaginative forms. Fig. 16.11, \'Flower Vase and Fruit Tray\' by P.T. Reddy, is realistic, depicting recognisable objects.',
@@ -283,7 +410,7 @@ export const VISUAL_ARTS_CHAPTERS = [
             },
           },
           {
-            id: 'q4', number: '3', isHard: false,
+            id: 'q3', number: '3', isHard: false,
             text: 'Why is compositional layout important? Explain this using your favourite artwork.',
             answer: {
               answerKey: 'Compositional layout arranges size, position, colour and proportion harmoniously, guiding the viewer\'s eye and conveying meaning. For example, in Raja Ravi Varma\'s \'There Comes Papa\', balanced placement creates warmth and focus on the family group.',
@@ -291,7 +418,7 @@ export const VISUAL_ARTS_CHAPTERS = [
             },
           },
           {
-            id: 'q5', number: '4', isHard: false,
+            id: 'q4', number: '4', isHard: false,
             text: 'Reflect on the compositions you have made and answer the following: (i) What was the inspiration behind choosing the subject matter? (ii) What were the challenges and how did you resolve them? (iii) What did you learn from making many iterations?',
             answer: {
               answerKey: 'This is a personal reflection based on Activity 16.1. State the real-life inspiration for the chosen theme, describe a genuine challenge (e.g., balancing elements) and how it was resolved, and explain that multiple iterations helped refine proportion, focus and overall visual impact.\n\nNote: Reflective/personal question -- to be answered from the student\'s own composition work in Activity 16.1.',
@@ -300,7 +427,20 @@ export const VISUAL_ARTS_CHAPTERS = [
           },
         ],
       },
-    ],
+      {
+        id: 's3', title: 'Activities — How to Do',
+        questions: [
+          {
+            id: 'q1', number: '1', isHard: false,
+            text: 'Activity 16.1 (compositions): choose A (four-part comic strip), B (thematic painting) or C (group collage) and build it end to end. What must each option deliver?',
+            answer: {
+              answerKey: 'A: 4 continuous scenes with 2+ characters. B: themed coloured work with titled finish. C: collaborative collage by the same design steps.',
+              schoolMethod: '<u>A (comic)</u>: ideate → size/format → character sketches → speech balloons → compose scenes → sequence best four → refine → colour → display and peer-review. <u>B (painting)</u>: medium → size → theme → layout trials → line drawing → colour plan by mood → paint in sequence → detail → <u>title (title ≠ topic)</u> → display. <u>C (collage)</u>: group theme then B\u2019s steps with material play and edge experiments.',
+            }
+          },
+        ]
+      },
+    ]
   },
   {
     id: 'ch17', number: 17,
@@ -367,6 +507,35 @@ export const VISUAL_ARTS_CHAPTERS = [
           },
         ],
       },
-    ],
+      {
+        id: 's3', title: 'Activities — How to Do',
+        questions: [
+          {
+            id: 'q1', number: '1', isHard: false,
+            text: 'Activity 17.1 (branches of visual arts): pick one or two categories, document two artists/designers/craftspersons (practice, inspiration, themes, why recognised), present in class and note others\u2019 presentations. What should you gather?',
+            answer: {
+              answerKey: 'For two creators: art form, learning path, themes, and reason for recognition — then present and compare notes.',
+              schoolMethod: 'Choose <u>1–2 categories</u>; study <u>two creators</u> via works, films/interviews: their <u>practice, inspiration and learning, themes, and why recognised</u>. Present findings; <u>take notes</u> on classmates\u2019 presentations too.',
+            }
+          },
+          {
+            id: 'q2', number: '2', isHard: false,
+            text: 'Activity 17.2 (interact with professionals): with your teacher\u2019s help, contact regional artists in person or online to learn the practical side of their work. How should you arrange it?',
+            answer: {
+              answerKey: 'List questions, fix a meeting (live or online) via the teacher, and record practical takeaways.',
+              schoolMethod: 'Draft your <u>questions on practice, training, income and challenges</u>; ask the teacher to <u>connect you to regional artists</u>; meet <u>in person or online</u>; write up <u>practical learnings</u> (not biography) for the class.',
+            }
+          },
+          {
+            id: 'q3', number: '3', isHard: false,
+            text: 'Heritage Crafts: find out about Padma awardees or any craftsperson from your region or state. What should you collect?',
+            answer: {
+              answerKey: 'Name, craft and region, Padma honour (if any), and one line on why their work matters.',
+              schoolMethod: 'Search <u>Padma awardee lists</u> and ask <u>elders/teachers</u> for local names. Record <u>craft, region, award/year</u> and <u>one line on significance</u> (technique saved, community employed, tradition revived).',
+            }
+          },
+        ]
+      },
+    ]
   },
 ];

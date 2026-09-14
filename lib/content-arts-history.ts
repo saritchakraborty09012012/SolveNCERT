@@ -477,17 +477,17 @@ export const HISTORY_ARTS_CHAPTERS = [
             id: 'q1',
             number: '1',
             isHard: false,
-            text: 'Categorise the given list into tangible and intangible cultural heritage: (i) Sculptures (ii) Vedic chanting (iii) Knowledge of weaving textiles (iv) Pottery (v) Jewellery (vi) Traditional wedding songs (vii) Kavad Katha (viii) Madhubani painting.',
+            text: 'Categorise the given list into tangible and intangible cultural heritage: (i) Sculptures (ii) Vedic chanting (iii) Knowledge of weaving textiles (iv) Pottery (v) Jewellery (vi) Traditional wedding songs (vii) Kāvaḍ Kathā (viii) Madhubani painting.',
             answer: {
-              answerKey: '• Tangible cultural heritage: Sculptures, Pottery, Jewellery, Madhubani painting.\n• Intangible cultural heritage: Vedic chanting, Knowledge of weaving textiles, Traditional wedding songs, Kavad Katha.',
-              schoolMethod: '• Tangible cultural heritage: Sculptures, Pottery, Jewellery, Madhubani painting.\n• Intangible cultural heritage: Vedic chanting, Knowledge of weaving textiles, Traditional wedding songs, Kavad Katha.',
+              answerKey: '• Tangible cultural heritage: Sculptures, Pottery, Jewellery, Madhubani painting.\n• Intangible cultural heritage: Vedic chanting, Knowledge of weaving textiles, Traditional wedding songs, Kāvaḍ Kathā.',
+              schoolMethod: '• Tangible cultural heritage: Sculptures, Pottery, Jewellery, Madhubani painting.\n• Intangible cultural heritage: Vedic chanting, Knowledge of weaving textiles, Traditional wedding songs, Kāvaḍ Kathā.',
             },
           },
           {
             id: 'q2',
             number: '2',
             isHard: false,
-            text: 'Why are ancient texts and treatises on Indian arts still relevant today?',
+            text: 'Why are ancient texts and treatises on Indian arts still relevant today? (i) They contain exact instructions for making different artefacts. (ii) They provide historical knowledge, technical guidance, and philosophical foundations for understanding and practising Indian arts. (iii) They only contain the rules for dance. (iv) They are only useful for studying ancient scripts and languages.',
             answer: {
               answerKey: 'Correct option (ii): They provide historical knowledge, technical guidance, and philosophical foundations for understanding and practising Indian arts.',
               schoolMethod: 'Correct option (ii): They provide historical knowledge, technical guidance, and philosophical foundations for understanding and practising Indian arts.',
@@ -497,7 +497,7 @@ export const HISTORY_ARTS_CHAPTERS = [
             id: 'q3',
             number: '3',
             isHard: false,
-            text: 'Why do you think the murals in the Ajanta caves have survived close to 1,500 years?',
+            text: 'Why do you think the murals in the Ajanta caves have survived close to 1,500 years? (i) Because the murals were repainted every year by local population. (ii) Because they contain a mixture of natural and synthetic pigments. (iii) Because the caves provided a stable, sheltered environment that protected the paintings from sunlight, rain, and wind. (iv) Because the caves were built on a sacred site where decay does not occur.',
             answer: {
               answerKey: 'Correct option (iii): Because the caves provided a stable, sheltered environment that protected the paintings from sunlight, rain and wind.',
               schoolMethod: 'Correct option (iii): Because the caves provided a stable, sheltered environment that protected the paintings from sunlight, rain and wind.',
@@ -517,7 +517,7 @@ export const HISTORY_ARTS_CHAPTERS = [
             id: 'q5',
             number: '5',
             isHard: false,
-            text: 'Choose an art form you are familiar with. Describe developments in its techniques over time using the given prompts (example: Bharatanatyam).',
+            text: 'Choose any art form you are familiar with. What kind of developments do you see in techniques over time? Use these prompts: (i) Function or role of artworks/performance traditions at different points of time. (ii) Exploration of literary sources, materials, mediums, and techniques. (iii) How are arts processes practised today informed by the past?',
             answer: {
               answerKey: '• Function/role over time: Originally a temple ritual offering to deities, it is now performed on public stages for wider cultural and artistic appreciation.\n• Literary sources, materials, mediums, techniques: It draws from the Natyashastra and Abhinaya-darpanam; costumes have moved from simple natural fabrics to elaborate stitched costumes and modern stage lighting.\n• Informed by the past: Today\'s dancers still train using the codified hand gestures (mudras) and postures from ancient treatises, blending tradition with contemporary staging.',
               schoolMethod: '• Function/role over time: Originally a temple ritual offering to deities, it is now performed on public stages for wider cultural and artistic appreciation.\n• Literary sources, materials, mediums, techniques: It draws from the Natyashastra and Abhinaya-darpanam; costumes have moved from simple natural fabrics to elaborate stitched costumes and modern stage lighting.\n• Informed by the past: Today\'s dancers still train using the codified hand gestures (mudras) and postures from ancient treatises, blending tradition with contemporary staging.',
@@ -527,7 +527,7 @@ export const HISTORY_ARTS_CHAPTERS = [
             id: 'q6',
             number: '6',
             isHard: false,
-            text: 'Write a note on any work of Indian art made before 1200 CE, using any five given prompts (example: the Chola bronze Nataraja).',
+            text: 'Write a note on any work of Indian art that you like, which was made before 1200 CE. You can also choose an artwork that has not been provided in the textbook. Describe it using any five prompts: (i) Material, time period, location/region. (ii) Subject/theme. (iii) Iconography or symbolism, if any. (iv) Visual characteristics (style/expression). (v) What interests you in the artwork, and how do you connect it to the present times?',
             answer: {
               answerKey: '• Material, time period, location: Bronze sculpture from the Chola period, 10th century CE, Tamil Nadu.\n• Subject/theme: Shiva as Nataraja, the cosmic dancer, symbolising creation, preservation and destruction.\n• Iconography/symbolism: A ring of fire, four hands holding fire and damaru and forming gajahasta and abhaya mudras, with the dwarf Apasmara crushed underfoot.\n• Visual characteristics: Dynamic yet balanced composition, rhythmic flowing lines and idealised proportions conveying divine energy and movement.\n• Relevance today: It embodies the idea of eternal cosmic rhythm and continues to inspire modern dance, art and India\'s cultural identity worldwide.',
               schoolMethod: '• Material, time period, location: Bronze sculpture from the Chola period, 10th century CE, Tamil Nadu.\n• Subject/theme: Shiva as Nataraja, the cosmic dancer, symbolising creation, preservation and destruction.\n• Iconography/symbolism: A ring of fire, four hands holding fire and damaru and forming gajahasta and abhaya mudras, with the dwarf Apasmara crushed underfoot.\n• Visual characteristics: Dynamic yet balanced composition, rhythmic flowing lines and idealised proportions conveying divine energy and movement.\n• Relevance today: It embodies the idea of eternal cosmic rhythm and continues to inspire modern dance, art and India\'s cultural identity worldwide.',
@@ -739,7 +739,7 @@ export const HISTORY_ARTS_CHAPTERS = [
             id: 'q5',
             number: '5',
             isHard: false,
-            text: 'Which qualities would you associate with the image of a window? Give reasons for your answer.',
+            text: 'Which qualities would you associate with this image? Give reasons for your answer. (i) Openness, new perspectives, and curiosity. (ii) Isolation and restriction. (iii) Discipline and strict boundaries. (iv) Confusion and unpredictability. Fig. 2.7. Window',
             answer: {
               answerKey: 'Correct option (i): Openness, new perspectives, and curiosity - an open window suggests connection to the outside world and possibility, rather than confinement or restriction.',
               schoolMethod: 'Correct option (i): Openness, new perspectives, and curiosity - an open window suggests connection to the outside world and possibility, rather than confinement or restriction.',
@@ -747,7 +747,52 @@ export const HISTORY_ARTS_CHAPTERS = [
           },
         ],
       },
-    ],
+      {
+        id: 's7', title: 'Activities — How to Do',
+        questions: [
+          {
+            id: 'q1', number: '1', isHard: false,
+            text: 'Activity 2.1 (team logo): make rough sketches, keep the design simple and replicable, choose colours that express your ideas, and finish the artwork with or without the team name. How should you proceed?',
+            answer: {
+              answerKey: 'Sketch options → simplify → colour for meaning → final artwork → explain choices.',
+              schoolMethod: 'Make <u>several rough sketches</u>; pick the <u>simplest, most replicable</u> one; choose <u>colours that express</u> your team\u2019s ideas; render the <u>final artwork</u> (name inside or alongside). Keep every draft — the journey shows your thinking.',
+            }
+          },
+          {
+            id: 'q2', number: '2', isHard: false,
+            text: 'What do you notice in your team logo, and what do you think each element represents?',
+            answer: {
+              answerKey: 'Read shapes, colours and symbols as carriers of the team\u2019s meaning.',
+              schoolMethod: 'List each <u>shape, colour, letter and symbol</u>; state what it <u>represents</u> (e.g., circle = unity, red = energy). Discuss whether a viewer would read the same meaning — that tests the logo\u2019s <u>clarity</u>.',
+            }
+          },
+          {
+            id: 'q3', number: '3', isHard: false,
+            text: 'Discuss as you design: What does theatre mean to you? What do you believe in? What is your team about? What stories do you want to tell? What should the audience experience?',
+            answer: {
+              answerKey: 'Answer all five prompts honestly — they become the logo\u2019s and the team\u2019s identity brief.',
+              schoolMethod: 'Give one frank line per prompt: <u>theatre\u2019s meaning</u> to you, your <u>beliefs</u>, the <u>team\u2019s identity</u>, the <u>stories</u> you want to tell, the <u>audience\u2019s experience</u>. Feed these answers directly into logo shapes, colours and the team name.',
+            }
+          },
+          {
+            id: 'q4', number: '4', isHard: false,
+            text: 'Step 4 (stories for theatre): after collecting responses, examine — what emotions and themes emerged? What surprised you? How can the information shape a story on this topic?',
+            answer: {
+              answerKey: 'Cluster responses into themes, note surprises, and convert the strongest thread into a story spine.',
+              schoolMethod: 'Spread out responses; group them by <u>emotion and theme</u>; mark what <u>surprised</u> the group. Pick the strongest thread and ask: whose story is it, what changes, what ends it? That becomes your <u>play\u2019s spine</u>.',
+            }
+          },
+          {
+            id: 'q5', number: '5', isHard: false,
+            text: 'Let us recall (Grade 8 Kriti, Ch. 2): which genres and forms will your team use? Which props, costumes and makeup fit best? How will you use available resources and assign backstage duties?',
+            answer: {
+              answerKey: 'Fix genre/form, list needed props-costumes-makeup, map resources, and assign every backstage role by name.',
+              schoolMethod: 'Decide <u>genre + form</u> (e.g., puppet tragedy, street comedy); list <u>props, costumes, makeup</u> each scene needs; match them to <u>available resources</u>; assign <u>named backstage duties</u> (lights, sound, props, entries) so nothing is ownerless.',
+            }
+          },
+        ]
+      },
+    ]
   },
   {
     id: 'ch03',
