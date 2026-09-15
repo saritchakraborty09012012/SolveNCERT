@@ -34,6 +34,8 @@ ALGOLIA_ADMIN_API_KEY=...
 NEXT_PUBLIC_POSTHOG_KEY=phc_...
 NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
 NEXT_PUBLIC_APP_URL=https://solvencert.in
+RESEND_API_KEY=re_...   # Resend API key used by the Contact Us form
+CONTACT_EMAIL=support.noirdemons@puszao.resend.app   # Destination inbox (server-only)
 ```
 
 ---
