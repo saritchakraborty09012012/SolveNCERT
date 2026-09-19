@@ -114,7 +114,7 @@ export default function Layout({
 
         {/* ── Extra SEO signals ── */}
         <meta name="robots"    content="index, follow, max-snippet:-1, max-image-preview:large" />
-        <meta name="author"    content="SolveNCERT by NOVEXA" />
+        <meta name="author"    content="SolveNCERT by NOVEXA · Now NoirDemons" />
         <meta name="keywords"  content={keywords || "NCERT solutions class 9, CBSE 2026, ganita manjari solutions, exploration science solutions, kaveri english solutions"} />
 
         {/* ── Structured data (JSON-LD) ── */}

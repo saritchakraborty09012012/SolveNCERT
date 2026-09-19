@@ -45,15 +45,20 @@ export function NovexaLogo({ size=24, className, withText=true, onDark=false }: 
         style={{ width:size, height:size, background:'#fff' }}>
         {!failed ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src="/novexa-logo-64.png" alt="Novexa" width={size} height={size}
+          <img src="/noirdemons-logo.png" alt="NoirDemons" width={size} height={size}
             style={{ width:size, height:size, objectFit:'cover', display:'block' }}
             onError={() => setFailed(true)} />
         ) : (
           <div className="w-full h-full flex items-center justify-center font-black text-white"
-            style={{ background:'linear-gradient(135deg,#0f0c29,#302b63)', fontSize:Math.round(size*0.35) }}>NX</div>
+            style={{ background:'linear-gradient(135deg,#0f0c29,#302b63)', fontSize:Math.round(size*0.35) }}>ND</div>
         )}
       </div>
-      {withText && <span className={cn('font-semibold text-xs tracking-[0.08em]', onDark ? 'text-[var(--ribbon-text)]/70' : 'text-[var(--text-secondary)]')}>NOVEXA</span>}
+      {withText && (
+        <span className="flex flex-col items-start leading-none">
+          <span className={cn('font-semibold text-xs tracking-[0.08em]', onDark ? 'text-[var(--ribbon-text)]/70' : 'text-[var(--text-secondary)]')}>NOVEXA</span>
+          <span className={cn('mt-0.5 text-[9px] font-medium tracking-[0.14em]', onDark ? 'text-[var(--ribbon-text)]/50' : 'text-[var(--text-muted)]/90')}>Now NoirDemons</span>
+        </span>
+      )}
     </div>
   );
 }

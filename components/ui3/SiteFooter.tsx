@@ -100,6 +100,7 @@ export function SiteFooter() {
 
           <div className="lg:col-span-1">
             <h3 className="text-xs font-bold tracking-wide uppercase">NOVEXA</h3>
+            <p className="mt-1 text-[11px] font-semibold tracking-[0.14em] text-[var(--text-muted)]">NOW NOIRDEMONS</p>
             <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
               Built by NOVEXA for students — free NCERT solutions, AI learning tools and a
               distraction-free study room.

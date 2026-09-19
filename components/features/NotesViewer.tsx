@@ -80,7 +80,7 @@ function NotesPageContent({ page, title, pageNum, totalPages }: {
         </div>
       ))}
       <div className="notes-page-number">{pageNum} / {totalPages}</div>
-      <div className="notes-novexa-footer">SolveNCERT by Novexa</div>
+      <div className="notes-novexa-footer">SolveNCERT by Novexa · Now NoirDemons</div>
     </div>
   );
 }

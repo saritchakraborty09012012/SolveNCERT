@@ -1,3 +1,4 @@
+# Solved by NOVEXA · Now NoirDemons
 User-agent: *
 Allow: /
 
