@@ -60,7 +60,7 @@ export function SiteHeader() {
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-xl">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 lg:px-8">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-2 px-3 lg:gap-4 lg:px-8">
           <Link href="/" className="flex shrink-0 items-center gap-2.5">
             <SolveNCERTLogo size={30} withText textSize="text-[15px]" />
           </Link>
@@ -129,14 +129,14 @@ export function SiteHeader() {
             ))}
           </div>
 
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1 sm:gap-1.5">
             <button
               type="button"
               id="header-query-btn"
               onClick={() => setQueryOpen(true)}
               aria-label="Send a query"
               title="Send a query"
-              className="rounded-md p-2 text-red-500 transition-colors hover:bg-red-500/10 hover:text-red-400"
+              className="rounded-md p-1.5 text-red-500 transition-colors hover:bg-red-500/10 hover:text-red-400 sm:p-2"
             >
               <MessageCircleQuestion className="size-5" />
             </button>
@@ -145,7 +145,7 @@ export function SiteHeader() {
               type="button"
               onClick={() => setSearchOpen(true)}
               aria-label="Search solutions"
-              className="rounded-md p-2 text-foreground/80 transition-colors hover:text-primary"
+              className="rounded-md p-1.5 text-foreground/80 transition-colors hover:text-primary sm:p-2"
             >
               <Search className="size-5" />
             </button>
@@ -157,11 +157,11 @@ export function SiteHeader() {
                 aria-expanded={uiOpen}
                 aria-label="Switch interface"
                 title="Switch interface"
-                className="flex items-center gap-1.5 rounded-md border border-primary/20 bg-primary/10 px-2.5 py-2 text-xs font-semibold text-foreground/85 transition-colors hover:border-primary/50 hover:text-primary"
+                className="flex items-center gap-1.5 rounded-md border border-primary/20 bg-primary/10 px-2 py-2 text-xs font-semibold text-foreground/85 transition-colors hover:border-primary/50 hover:text-primary sm:px-2.5"
               >
                 <Layers className="size-4 text-primary" />
                 <span className="hidden lg:inline">{UI_OPTIONS.find((o) => o.id === ui)?.name}</span>
-                <ChevronDown className={`size-3.5 opacity-70 transition-transform ${uiOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`hidden size-3.5 opacity-70 transition-transform sm:inline ${uiOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {uiOpen ? (
@@ -202,7 +202,7 @@ export function SiteHeader() {
                 <button
                   type="button"
                   onClick={() => setAuthModal('signup')}
-                  className="gold-btn rounded-lg px-4 py-2 text-sm font-semibold transition-transform hover:scale-[1.03] active:scale-95"
+                  className="gold-btn rounded-lg px-3 py-2 text-sm font-semibold transition-transform hover:scale-[1.03] active:scale-95 sm:px-4"
                 >
                   Sign Up
                 </button>
@@ -272,7 +272,7 @@ export function SiteHeader() {
               onClick={() => setMobileOpen((v) => !v)}
               aria-label="Toggle navigation menu"
               aria-expanded={mobileOpen}
-              className="rounded-md p-2 text-foreground/80 transition-colors hover:text-primary lg:hidden"
+              className="rounded-md p-1.5 text-foreground/80 transition-colors hover:text-primary sm:p-2 lg:hidden"
             >
               {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
             </button>
