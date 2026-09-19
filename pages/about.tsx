@@ -42,7 +42,9 @@ export default function AboutPage() {
         <NovexaLogo size={40} withText={false} />
         <div>
           <p className="text-sm font-semibold text-[var(--text-primary)]">NOVEXA</p>
+          <p className="text-sm font-semibold text-[var(--text-primary)]">Now NoirDemons</p>
           <p className="text-xs text-[var(--text-muted)]">Advanced AI technology powering SolveNCERT's intelligent features.</p>
+          <p className="text-xs text-[var(--text-muted)]">Visit Us at: <a href="https://noir-demons.vercel.app" className="text-blue-500 hover:underline">noir-demons.vercel.app</a></p>
         </div>
       </div>
 
