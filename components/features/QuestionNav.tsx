@@ -84,7 +84,7 @@ export default function QuestionNav({ questions, label = 'Questions' }: { questi
               </div>
             </div>
           )}
-          {showHint && !mobileOpen && <div className="absolute right-7 top-1/2 -translate-y-1/2 w-36 rounded-2xl bg-[var(--surface-0)] text-[var(--text-secondary)] px-3 py-2 text-[10px] font-semibold shadow-soft-lg animate-fade-in"><button onClick={() => { localStorage.setItem('sn_question_nav_hint_dismissed', '1'); setShowHint(false); }} aria-label="Dismiss navigation hint" className="absolute right-2 top-2 rounded-full p-1 hover:bg-[var(--surface-2)]"><X size={11} /></button><span className="block pr-3">Jump to any question</span><span className="absolute -right-1 top-1/2 -translate-y-1/2 border-y-4 border-y-transparent border-l-4 border-l-[var(--accent-amber)]" /></div>}
+          {showHint && !mobileOpen && <div className="absolute right-8 top-1/2 -translate-y-1/2 w-40 rounded-2xl bg-red-600 text-white px-3.5 py-3 text-[11px] font-semibold shadow-2xl animate-fade-in"><button onClick={() => { localStorage.setItem('sn_question_nav_hint_dismissed', '1'); setShowHint(false); }} aria-label="Dismiss navigation hint" className="absolute right-1.5 top-1.5 rounded-full p-1 hover:bg-white/20"><X size={12} /></button><span className="block pr-4 leading-snug">Tap here to jump to any question</span><span className="absolute -right-1 top-1/2 -translate-y-1/2 border-y-4 border-y-transparent border-l-4 border-l-red-600" /></div>}
           <button
             onClick={() => setMobileOpen(o => !o)}
             aria-label="Toggle question navigator"

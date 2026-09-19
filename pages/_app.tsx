@@ -12,7 +12,7 @@ import { initUI } from '@/store/uiStore';
 import { initPostHog, captureEvent } from '@/lib/analytics';
 import { initSharedLearningOnLogin, initSharedLearningOnLogout } from '@/lib/mock-tests/shared-knowledge';
 import { setStorageUserId, loadAllFromSupabase, clearAllStorageOnLogout } from '@/lib/mock-tests/storage';
-import TunnelLoader, { deriveLabel } from '@/components/features/BrainLoader';
+import TunnelLoader from '@/components/features/BrainLoader';
 import GuestOnboardingPopups from '@/components/features/GuestOnboardingPopups';
 import '@/styles/globals.css';
 import '@/styles/ui3.css';
@@ -23,26 +23,40 @@ export default function App({ Component, pageProps }: AppProps) {
   const router   = useRouter();
   const { fetchProfile, setUser, setLoading } = useAuthStore();
   const [loaderState, setLoaderState] = useState<'hidden' | 'loading' | 'finish'>('hidden');
-  const [loaderLabel, setLoaderLabel] = useState('SOLVENCERT');
   const showTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const hideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const routeStartRef = useRef(0);
 
   // ── Page-transition knowledge tunnel ─────────────────────────────────────
-  // Shows only if the new route hasn't finished within 200ms (so instant
-  // navigations never flash it). Goes away the moment the page is ready.
+  // Shows only if the new route hasn't finished within ~200ms, so instant
+  // navigations never flash it. It is kept on screen until the destination
+  // page has actually PAINTED (the main thread reaches an idle slice — the
+  // page loads in the background) plus a ~500ms floor since route start, then
+  // fades cleanly, so the page is fully visible the moment it disappears.
   useEffect(() => {
     const start = (url: string) => {
-      setLoaderLabel(deriveLabel(url));
+      routeStartRef.current = Date.now();
       if (showTimerRef.current) clearTimeout(showTimerRef.current);
       showTimerRef.current = setTimeout(() => setLoaderState('loading'), 200);
     };
     const done = () => {
       if (showTimerRef.current) { clearTimeout(showTimerRef.current); showTimerRef.current = null; }
+      const reveal = () => {
+        setLoaderState('finish');
+        if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
+        hideTimerRef.current = setTimeout(() => setLoaderState('hidden'), 720);
+      };
       setLoaderState((prev) => {
-        if (prev === 'loading') {
-          if (hideTimerRef.current) clearTimeout(hideTimerRef.current);
-          hideTimerRef.current = setTimeout(() => setLoaderState('hidden'), 720);
-          return 'finish';
+        if (prev !== 'loading') return prev;
+        const waitIdle = typeof window !== 'undefined' && 'requestIdleCallback' in window;
+        if (waitIdle) {
+          const w = window as Window & { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => void };
+          w.requestIdleCallback(() => {
+            const remaining = 500 - (Date.now() - routeStartRef.current);
+            setTimeout(reveal, Math.max(0, remaining));
+          }, { timeout: 2600 });
+        } else {
+          reveal();
         }
         return prev;
       });
@@ -156,7 +170,7 @@ export default function App({ Component, pageProps }: AppProps) {
           error:   { iconTheme: { primary: '#ef4444', secondary: '#fff' } },
         }}
       />
-      <TunnelLoader state={loaderState} label={loaderLabel} />
+      <TunnelLoader state={loaderState} />
       <GuestOnboardingPopups />
       <CollabPresenceBar />
       <CollabBanner />

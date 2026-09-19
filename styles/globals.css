@@ -85,6 +85,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
   scrollbar-color: #b6b0a0 var(--surface-1);
   scrollbar-width: thin;
+  /* `clip` (not `hidden`) kills page-level horizontal overflow on mobile —
+     fixes the black margin on the homepage and sideways pan on solution pages —
+     WITHOUT creating a scroll container (so `position: sticky` keeps working). */
+  overflow-x: clip;
 }
 
 body {
@@ -93,6 +97,7 @@ body {
   color: var(--text-primary);
   transition: background-color 0.3s ease, color 0.2s ease;
   min-height: 100vh;
+  overflow-x: clip;
   background-image:
     radial-gradient(circle at 12% 14%, rgba(217, 180, 91, 0.07), transparent 26%),
     radial-gradient(circle at 88% 8%, rgba(43, 78, 166, 0.06), transparent 30%),
@@ -1768,7 +1773,7 @@ html[data-ui="ui2"][data-subject="it"].dark          { --ui3-aura: rgba(90,170,1
 
 /* ── Solar Sprint (page transition) ─────────────────────────────────────── */
 .tunnel-loader { position:fixed; inset:0; z-index:9999; overflow:hidden; background:radial-gradient(ellipse at center,#1b160b 0%,#080704 54%,#010101 100%); }
-.solar-stars, .solar-streaks, .solar-planets, .solar-arrival { position:absolute; inset:0; pointer-events:none; }
+.solar-stars, .solar-streaks, .solar-planets { position:absolute; inset:0; pointer-events:none; }
 .solar-stars { background-image:radial-gradient(circle,rgba(255,255,255,.95) 0 1px,transparent 1.5px),radial-gradient(circle,rgba(255,230,174,.7) 0 1px,transparent 1.5px); background-size:43px 47px,79px 71px; opacity:.72; animation:solarDrift 2.4s linear infinite; }
 .solar-streaks { background:repeating-linear-gradient(104deg,transparent 0 8%,rgba(255,237,191,.12) 8.3% 8.5%,transparent 8.8% 15%); transform:scale(1.5); filter:blur(.2px); animation:solarWarp .75s linear infinite; opacity:.8; }
 .solar-planets::before { content:''; position:absolute; inset:-20%; background:radial-gradient(ellipse at 15% 34%,rgba(255,229,169,.16),transparent 20%),radial-gradient(ellipse at 82% 67%,rgba(255,247,222,.1),transparent 24%); filter:blur(20px); }
@@ -1782,22 +1787,17 @@ html[data-ui="ui2"][data-subject="it"].dark          { --ui3-aura: rgba(90,170,1
 .solar-planet--jupiter::before { width:24%; height:15%; left:48%; top:58%; background:radial-gradient(ellipse,#4e2109 0 30%,#a44c16 45%,transparent 70%); transform:rotate(-9deg); }
 .solar-planet--saturn { left:15%; bottom:-28%; background:radial-gradient(circle at 32% 25%,#fff3c5,#d6a44c 42%,#76531d 74%,#211506 100%); animation-delay:3s; }
 .solar-planet--saturn::after { content:''; position:absolute; inset:-21% -48%; border:clamp(5px,1.5vw,13px) solid rgba(255,228,155,.82); border-left-color:rgba(132,83,23,.52); border-right-color:rgba(132,83,23,.52); border-radius:50%; transform:rotate(-18deg) rotateX(68deg); box-shadow:0 0 12px rgba(255,226,146,.5); }
-.solar-dots { position:absolute; z-index:2; left:50%; bottom:11vh; display:flex; gap:9px; transform:translateX(-50%); }
-.solar-dots span { width:8px; height:8px; border-radius:50%; background:#fff9e4; box-shadow:0 0 12px #f4ce72; animation:solarDot .8s ease-in-out infinite; }
+.solar-dots { position:absolute; z-index:2; left:50%; bottom:11vh; display:flex; gap:11px; transform:translateX(-50%); }
+.solar-dots span { width:10px; height:10px; border-radius:50%; background:#fff9e4; box-shadow:0 0 14px #f4ce72; animation:solarDot .85s ease-in-out infinite; }
 .solar-dots span:nth-child(2){animation-delay:.13s}.solar-dots span:nth-child(3){animation-delay:.26s}
-.solar-arrival { display:grid; place-items:center; opacity:0; }
-.solar-arrival__halo { position:absolute; width:min(70vw,520px); aspect-ratio:1; border-radius:50%; background:radial-gradient(circle,rgba(255,255,244,.98) 0%,rgba(242,202,110,.68) 18%,rgba(160,106,30,.15) 49%,transparent 70%); }
-.solar-arrival__word { position:relative; color:#fff8de; font-family:var(--font-plus-jakarta),sans-serif; font-size:clamp(1.8rem,8vw,5.5rem); font-weight:900; letter-spacing:.12em; text-shadow:2px 3px 0 #76511a,0 0 24px #f6d781; transform:perspective(600px) rotateX(12deg); }
-.tunnel-loader.finishing .solar-arrival { animation:solarEnter .72s cubic-bezier(.2,.8,.2,1) both; }
 .tunnel-loader.finishing { animation:solarOut .75s ease-out both; }
 @keyframes solarDrift { to { transform:scale(1.35); opacity:0; } }
 @keyframes solarWarp { from { transform:scale(1.2) translateX(-6%); } to { transform:scale(1.75) translateX(7%); } }
 @keyframes planetFly { 0%,17%{opacity:0;transform:translate3d(0,0,0) scale(.3)} 25%,55%{opacity:1;transform:translate3d(4vw,-1vh,0) scale(1)} 68%,100%{opacity:0;transform:translate3d(22vw,-8vh,0) scale(1.8)} }
 @keyframes solarDot { 0%,100%{transform:translateY(0);opacity:.38} 50%{transform:translateY(-9px);opacity:1} }
 @keyframes sunPulse { 0%,100%{transform:scale(.94);filter:brightness(.92)} 50%{transform:scale(1.06);filter:brightness(1.15)} }
-@keyframes solarEnter { 0%{opacity:0;transform:scale(.22)} 44%{opacity:1;transform:scale(1)} 100%{opacity:1;transform:scale(2.7)} }
 @keyframes solarOut { to{opacity:0} }
-@media (prefers-reduced-motion:reduce){.solar-stars,.solar-streaks,.solar-sun,.solar-planet,.solar-dots span,.tunnel-loader.finishing,.tunnel-loader.finishing .solar-arrival{animation:none}.solar-planets{display:none}.solar-arrival{opacity:1}.solar-dots{display:none}}
+@media (prefers-reduced-motion:reduce){.solar-stars,.solar-streaks,.solar-sun,.solar-planet,.solar-dots span,.tunnel-loader.finishing{animation:none}.solar-planets{display:none}.solar-dots{display:none}}
 
 
 
