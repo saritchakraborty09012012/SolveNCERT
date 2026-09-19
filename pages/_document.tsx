@@ -52,23 +52,10 @@ export default function Document() {
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@solvencert" />
 
-        {/* KaTeX CSS */}
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
-          crossOrigin="anonymous"
-        />
-
-        {/* KaTeX JS — exposed as window.__katex__ */}
-        <script dangerouslySetInnerHTML={{ __html: `
-          (function(){
-            var s=document.createElement('script');
-            s.src='https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js';
-            s.crossOrigin='anonymous';
-            s.onload=function(){ window.__katex__=window.katex; };
-            document.head.appendChild(s);
-          })();
-        `}} />
+        {/* KaTeX is self-hosted: CSS comes bundled via styles/globals.css
+            (@import 'katex/dist/katex.min.css'); the JS runtime is loaded on
+            demand by MathRenderer via a dynamic import. No CDN requests, so
+            browser tracking prevention never blocks math rendering. */}
 
         {/* UI init — restore selected interface (ui1/ui2/ui3) before paint */}
         <script dangerouslySetInnerHTML={{ __html: `

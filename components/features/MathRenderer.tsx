@@ -58,26 +58,28 @@ function parse(text: string): Seg[] {
   return segs;
 }
 
-function renderKatex(latex: string, display: boolean): string | null {
-  if (typeof window === 'undefined') return null;
+// KaTeX is self-hosted via a dynamic import (bundled, same-origin) so browsers
+// with tracking prevention (Edge, Brave) can never block math rendering.
+let katexPromise: Promise<typeof import('katex')> | null = null;
+function loadKatex(): Promise<typeof import('katex')> {
+  if (!katexPromise) katexPromise = import('katex');
+  return katexPromise;
+}
+
+async function renderKatex(latex: string, display: boolean): Promise<string | null> {
   try {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const k = (window as any).__katex__;
-    if (!k) return null;
-    return k.renderToString(latex, { displayMode: display, throwOnError: false, strict: 'ignore', output: 'html' });
+    const mod = await loadKatex();
+    if (!mod.default) return null;
+    return mod.default.renderToString(latex, { displayMode: display, throwOnError: false, strict: 'ignore', output: 'html' });
   } catch { return null; }
 }
 
 function MathNode({ latex, display }: { latex: string; display: boolean }) {
   const [html, setHtml] = useState<string | null>(null);
   useEffect(() => {
-    let tries = 0;
-    const run = () => {
-      const r = renderKatex(latex, display);
-      if (r) { setHtml(r); return; }
-      if (++tries < 30) setTimeout(run, 100);
-    };
-    run();
+    let cancelled = false;
+    renderKatex(latex, display).then(r => { if (r && !cancelled) setHtml(r); });
+    return () => { cancelled = true; };
   }, [latex, display]);
 
   if (!html) return (
