@@ -311,7 +311,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Powered by Novexa ──────────────────────────────────────────── */}
+      {/* ── Powered by NDe (formerly NOVEXA) ───────────────────────────── */}
       <section className="border-t border-[var(--border)] bg-[var(--surface-0)]">
         <div className="max-w-screen-xl mx-auto px-6 py-5 flex items-center justify-center gap-3">
           <p className="text-xs text-[var(--text-muted)]">Powered by</p>

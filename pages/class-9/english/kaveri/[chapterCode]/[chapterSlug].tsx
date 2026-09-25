@@ -140,7 +140,7 @@ export default function EnglishContentPage({ chapterCode, chapterSlug }: PagePro
       `).join('')}
     `).join('')}
     <div class="footer">
-      SolveNCERT — Powered by NOVEXA · Now NDe · NoirDemons | solvencert &nbsp;·&nbsp; NCERT 2026 Revised Syllabus
+      SolveNCERT — Powered by NDe · formerly NOVEXA | solvencert &nbsp;·&nbsp; NCERT 2026 Revised Syllabus
     </div>
     </body></html>`;
     await import('jspdf');

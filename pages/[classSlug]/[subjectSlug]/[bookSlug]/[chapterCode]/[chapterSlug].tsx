@@ -232,7 +232,7 @@ export default function ChapterPage({ classSlug, subjectSlug, bookSlug, chapterC
     <h1>Chapter ${chapter.number}: ${chapter.title}</h1>
     <p style="color:#6b7280;font-size:12px;margin-bottom:20px">Class 9 ${subject.name} · ${subject.book} · NCERT 2026 Revised Syllabus</p>
     ${exercises.map(ex=>`<h2>${ex.title}</h2>${ex.questions.map(q=>`<div class="q"><p><strong>Q${q.number}.</strong> ${q.text.replace(/\$[^$]+\$/g,'[math]')}</p>${q.parts?'<ol>'+q.parts.map(p=>`<li>${p}</li>`).join('')+'</ol>':''}<p><strong>Answer Key:</strong> ${q.answer.answerKey.replace(/\$[^$]+\$/g,'[math]').replace(/\*\*/g,'')}</p><p><strong>Solution:</strong> ${q.answer.schoolMethod.replace(/\$[^$]+\$/g,'[math]').replace(/\*\*/g,'')}</p></div>`).join('')}`).join('')}
-    <div class="footer">SolveNCERT — Powered by NOVEXA · Now NDe · NoirDemons | solvencert · NCERT 2026 Revised Syllabus</div></body></html>`;
+    <div class="footer">SolveNCERT — Powered by NDe · formerly NOVEXA | solvencert · NCERT 2026 Revised Syllabus</div></body></html>`;
     savePdf(html, `class-9-${subject.slug}-${chapter.code}-${selEx === 'all' ? 'all-exercises' : selEx}-solutions.pdf`);
   }
 
@@ -248,7 +248,7 @@ export default function ChapterPage({ classSlug, subjectSlug, bookSlug, chapterC
     <h1>Chapter ${chapter.number}: ${chapter.title} — Answer Keys</h1>
     <p style="color:#6b7280;font-size:12px;margin-bottom:20px">Class 9 ${subject.name} · ${subject.book} · Quick-reference answer keys only · NCERT 2026 Revised Syllabus</p>
     ${exercises.map(ex=>`<h2>${ex.title}</h2>${ex.questions.map(q=>`<div class="q"><p><strong>Q${q.number}.</strong> ${q.answer.answerKey.replace(/\$[^$]+\$/g,'[math]').replace(/\*\*/g,'')}</p></div>`).join('')}`).join('')}
-    <div class="footer">SolveNCERT — Powered by NOVEXA · Now NDe · NoirDemons | solvencert · NCERT 2026 Revised Syllabus</div></body></html>`;
+    <div class="footer">SolveNCERT — Powered by NDe · formerly NOVEXA | solvencert · NCERT 2026 Revised Syllabus</div></body></html>`;
     savePdf(html, `class-9-${subject.slug}-${chapter.code}-${selEx === 'all' ? 'all-exercises' : selEx}-answer-keys.pdf`);
   }
 

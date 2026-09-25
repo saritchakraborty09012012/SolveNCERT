@@ -6,7 +6,7 @@ import { BrandLogo, NovexaLogo } from '@/components/ui/Logo';
 
 export default function AboutPage() {
   return (
-    <CompanyLayout title="About SolveNCERT" description="Learn about SolveNCERT — India's free AI-assisted NCERT solutions platform for CBSE Class 9. Built by NOVEXA (Now NDe · NoirDemons), updated for the 2026 Revised Syllabus." canonical="/about" breadcrumb="About Us">
+    <CompanyLayout title="About SolveNCERT" description="Learn about SolveNCERT — India's free AI-assisted NCERT solutions platform for CBSE Class 9. Built by NDe: NoirDemons, updated for the 2026 Revised Syllabus." canonical="/about" breadcrumb="About Us">
       <div className="flex items-start gap-4 mb-6 not-prose">
         <BrandLogo size={52} />
       </div>
@@ -36,23 +36,19 @@ export default function AboutPage() {
       <h2>Our Story</h2>
       <p>SolveNCERT was founded by a team passionate about transforming how Indian students study. High-quality, structured NCERT solutions were either hidden behind paywalls or based on outdated syllabi. We built a single, trustworthy platform — free, accurate, and now fully updated for 2026.</p>
 
-      <h2>Powered by NOVEXA</h2>
-      <p className="text-sm font-medium text-[var(--text-muted)] -mt-2">Now NDe<br />NoirDemons</p>
+      <h2>Powered by NDe: NoirDemons</h2>
       <div className="flex items-center gap-3 p-4 rounded-xl bg-[var(--surface-1)] border border-[var(--border)] my-4 not-prose">
         <NovexaLogo size={40} withText={false} />
         <div>
-          <p className="text-sm font-semibold text-[var(--text-primary)]">NOVEXA</p>
-          <p className="text-sm font-semibold text-[var(--text-primary)]">Now NDe<br />NoirDemons</p>
+          <p className="text-sm font-semibold text-[var(--text-primary)]">NDe: NoirDemons</p>
           <p className="text-xs text-[var(--text-muted)]">Advanced AI technology powering SolveNCERT's intelligent features.</p>
           <p className="text-xs text-[var(--text-muted)]">Visit Us at: <a href="https://noir-demons.vercel.app" className="text-blue-500 hover:underline">noir-demons.vercel.app</a></p>
         </div>
       </div>
 
       <p className="text-sm text-[var(--text-muted)]">
-        <strong className="text-[var(--text-primary)]">NDe</strong> is our public-facing short name for{' '}
-        <strong className="text-[var(--text-primary)]">NoirDemons</strong> — quick to say, spell and remember for
-        marketing, students and search. Typing <em>NDe</em>, <em>NDE</em>, <em>nde</em>, <em>nDe</em>, <em>NdE</em> or{' '}
-        <em>NoirDemons</em> / <em>Noir Demons</em> should all lead you straight back to SolveNCERT.
+        <strong className="text-[var(--text-primary)]">NDe: NoirDemons</strong> — NDe is the short name of the
+        company, quick to say, spell and remember.
       </p>
 
       <div className="not-prose mt-6">

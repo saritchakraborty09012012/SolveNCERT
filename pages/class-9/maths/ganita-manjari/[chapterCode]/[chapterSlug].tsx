@@ -194,7 +194,7 @@ export default function MathsChapterPage({ chapterCode, chapterSlug }: PageProps
       y += 8;
     });
     pdf.setFontSize(9);
-    write('SolveNCERT — Powered by NOVEXA · Now NDe · NoirDemons | solvencert · NCERT 2026 Revised Syllabus');
+    write('SolveNCERT — Powered by NDe · formerly NOVEXA | solvencert · NCERT 2026 Revised Syllabus');
     pdf.save(`class-9-maths-${chapter.code}-${selEx === 'all' ? 'all-exercises' : selEx}-solutions.pdf`);
   }
 
@@ -212,7 +212,7 @@ export default function MathsChapterPage({ chapterCode, chapterSlug }: PageProps
     <p style="color:#6b7280;font-size:12px;margin-bottom:20px">Class 9 Maths (Ganita Manjari Part I) · Quick-reference answer keys only · NCERT 2026 Revised Syllabus</p>
     ${exercises.map(ex => `<h2>${ex.title}</h2>${ex.questions.map(q => `
       <div class="q"><p><strong>Q${q.number.replace(/\u2605/g, '')}.</strong> ${q.answerKey.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\n/g, '<br>')}</p></div>`).join('')}`).join('')}
-    <div class="footer">SolveNCERT — Powered by NOVEXA · Now NDe · NoirDemons | solvencert · NCERT 2026 Revised Syllabus</div>
+    <div class="footer">SolveNCERT — Powered by NDe · formerly NOVEXA | solvencert · NCERT 2026 Revised Syllabus</div>
     </body></html>`;
     htmlToPdf(html, `class-9-maths-${chapter.code}-${selEx === 'all' ? 'all-exercises' : selEx}-answer-keys.pdf`);
   }

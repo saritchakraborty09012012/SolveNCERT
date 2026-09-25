@@ -175,7 +175,7 @@ export default function ScienceChapterPage({ chapterCode, chapterSlug }: PagePro
       ${q.parts ? '<ol>' + q.parts.map(p => `<li>${p}</li>`).join('') + '</ol>' : ''}
       <p><strong>Answer:</strong> ${q.answer.answerKey}</p>
       <p><strong>Solution:</strong> ${q.answer.solution}</p></div>`).join('')}`).join('')}
-    <div class="footer">SolveNCERT — Powered by NOVEXA · Now NDe · NoirDemons | solvencert · NCERT 2026 Revised Syllabus</div>
+    <div class="footer">SolveNCERT — Powered by NDe · formerly NOVEXA | solvencert · NCERT 2026 Revised Syllabus</div>
     </body></html>`;
     savePdf(html, `class-9-science-${chapter.code}-solutions.pdf`);
   }
@@ -192,7 +192,7 @@ export default function ScienceChapterPage({ chapterCode, chapterSlug }: PagePro
     <p style="color:#6b7280;font-size:12px;margin-bottom:20px">Class 9 Science (Exploration) · Quick-reference answer keys only · NCERT 2026 Revised Syllabus</p>
     ${chapter.exercises.map(ex => `<h2>${ex.title}</h2>${ex.questions.map(q => `
       <div class="q"><p><strong>Q${q.number}.</strong> ${q.answer.answerKey}</p></div>`).join('')}`).join('')}
-    <div class="footer">SolveNCERT — Powered by NOVEXA · Now NDe · NoirDemons | solvencert · NCERT 2026 Revised Syllabus</div>
+    <div class="footer">SolveNCERT — Powered by NDe · formerly NOVEXA | solvencert · NCERT 2026 Revised Syllabus</div>
     </body></html>`;
     savePdf(html, `class-9-science-${chapter.code}-answer-keys.pdf`);
   }
