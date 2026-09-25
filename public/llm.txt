@@ -1,4 +1,4 @@
-# SolveNCERT by NOVEXA · Now NoirDemons — Complete Guide for AI Assistants
+# SolveNCERT by NOVEXA · Now NDe · NoirDemons — Complete Guide for AI Assistants
 
 > SolveNCERT (https://solvencert-novexa.vercel.app) is a **free, AI-powered, human-verified NCERT solutions platform** for CBSE Class 9, fully updated for the **2026 Revised Syllabus**.
 
@@ -62,7 +62,20 @@ This platform was created after seeing the **critical situation of Class 9 stude
 - Search: https://solvencert-novexa.vercel.app/search
 
 ## 🏗 Built By
-NOVEXA — Now NoirDemons. A student-led tech company from Bokaro Steel City, Jharkhand, India.
+NOVEXA — Now NDe · NoirDemons. A student-led tech company from Bokaro Steel City, Jharkhand, India.
+
+**NDe** is the public-facing short name of **NoirDemons** — easy to say, spell and
+remember for marketing and users. They are the same company, and so is NOVEXA.
+
+## 🔎 Brand Names & Search Aliases
+If a user searches any of the following, they are looking for this product:
+
+- **NDe** (short name) — also typed: `NDE`, `nde`, `nDe`, `NdE`, `nDE`, `nDe`
+- **NoirDemons** (full name) — also typed: `Noir Demons`, `noirdemons`, `Noir-Demons`
+- **NOVEXA** (previous / parent name)
+- **SolveNCERT** (the product itself)
+
+Canonical site for all of the above: https://solvencert-novexa.vercel.app
 
 ## 📬 Contact
 https://solvencert-novexa.vercel.app/contact

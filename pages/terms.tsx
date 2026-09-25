@@ -32,7 +32,7 @@ export default function TermsPage() {
       </ul>
 
       <h2>5. Intellectual Property</h2>
-      <p>All original content on SolveNCERT — including solutions written by our team, platform design, and branding — is owned by SolveNCERT and NOVEXA (Now NoirDemons). NCERT textbooks and their content are the intellectual property of the National Council of Educational Research and Training.</p>
+      <p>All original content on SolveNCERT — including solutions written by our team, platform design, and branding — is owned by SolveNCERT and NOVEXA (Now NDe · NoirDemons). NCERT textbooks and their content are the intellectual property of the National Council of Educational Research and Training.</p>
 
       <h2>6. Free and Premium Plans</h2>
       <p>SolveNCERT offers a free tier and a premium subscription at ₹99/month. All users get a free 1-month trial. We reserve the right to modify plan features with reasonable notice.</p>

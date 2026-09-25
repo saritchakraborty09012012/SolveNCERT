@@ -202,7 +202,7 @@ export function htmlToPdf(html: string, filename: string) {
   ensurePage(state, 40);
   resetFont(state, 9, false, true);
   doc.setTextColor(120, 120, 120);
-  doc.text('SolveNCERT — Powered by NOVEXA · Now NoirDemons | solvencert · NCERT 2026 Revised Syllabus', state.margin, 815);
+  doc.text('SolveNCERT — Powered by NOVEXA · Now NDe · NoirDemons | solvencert · NCERT 2026 Revised Syllabus', state.margin, 815);
 
   doc.save(filename);
 }

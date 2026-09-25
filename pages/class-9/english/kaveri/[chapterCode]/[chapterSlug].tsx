@@ -140,7 +140,7 @@ export default function EnglishContentPage({ chapterCode, chapterSlug }: PagePro
       `).join('')}
     `).join('')}
     <div class="footer">
-      SolveNCERT — Powered by NOVEXA · Now NoirDemons | solvencert &nbsp;·&nbsp; NCERT 2026 Revised Syllabus
+      SolveNCERT — Powered by NOVEXA · Now NDe · NoirDemons | solvencert &nbsp;·&nbsp; NCERT 2026 Revised Syllabus
     </div>
     </body></html>`;
     await import('jspdf');
@@ -184,8 +184,8 @@ export default function EnglishContentPage({ chapterCode, chapterSlug }: PagePro
         headline: `Chapter ${chapter.number}: ${content.title} (${chapter.code.toUpperCase()})`,
         description: `NCERT Solutions for Class 9 English Kaveri Chapter ${chapter.number} (${chapter.code.toUpperCase()}): ${content.title}. CBSE 2026 Syllabus.`,
         keywords: `${chapter.code.toUpperCase()}, ${chapter.code}, class 9 english, NCERT solutions, Kaveri, chapter ${chapter.number}`,
-        author: { '@type': 'Organization', name: 'SolveNCERT by NOVEXA · Now NoirDemons' },
-        publisher: { '@type': 'Organization', name: 'SolveNCERT by NOVEXA · Now NoirDemons', url: 'https://solvencert-novexa.vercel.app' },
+        author: { '@type': 'Organization', name: 'SolveNCERT by NOVEXA · Now NDe · NoirDemons', alternateName: ['NDe', 'NDE', 'nde', 'NoirDemons'] },
+        publisher: { '@type': 'Organization', name: 'SolveNCERT by NOVEXA · Now NDe · NoirDemons', alternateName: ['NDe', 'NDE', 'nde', 'NoirDemons'], url: 'https://solvencert-novexa.vercel.app' },
         url: `https://solvencert-novexa.vercel.app/class-9/english/kaveri/${chapterCode}/${chapterSlug}`,
         identifier: chapter.code.toUpperCase(),
         about: { '@type': 'Chapter', name: content.title, position: chapter.number, code: chapter.code.toUpperCase() },

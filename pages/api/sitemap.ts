@@ -38,6 +38,12 @@ export default function handler(_req: NextApiRequest, res: NextApiResponse) {
   const allUrls = [...staticPages, ...chapterUrls];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SolveNCERT — by NOVEXA · Now NDe · NoirDemons
+  NDe is the public-facing short name of NoirDemons (also searched as NDE, nde,
+  nDe, NdE, nDE, Noir Demons, NOVEXA). Same brand, same site:
+  ${base}
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${allUrls.map(url => `  <url>
     <loc>${base}${url}</loc>

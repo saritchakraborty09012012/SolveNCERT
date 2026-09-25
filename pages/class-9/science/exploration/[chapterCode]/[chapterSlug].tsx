@@ -175,7 +175,7 @@ export default function ScienceChapterPage({ chapterCode, chapterSlug }: PagePro
       ${q.parts ? '<ol>' + q.parts.map(p => `<li>${p}</li>`).join('') + '</ol>' : ''}
       <p><strong>Answer:</strong> ${q.answer.answerKey}</p>
       <p><strong>Solution:</strong> ${q.answer.solution}</p></div>`).join('')}`).join('')}
-    <div class="footer">SolveNCERT — Powered by NOVEXA · Now NoirDemons | solvencert · NCERT 2026 Revised Syllabus</div>
+    <div class="footer">SolveNCERT — Powered by NOVEXA · Now NDe · NoirDemons | solvencert · NCERT 2026 Revised Syllabus</div>
     </body></html>`;
     savePdf(html, `class-9-science-${chapter.code}-solutions.pdf`);
   }
@@ -192,7 +192,7 @@ export default function ScienceChapterPage({ chapterCode, chapterSlug }: PagePro
     <p style="color:#6b7280;font-size:12px;margin-bottom:20px">Class 9 Science (Exploration) · Quick-reference answer keys only · NCERT 2026 Revised Syllabus</p>
     ${chapter.exercises.map(ex => `<h2>${ex.title}</h2>${ex.questions.map(q => `
       <div class="q"><p><strong>Q${q.number}.</strong> ${q.answer.answerKey}</p></div>`).join('')}`).join('')}
-    <div class="footer">SolveNCERT — Powered by NOVEXA · Now NoirDemons | solvencert · NCERT 2026 Revised Syllabus</div>
+    <div class="footer">SolveNCERT — Powered by NOVEXA · Now NDe · NoirDemons | solvencert · NCERT 2026 Revised Syllabus</div>
     </body></html>`;
     savePdf(html, `class-9-science-${chapter.code}-answer-keys.pdf`);
   }
@@ -226,8 +226,8 @@ export default function ScienceChapterPage({ chapterCode, chapterSlug }: PagePro
           headline: `Chapter ${chapter.number}: ${chapter.title} (${chapter.code.toUpperCase()})`,
           description: `NCERT Solutions for Class 9 Science Chapter ${chapter.number} (${chapter.code.toUpperCase()}): ${chapter.title}. CBSE 2026 Revised Syllabus.`,
           keywords: `${chapter.code.toUpperCase()}, ${chapter.code}, class 9 science, NCERT solutions, Exploration, chapter ${chapter.number}`,
-          author: { '@type': 'Organization', name: 'SolveNCERT by NOVEXA · Now NoirDemons' },
-          publisher: { '@type': 'Organization', name: 'SolveNCERT by NOVEXA · Now NoirDemons', url: 'https://solvencert-novexa.vercel.app' },
+          author: { '@type': 'Organization', name: 'SolveNCERT by NOVEXA · Now NDe · NoirDemons', alternateName: ['NDe', 'NDE', 'nde', 'NoirDemons'] },
+          publisher: { '@type': 'Organization', name: 'SolveNCERT by NOVEXA · Now NDe · NoirDemons', alternateName: ['NDe', 'NDE', 'nde', 'NoirDemons'], url: 'https://solvencert-novexa.vercel.app' },
           url: `https://solvencert-novexa.vercel.app/class-9/science/exploration/${chapterCode}/${chapterSlug}`,
           identifier: chapter.code.toUpperCase(),
           about: { '@type': 'Chapter', name: chapter.title, position: chapter.number, code: chapter.code.toUpperCase() },

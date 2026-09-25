@@ -23,7 +23,13 @@ export default function Document() {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="SolveNCERT" />
-        <meta name="application-name" content="SolveNCERT" />
+        {/*
+          Brand identity — "NDe" is the public-facing short name of the company,
+          "NoirDemons" is the full name. Both always ship together so that typing
+          NDe / NDE / nde / nDe / NdE / Noir Demons into Google resolves here.
+        */}
+        <meta name="application-name" content="SolveNCERT by NDe · NoirDemons" />
+        <meta name="keywords" content="NDe, NDE, nde, nDe, NdE, NoirDemons, Noir Demons, NOVEXA, SolveNCERT, NCERT solutions class 9, CBSE 2026, ganita manjari solutions, exploration science solutions, kaveri english solutions" />
         {googleVerification && <meta name="google-site-verification" content={googleVerification} />}
 
         {/* Favicons */}
@@ -46,7 +52,7 @@ export default function Document() {
 
         {/* Site-wide OG type (individual pages override title/desc/url via Layout) */}
         <meta property="og:type"      content="website" />
-        <meta property="og:site_name" content="SolveNCERT" />
+        <meta property="og:site_name" content="SolveNCERT · NDe · NoirDemons" />
 
         {/* Twitter card type */}
         <meta name="twitter:card" content="summary" />

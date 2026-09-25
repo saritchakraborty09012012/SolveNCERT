@@ -38,7 +38,7 @@ export function HomePage({
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonUrl} />
-        <meta property="og:site_name" content="SolveNCERT" />
+        <meta property="og:site_name" content="SolveNCERT · NDe · NoirDemons" />
         {schemaArr?.map((s, i) => (
           <script
             key={i}

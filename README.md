@@ -10,6 +10,27 @@
 
 ---
 
+## Brand
+
+```
+NDe
+NoirDemons
+```
+
+- **NDe** — public-facing short name of the company. Easy to say, spell, type and
+  remember in marketing. Also indexed as `NDE`, `nde`, `nDe`, `NdE`, `nDE`.
+- **NoirDemons** — the full name. Never dropped; always ships alongside `NDe`
+  (also `Noir Demons`, `noirdemons`).
+- **NOVEXA** — previous / parent name.
+- **SolveNCERT** — the product.
+
+Shared constants live in `lib/site.ts` (`BRAND_SHORT`, `BRAND_FULL`,
+`BRAND_LOCKUP`, `SITE_ALTERNATE_NAMES`, `BRAND_KEYWORDS`). Non-HTML surfaces
+(`robots.txt`, `llm.txt`, `sitemap.xml`, meta tags, JSON-LD, generated PDFs)
+use the flat form `NDe · NoirDemons`; visible UI stacks them.
+
+---
+
 ## 1. Install Dependencies
 
 ```bash
